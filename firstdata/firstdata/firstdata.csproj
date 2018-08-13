@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>firstdata.gapi</PackageId>
+    <PackageVersion>0.0.1</PackageVersion>
+    <Authors>Eric Margules</Authors>
+    <Owners>First Data Corporation</Owners>
+    <PackageProjectUrl>https://github.com/ericmargules/firstdata-dotnet</PackageProjectUrl>
+    <Summary>The FirstData .NET SDK consumes to FirstData Global Payment API.</Summary>
+    <Title>First Data Global API </Title>
+    <Description>First Data Corporation</Description>
+    <DevelopmentDependency>true</DevelopmentDependency>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ReleaseVersion.cs" />
+    <Compile Remove="Class1.cs" />
+    <Compile Remove="Permissions.cs" />
+  </ItemGroup>
+</Project>
