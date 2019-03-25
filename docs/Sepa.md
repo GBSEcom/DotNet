@@ -1,4 +1,4 @@
-# IO.Swagger.Model.Sepa
+# Org.OpenAPITools.Model.Sepa
 ## Properties
 
 Name | Type | Description | Notes

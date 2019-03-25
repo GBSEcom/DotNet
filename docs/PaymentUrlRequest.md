@@ -1,12 +1,22 @@
-# IO.Swagger.Model.PaymentUrlRequest
+# Org.OpenAPITools.Model.PaymentUrlRequest
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StoreId** | **string** | An optional outlet id for clients that support multiple store in the same developer app. | 
+**StoreId** | **string** | An optional Outlet ID for clients that support multiple stores in the same developer app. | [optional] 
 **ClientLocale** | [**ClientLocale**](ClientLocale.md) |  | [optional] 
 **Amount** | [**Amount**](Amount.md) |  | 
-**OrderId** | **string** | Client Order ID if supplied by client, otherwise the Order ID. | 
+**TransactionType** | **TransactionType** |  | 
+**OrderId** | **string** | Client Order ID if supplied by client, otherwise the Order ID. | [optional] 
+**Billing** | [**Billing**](Billing.md) |  | [optional] 
+**Shipping** | [**Shipping**](Shipping.md) |  | [optional] 
+**TransactionNotificationURL** | **string** | URL for notifying merchant with payment result. | [optional] 
+**Expiration** | **long?** | Time until payment URL expires. | [optional] 
+**AuthenticateTransaction** | **bool?** | If 3D secure should be applied. | [optional] 
+**DynamicMerchantName** | **string** | Dynamic merchant name for the cardholder&#39;s statement. | [optional] 
+**InvoiceNumber** | **string** | Invoice number. | [optional] 
+**PurchaseOrderNumber** | **string** | Purchase order number. | [optional] 
+**Ip** | **string** | IPv4 or IPv6 network address. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

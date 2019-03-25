@@ -1,4 +1,4 @@
-# IO.Swagger.Model.TransactionType
+# Org.OpenAPITools.Model.TransactionType
 ## Properties
 
 Name | Type | Description | Notes

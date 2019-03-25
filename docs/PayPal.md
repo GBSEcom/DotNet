@@ -1,4 +1,4 @@
-# IO.Swagger.Model.PayPal
+# Org.OpenAPITools.Model.PayPal
 ## Properties
 
 Name | Type | Description | Notes

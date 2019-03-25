@@ -1,4 +1,4 @@
-# IO.Swagger.Model.Shipping
+# Org.OpenAPITools.Model.Shipping
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,9 +1,9 @@
-# IO.Swagger.Model.Amount
+# Org.OpenAPITools.Model.Amount
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Total** | **decimal?** |  | 
+**Total** | **decimal?** | Amount in total | 
 **Currency** | **string** | ISO 4217 currency code (http://en.wikipedia.org/wiki/ISO_4217). | 
 **Components** | [**AmountComponents**](AmountComponents.md) |  | [optional] 
 

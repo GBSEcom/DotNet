@@ -1,4 +1,4 @@
-# IO.Swagger.Model.IndustrySpecificExtensions
+# Org.OpenAPITools.Model.IndustrySpecificExtensions
 ## Properties
 
 Name | Type | Description | Notes

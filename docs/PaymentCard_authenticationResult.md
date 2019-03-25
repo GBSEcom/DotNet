@@ -1,4 +1,4 @@
-# IO.Swagger.Model.PaymentCardAuthenticationResult
+# Org.OpenAPITools.Model.PaymentCardAuthenticationResult
 ## Properties
 
 Name | Type | Description | Notes

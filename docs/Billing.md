@@ -1,12 +1,13 @@
-# IO.Swagger.Model.Billing
+# Org.OpenAPITools.Model.Billing
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | [optional] 
-**PersonalNumber** | **string** |  | [optional] 
-**BirthDate** | **DateTime?** |  | [optional] 
-**Gender** | **string** |  | [optional] 
+**Name** | **string** | Billing name | [optional] 
+**CustomerId** | **string** | Customer ID for billing purpose | [optional] 
+**PersonalNumber** | **string** | Personal number for the customer | [optional] 
+**BirthDate** | **DateTime?** | Customer birth date | [optional] 
+**Gender** | **string** | Customer gender | [optional] 
 **Contact** | [**Contact**](Contact.md) |  | [optional] 
 **Address** | [**Address**](Address.md) |  | [optional] 
 

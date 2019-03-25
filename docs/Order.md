@@ -1,9 +1,9 @@
-# IO.Swagger.Model.Order
+# Org.OpenAPITools.Model.Order
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OrderId** | **string** |  | [optional] 
+**OrderId** | **string** | Client Order ID if supplied by client. | [optional] 
 **Billing** | [**Billing**](Billing.md) |  | [optional] 
 **Shipping** | [**Shipping**](Shipping.md) |  | [optional] 
 

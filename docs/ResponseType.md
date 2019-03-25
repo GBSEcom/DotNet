@@ -1,4 +1,4 @@
-# IO.Swagger.Model.ResponseType
+# Org.OpenAPITools.Model.ResponseType
 ## Properties
 
 Name | Type | Description | Notes

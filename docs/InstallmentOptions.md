@@ -1,4 +1,4 @@
-# IO.Swagger.Model.InstallmentOptions
+# Org.OpenAPITools.Model.InstallmentOptions
 ## Properties
 
 Name | Type | Description | Notes

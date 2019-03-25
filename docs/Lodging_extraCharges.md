@@ -1,4 +1,4 @@
-# IO.Swagger.Model.LodgingExtraCharges
+# Org.OpenAPITools.Model.LodgingExtraCharges
 ## Properties
 
 Name | Type | Description | Notes
