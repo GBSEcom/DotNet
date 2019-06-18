@@ -8,22 +8,22 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Access token generation response
+  /// Access token generation response.
   /// </summary>
   [DataContract]
   public class AccessTokenResponse {
     /// <summary>
-    /// Access token for authentication
+    /// Access token for authentication.
     /// </summary>
-    /// <value>Access token for authentication</value>
+    /// <value>Access token for authentication.</value>
     [DataMember(Name="accessToken", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "accessToken")]
     public string AccessToken { get; set; }
 
     /// <summary>
-    /// Echoes back the value from the request header for tracking
+    /// Echoes back the value from the request header for tracking.
     /// </summary>
-    /// <value>Echoes back the value from the request header for tracking</value>
+    /// <value>Echoes back the value from the request header for tracking.</value>
     [DataMember(Name="clientRequestId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "clientRequestId")]
     public string ClientRequestId { get; set; }

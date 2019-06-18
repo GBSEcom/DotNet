@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | [optional] 
+**Name** | **string** | Name of customer for shipping. | [optional] 
 **Contact** | [**Contact**](Contact.md) |  | [optional] 
 **Address** | [**Address**](Address.md) |  | [optional] 
 

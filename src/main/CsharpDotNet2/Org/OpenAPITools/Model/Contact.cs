@@ -8,38 +8,38 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// 
+  /// Customer contact information.
   /// </summary>
   [DataContract]
   public class Contact {
     /// <summary>
-    /// Primary phone number
+    /// Primary phone number.
     /// </summary>
-    /// <value>Primary phone number</value>
+    /// <value>Primary phone number.</value>
     [DataMember(Name="phone", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "phone")]
     public string Phone { get; set; }
 
     /// <summary>
-    /// Mobile phone number
+    /// Mobile phone number.
     /// </summary>
-    /// <value>Mobile phone number</value>
+    /// <value>Mobile phone number.</value>
     [DataMember(Name="mobilePhone", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "mobilePhone")]
     public string MobilePhone { get; set; }
 
     /// <summary>
-    /// Fax number
+    /// Fax number.
     /// </summary>
-    /// <value>Fax number</value>
+    /// <value>Fax number.</value>
     [DataMember(Name="fax", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "fax")]
     public string Fax { get; set; }
 
     /// <summary>
-    /// Email address
+    /// Email address.
     /// </summary>
-    /// <value>Email address</value>
+    /// <value>Email address.</value>
     [DataMember(Name="email", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "email")]
     public string Email { get; set; }

@@ -29,17 +29,17 @@ namespace Org.OpenAPITools.Model {
     public string PaymentData { get; set; }
 
     /// <summary>
-    /// Use this to send an order title that shows up in the statement
+    /// Use this to send an order title that shows up in the statement.
     /// </summary>
-    /// <value>Use this to send an order title that shows up in the statement</value>
+    /// <value>Use this to send an order title that shows up in the statement.</value>
     [DataMember(Name="orderTitle", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "orderTitle")]
     public string OrderTitle { get; set; }
 
     /// <summary>
-    /// Use this to send order details that show up in the statement
+    /// Use this to send order details that show up in the statement.
     /// </summary>
-    /// <value>Use this to send order details that show up in the statement</value>
+    /// <value>Use this to send order details that show up in the statement.</value>
     [DataMember(Name="orderDetails", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "orderDetails")]
     public string OrderDetails { get; set; }

@@ -8,38 +8,38 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Object for sending Stored Credentials
+  /// Object for sending stored credentials.
   /// </summary>
   [DataContract]
   public class StoredCredential {
     /// <summary>
-    /// Indicates if the transaction is first or subsequent. Valid values are 'FIRST' and 'SUBSEQUENT'
+    /// Indicates if the transaction is first or subsequent. Valid values are 'FIRST' and 'SUBSEQUENT'.
     /// </summary>
-    /// <value>Indicates if the transaction is first or subsequent. Valid values are 'FIRST' and 'SUBSEQUENT'</value>
+    /// <value>Indicates if the transaction is first or subsequent. Valid values are 'FIRST' and 'SUBSEQUENT'.</value>
     [DataMember(Name="sequence", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "sequence")]
     public string Sequence { get; set; }
 
     /// <summary>
-    /// Indicates if the transaction is scheduled or part of an installment
+    /// Indicates if the transaction is scheduled or part of an installment.
     /// </summary>
-    /// <value>Indicates if the transaction is scheduled or part of an installment</value>
+    /// <value>Indicates if the transaction is scheduled or part of an installment.</value>
     [DataMember(Name="scheduled", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "scheduled")]
     public bool? Scheduled { get; set; }
 
     /// <summary>
-    /// The transaction ID received from schemes for the initial transaction. Required if sequence is 'SUBSEQUENT'
+    /// The transaction ID received from schemes for the initial transaction. Required if sequence is 'SUBSEQUENT'.
     /// </summary>
-    /// <value>The transaction ID received from schemes for the initial transaction. Required if sequence is 'SUBSEQUENT'</value>
+    /// <value>The transaction ID received from schemes for the initial transaction. Required if sequence is 'SUBSEQUENT'.</value>
     [DataMember(Name="referencedSchemeTransactionId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "referencedSchemeTransactionId")]
     public string ReferencedSchemeTransactionId { get; set; }
 
     /// <summary>
-    /// Indicates whether it is a merchant-initiated or explicitly consented to by card holder. Valid values are 'MERCHANT' and 'CARDHOLDER'
+    /// Indicates whether it is a merchant-initiated or explicitly consented to by card holder. Valid values are 'MERCHANT' and 'CARDHOLDER'.
     /// </summary>
-    /// <value>Indicates whether it is a merchant-initiated or explicitly consented to by card holder. Valid values are 'MERCHANT' and 'CARDHOLDER'</value>
+    /// <value>Indicates whether it is a merchant-initiated or explicitly consented to by card holder. Valid values are 'MERCHANT' and 'CARDHOLDER'.</value>
     [DataMember(Name="initiator", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "initiator")]
     public string Initiator { get; set; }

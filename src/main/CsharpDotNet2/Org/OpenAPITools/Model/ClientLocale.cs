@@ -8,22 +8,22 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Country and language of client
+  /// Country and language of client.
   /// </summary>
   [DataContract]
   public class ClientLocale {
     /// <summary>
-    /// Language used by client
+    /// Language used by client.
     /// </summary>
-    /// <value>Language used by client</value>
+    /// <value>Language used by client.</value>
     [DataMember(Name="language", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "language")]
     public string Language { get; set; }
 
     /// <summary>
-    /// Country of the client
+    /// Country of the client.
     /// </summary>
-    /// <value>Country of the client</value>
+    /// <value>Country of the client.</value>
     [DataMember(Name="country", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "country")]
     public string Country { get; set; }

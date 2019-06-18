@@ -13,36 +13,20 @@ namespace Org.OpenAPITools.Model {
   [DataContract]
   public class PaymentTokenizationResponse : BasicResponse {
     /// <summary>
-    /// The status of the request
+    /// The status of the request.
     /// </summary>
-    /// <value>The status of the request</value>
+    /// <value>The status of the request.</value>
     [DataMember(Name="requestStatus", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "requestStatus")]
     public string RequestStatus { get; set; }
 
     /// <summary>
-    /// Echoes back the value in the request header for tracking.
+    /// Time of the request.
     /// </summary>
-    /// <value>Echoes back the value in the request header for tracking.</value>
-    [DataMember(Name="clientRequestId", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "clientRequestId")]
-    public string ClientRequestId { get; set; }
-
-    /// <summary>
-    /// Echoes back the value in the request header.
-    /// </summary>
-    /// <value>Echoes back the value in the request header.</value>
-    [DataMember(Name="apiTraceId", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "apiTraceId")]
-    public string ApiTraceId { get; set; }
-
-    /// <summary>
-    /// Time of the request
-    /// </summary>
-    /// <value>Time of the request</value>
+    /// <value>Time of the request.</value>
     [DataMember(Name="requestTime", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "requestTime")]
-    public string RequestTime { get; set; }
+    public long? RequestTime { get; set; }
 
     /// <summary>
     /// Gets or Sets AvsResponse
@@ -52,25 +36,25 @@ namespace Org.OpenAPITools.Model {
     public AVSResponse AvsResponse { get; set; }
 
     /// <summary>
-    /// Optional security code check response
+    /// Security code check response.
     /// </summary>
-    /// <value>Optional security code check response</value>
+    /// <value>Security code check response.</value>
     [DataMember(Name="securityCodeResponse", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "securityCodeResponse")]
     public string SecurityCodeResponse { get; set; }
 
     /// <summary>
-    /// Card brand
+    /// Card brand.
     /// </summary>
-    /// <value>Card brand</value>
+    /// <value>Card brand.</value>
     [DataMember(Name="brand", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "brand")]
     public string Brand { get; set; }
 
     /// <summary>
-    /// Country of the card issued
+    /// Country of the card issued.
     /// </summary>
-    /// <value>Country of the card issued</value>
+    /// <value>Country of the card issued.</value>
     [DataMember(Name="country", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "country")]
     public string Country { get; set; }
@@ -80,7 +64,7 @@ namespace Org.OpenAPITools.Model {
     /// </summary>
     [DataMember(Name="paymentToken", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "paymentToken")]
-    public PaymentTokenization PaymentToken { get; set; }
+    public PaymentTokenDetails PaymentToken { get; set; }
 
     /// <summary>
     /// Gets or Sets PaymentCard
@@ -98,8 +82,6 @@ namespace Org.OpenAPITools.Model {
       var sb = new StringBuilder();
       sb.Append("class PaymentTokenizationResponse {\n");
       sb.Append("  RequestStatus: ").Append(RequestStatus).Append("\n");
-      sb.Append("  ClientRequestId: ").Append(ClientRequestId).Append("\n");
-      sb.Append("  ApiTraceId: ").Append(ApiTraceId).Append("\n");
       sb.Append("  RequestTime: ").Append(RequestTime).Append("\n");
       sb.Append("  AvsResponse: ").Append(AvsResponse).Append("\n");
       sb.Append("  SecurityCodeResponse: ").Append(SecurityCodeResponse).Append("\n");

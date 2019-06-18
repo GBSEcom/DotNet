@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using RestSharp;
 using Org.OpenAPITools.Model;
@@ -8,12 +8,9 @@ namespace Org.OpenAPITools.Api
     public class ApiResponse
     {
         public int StatusCode { get; set; }
-        public IList<Parameter>  Headers { get; set; }
+        public IList<Parameter> Headers { get; set; }
         public String JsonData { get => GetJsonData(); }
         public object Data;
-        //public TransactionResponse TransResp = null;
-        //public TransactionErrorResponse TransErrResp = null;
-        //public AccessTokenResponse TokenResp = null; 
 
         public ApiResponse(int _statusCode, TransactionResponse _data, IList<Parameter> _headers = null)
         {
@@ -79,7 +76,8 @@ namespace Org.OpenAPITools.Api
             SetData(_statusCode, _data, _headers);
         }
 
-        private void SetData(int _statusCode, object _data, IList<Parameter> _headers = null){
+        private void SetData(int _statusCode, object _data, IList<Parameter> _headers = null)
+        {
             StatusCode = _statusCode;
             Headers = _headers;
             Data = _data;

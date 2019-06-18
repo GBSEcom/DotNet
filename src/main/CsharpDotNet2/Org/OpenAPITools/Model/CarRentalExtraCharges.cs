@@ -13,9 +13,9 @@ namespace Org.OpenAPITools.Model {
   [DataContract]
   public class CarRentalExtraCharges {
     /// <summary>
-    /// Additional charge item
+    /// Additional charge item.
     /// </summary>
-    /// <value>Additional charge item</value>
+    /// <value>Additional charge item.</value>
     [DataMember(Name="chargeItem", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "chargeItem")]
     public string ChargeItem { get; set; }

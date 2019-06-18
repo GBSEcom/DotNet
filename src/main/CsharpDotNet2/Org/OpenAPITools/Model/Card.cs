@@ -8,22 +8,22 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// 
+  /// Properties for the payment method.
   /// </summary>
   [DataContract]
   public class Card {
     /// <summary>
-    /// TransArmor Token value. Either the ta token fields or card number field must contain a value.
+    /// TransArmor token value. Either the token fields or card number field must contain a value.
     /// </summary>
-    /// <value>TransArmor Token value. Either the ta token fields or card number field must contain a value.</value>
+    /// <value>TransArmor token value. Either the token fields or card number field must contain a value.</value>
     [DataMember(Name="taToken", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "taToken")]
     public string TaToken { get; set; }
 
     /// <summary>
-    /// TransArmor Token Key to identify the merchant.
+    /// TransArmor token key to identify the merchant.
     /// </summary>
-    /// <value>TransArmor Token Key to identify the merchant.</value>
+    /// <value>TransArmor token key to identify the merchant.</value>
     [DataMember(Name="taTokenKey", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "taTokenKey")]
     public string TaTokenKey { get; set; }
@@ -37,25 +37,25 @@ namespace Org.OpenAPITools.Model {
     public string CardholderName { get; set; }
 
     /// <summary>
-    /// Use this field to send Clear PAN or tokens other than TransArmor Token.
+    /// Use this field to send clear PAN or tokens other than TransArmor Token.
     /// </summary>
-    /// <value>Use this field to send Clear PAN or tokens other than TransArmor Token.</value>
+    /// <value>Use this field to send clear PAN or tokens other than TransArmor Token.</value>
     [DataMember(Name="cardNumber", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "cardNumber")]
     public string CardNumber { get; set; }
 
     /// <summary>
-    /// Payment method expiration date. Format is MMCCYY.
+    /// Payment method expiration date. Format is MMYYYY.
     /// </summary>
-    /// <value>Payment method expiration date. Format is MMCCYY.</value>
+    /// <value>Payment method expiration date. Format is MMYYYY.</value>
     [DataMember(Name="expDate", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "expDate")]
     public string ExpDate { get; set; }
 
     /// <summary>
-    /// CVV Present indicator.
+    /// CVV present indicator.
     /// </summary>
-    /// <value>CVV Present indicator.</value>
+    /// <value>CVV present indicator.</value>
     [DataMember(Name="cvv", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "cvv")]
     public string Cvv { get; set; }
@@ -69,9 +69,9 @@ namespace Org.OpenAPITools.Model {
     public string Issuer { get; set; }
 
     /// <summary>
-    /// A number that distinguishes between two plastic cards with the same card number in the event of the card being re-issued).
+    /// A number that distinguishes between two plastic cards with the same card number in the event of the card being re-issued.
     /// </summary>
-    /// <value>A number that distinguishes between two plastic cards with the same card number in the event of the card being re-issued).</value>
+    /// <value>A number that distinguishes between two plastic cards with the same card number in the event of the card being re-issued.</value>
     [DataMember(Name="cardReissuedNumber", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "cardReissuedNumber")]
     public string CardReissuedNumber { get; set; }

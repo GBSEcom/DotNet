@@ -8,30 +8,30 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Once SubMerchant element is given, the transaction is considered as sub merchant transaction.
+  /// Once sub-merchant element is given, the transaction is considered to be a sub-merchant transaction.
   /// </summary>
   [DataContract]
   public class SubMerchantData {
     /// <summary>
-    /// Merchant Category Code
+    /// Merchant category code.
     /// </summary>
-    /// <value>Merchant Category Code</value>
+    /// <value>Merchant category code.</value>
     [DataMember(Name="mcc", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "mcc")]
     public string Mcc { get; set; }
 
     /// <summary>
-    /// Store legal name
+    /// Store legal name.
     /// </summary>
-    /// <value>Store legal name</value>
+    /// <value>Store legal name.</value>
     [DataMember(Name="legalName", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "legalName")]
     public string LegalName { get; set; }
 
     /// <summary>
-    /// Timezone e.g. 'Europe/London', 'Europe/Berlin', 'Brazil/West'
+    /// Timezone.
     /// </summary>
-    /// <value>Timezone e.g. 'Europe/London', 'Europe/Berlin', 'Brazil/West'</value>
+    /// <value>Timezone.</value>
     [DataMember(Name="timezone", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "timezone")]
     public string Timezone { get; set; }
@@ -51,9 +51,9 @@ namespace Org.OpenAPITools.Model {
     public Document Document { get; set; }
 
     /// <summary>
-    /// Sub-merchant ID
+    /// Sub-merchant ID.
     /// </summary>
-    /// <value>Sub-merchant ID</value>
+    /// <value>Sub-merchant ID.</value>
     [DataMember(Name="merchantId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "merchantId")]
     public string MerchantId { get; set; }

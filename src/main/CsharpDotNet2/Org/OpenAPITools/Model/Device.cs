@@ -29,8 +29,9 @@ namespace Org.OpenAPITools.Model {
     public string DeviceId { get; set; }
 
     /// <summary>
-    /// Gets or Sets Networks
+    /// Information about the networks associated with the device.
     /// </summary>
+    /// <value>Information about the networks associated with the device.</value>
     [DataMember(Name="networks", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "networks")]
     public List<DeviceNetworks> Networks { get; set; }
@@ -52,9 +53,9 @@ namespace Org.OpenAPITools.Model {
     public decimal? Longitude { get; set; }
 
     /// <summary>
-    /// The device's International Mobile Equipment Identity (IMEI) as described in IETFs RFC7254.
+    /// The device's International Mobile Equipment Identity (IMEI) as described in IETF RFC7254.
     /// </summary>
-    /// <value>The device's International Mobile Equipment Identity (IMEI) as described in IETFs RFC7254.</value>
+    /// <value>The device's International Mobile Equipment Identity (IMEI) as described in IETF RFC7254.</value>
     [DataMember(Name="imei", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "imei")]
     public string Imei { get; set; }

@@ -13,9 +13,9 @@ namespace Org.OpenAPITools.Model {
   [DataContract]
   public class PayPal {
     /// <summary>
-    /// Email address of the recipient
+    /// Email address of the recipient.
     /// </summary>
-    /// <value>Email address of the recipient</value>
+    /// <value>Email address of the recipient.</value>
     [DataMember(Name="recipientEmail", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "recipientEmail")]
     public string RecipientEmail { get; set; }

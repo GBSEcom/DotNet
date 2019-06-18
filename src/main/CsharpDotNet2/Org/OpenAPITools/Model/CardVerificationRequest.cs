@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Request to verify card.
+  /// Request to verify card validity.
   /// </summary>
   [DataContract]
   public class CardVerificationRequest {
@@ -26,6 +26,14 @@ namespace Org.OpenAPITools.Model {
     [JsonProperty(PropertyName = "billingAddress")]
     public Address BillingAddress { get; set; }
 
+    /// <summary>
+    /// An optional outlet ID for clients that support multiple stores in the same app.
+    /// </summary>
+    /// <value>An optional outlet ID for clients that support multiple stores in the same app.</value>
+    [DataMember(Name="storeId", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "storeId")]
+    public string StoreId { get; set; }
+
 
     /// <summary>
     /// Get the string presentation of the object
@@ -36,6 +44,7 @@ namespace Org.OpenAPITools.Model {
       sb.Append("class CardVerificationRequest {\n");
       sb.Append("  PaymentCard: ").Append(PaymentCard).Append("\n");
       sb.Append("  BillingAddress: ").Append(BillingAddress).Append("\n");
+      sb.Append("  StoreId: ").Append(StoreId).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

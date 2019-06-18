@@ -8,22 +8,22 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// How often payments are sent
+  /// How often payments are sent.
   /// </summary>
   [DataContract]
   public class Frequency {
     /// <summary>
-    /// Rate of frequency
+    /// Rate of frequency.
     /// </summary>
-    /// <value>Rate of frequency</value>
+    /// <value>Rate of frequency.</value>
     [DataMember(Name="every", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "every")]
     public int? Every { get; set; }
 
     /// <summary>
-    /// Unit which defines the frequency
+    /// Unit which defines the frequency.
     /// </summary>
-    /// <value>Unit which defines the frequency</value>
+    /// <value>Unit which defines the frequency.</value>
     [DataMember(Name="unit", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "unit")]
     public string Unit { get; set; }

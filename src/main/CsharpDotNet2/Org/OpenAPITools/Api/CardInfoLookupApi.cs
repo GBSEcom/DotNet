@@ -12,15 +12,15 @@ namespace Org.OpenAPITools.Api
     public interface ICardInfoLookupApi
     {
         /// <summary>
-        /// Card information lookUp Use this to look up card related information such as issuer country, card function and card brand.
+        /// Card information lookup. Use this to look up card related information such as issuer country, card function and card brand.
         /// </summary>
-        /// <param name="contentType">content type</param>
+        /// <param name="contentType">Content type.</param>
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param>
-        /// <param name="apiKey"></param>
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param>
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param>
-        /// <param name="cardInfoLookupRequest">Card information lookup payload.</param>
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
-        /// <param name="region">The region where client wants to process the transaction</param>
+        /// <param name="cardInfoLookupRequest">Accepted request type: CardInfoLookupRequest.</param>
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param>
         /// <returns>CardInfoLookupResponse</returns>
         ApiResponse CardInfoLookup (string contentType, string clientRequestId, string apiKey, long? timestamp, CardInfoLookupRequest cardInfoLookupRequest, string messageSignature, string region);
     }
@@ -79,15 +79,15 @@ namespace Org.OpenAPITools.Api
         public ApiClient ApiClient {get; set;}
     
         /// <summary>
-        /// Card information lookUp Use this to look up card related information such as issuer country, card function and card brand.
+        /// Card information lookup. Use this to look up card related information such as issuer country, card function and card brand.
         /// </summary>
-        /// <param name="contentType">content type</param> 
+        /// <param name="contentType">Content type.</param> 
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param> 
-        /// <param name="apiKey"></param> 
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param> 
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param> 
-        /// <param name="cardInfoLookupRequest">Card information lookup payload.</param> 
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
-        /// <param name="region">The region where client wants to process the transaction</param> 
+        /// <param name="cardInfoLookupRequest">Accepted request type: CardInfoLookupRequest.</param> 
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param> 
         /// <returns>CardInfoLookupResponse</returns>            
         public ApiResponse CardInfoLookup (string contentType, string clientRequestId, string apiKey, long? timestamp, CardInfoLookupRequest cardInfoLookupRequest, string messageSignature, string region)
         {
@@ -108,7 +108,7 @@ namespace Org.OpenAPITools.Api
             if (cardInfoLookupRequest == null) throw new ApiException(400, "Missing required parameter 'cardInfoLookupRequest' when calling CardInfoLookup");
             
     
-            var path = "/v1/card-information";
+            var path = "/card-information";
             path = path.Replace("{format}", "json");
                 
             var queryParams = new Dictionary<String, String>();
@@ -148,7 +148,5 @@ namespace Org.OpenAPITools.Api
             }
             throw new ApiException((int)response.StatusCode, "Error parsing API response status code: " + response.ErrorMessage, response.ErrorMessage);
         }
-
-    
     }
 }

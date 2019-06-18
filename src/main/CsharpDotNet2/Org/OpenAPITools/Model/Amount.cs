@@ -8,22 +8,22 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Model for the amount of the transaction.
+  /// Amount of the transaction.
   /// </summary>
   [DataContract]
   public class Amount {
     /// <summary>
-    /// Amount in total
+    /// Amount total.
     /// </summary>
-    /// <value>Amount in total</value>
+    /// <value>Amount total.</value>
     [DataMember(Name="total", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "total")]
     public decimal? Total { get; set; }
 
     /// <summary>
-    /// ISO 4217 currency code (http://en.wikipedia.org/wiki/ISO_4217).
+    /// ISO 4217 currency code.
     /// </summary>
-    /// <value>ISO 4217 currency code (http://en.wikipedia.org/wiki/ISO_4217).</value>
+    /// <value>ISO 4217 currency code.</value>
     [DataMember(Name="currency", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "currency")]
     public string Currency { get; set; }

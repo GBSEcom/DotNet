@@ -21,17 +21,17 @@ namespace Org.OpenAPITools.Model {
     public string RequestStatus { get; set; }
 
     /// <summary>
-    /// Client Order ID if supplied by client, otherwise the Order ID.
+    /// Client order ID if supplied by client, otherwise the order ID.
     /// </summary>
-    /// <value>Client Order ID if supplied by client, otherwise the Order ID.</value>
+    /// <value>Client order ID if supplied by client, otherwise the order ID.</value>
     [DataMember(Name="orderId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "orderId")]
     public string OrderId { get; set; }
 
     /// <summary>
-    /// URL for embedded payment link
+    /// URL for embedded payment link.
     /// </summary>
-    /// <value>URL for embedded payment link</value>
+    /// <value>URL for embedded payment link.</value>
     [DataMember(Name="paymentUrl", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "paymentUrl")]
     public string PaymentUrl { get; set; }

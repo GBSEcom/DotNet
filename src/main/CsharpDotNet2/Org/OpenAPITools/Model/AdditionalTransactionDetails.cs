@@ -8,30 +8,30 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Additional details related information
+  /// Additional transaction details for transaction response.
   /// </summary>
   [DataContract]
   public class AdditionalTransactionDetails {
     /// <summary>
-    /// Comment for the payment
+    /// Comment for the payment.
     /// </summary>
-    /// <value>Comment for the payment</value>
+    /// <value>Comment for the payment.</value>
     [DataMember(Name="comments", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "comments")]
     public string Comments { get; set; }
 
     /// <summary>
-    /// Invoice number
+    /// Invoice number.
     /// </summary>
-    /// <value>Invoice number</value>
+    /// <value>Invoice number.</value>
     [DataMember(Name="invoiceNumber", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "invoiceNumber")]
     public string InvoiceNumber { get; set; }
 
     /// <summary>
-    /// Purchase order number
+    /// Purchase order number.
     /// </summary>
-    /// <value>Purchase order number</value>
+    /// <value>Purchase order number.</value>
     [DataMember(Name="purchaseOrderNumber", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "purchaseOrderNumber")]
     public string PurchaseOrderNumber { get; set; }

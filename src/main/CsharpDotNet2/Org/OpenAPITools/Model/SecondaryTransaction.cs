@@ -8,44 +8,33 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Model for secondary financial transactions
+  /// Model for secondary financial transactions. Abstract class, do not use this class directly, use one of its children.
   /// </summary>
   [DataContract]
   public class SecondaryTransaction {
     /// <summary>
-    /// Gets or Sets TransactionOrigin
+    /// Object name of the secondary transaction request.
     /// </summary>
-    [DataMember(Name="transactionOrigin", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "transactionOrigin")]
-    public TransactionOrigin TransactionOrigin { get; set; }
+    /// <value>Object name of the secondary transaction request.</value>
+    [DataMember(Name="requestType", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "requestType")]
+    public string RequestType { get; set; }
 
     /// <summary>
-    /// Gets or Sets Amount
+    /// An optional outlet ID for clients that support multiple stores in the same developer app.
     /// </summary>
-    [DataMember(Name="amount", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "amount")]
-    public Amount Amount { get; set; }
+    /// <value>An optional outlet ID for clients that support multiple stores in the same developer app.</value>
+    [DataMember(Name="storeId", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "storeId")]
+    public string StoreId { get; set; }
 
     /// <summary>
-    /// Gets or Sets SplitShipment
+    /// Comment for the secondary transaction.
     /// </summary>
-    [DataMember(Name="splitShipment", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "splitShipment")]
-    public SplitShipment SplitShipment { get; set; }
-
-    /// <summary>
-    /// Gets or Sets SoftDescriptor
-    /// </summary>
-    [DataMember(Name="softDescriptor", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "softDescriptor")]
-    public SoftDescriptor SoftDescriptor { get; set; }
-
-    /// <summary>
-    /// Gets or Sets AdditionalDetails
-    /// </summary>
-    [DataMember(Name="additionalDetails", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "additionalDetails")]
-    public SecondaryTransactionAdditionalDetails AdditionalDetails { get; set; }
+    /// <value>Comment for the secondary transaction.</value>
+    [DataMember(Name="comments", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "comments")]
+    public string Comments { get; set; }
 
 
     /// <summary>
@@ -55,11 +44,9 @@ namespace Org.OpenAPITools.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class SecondaryTransaction {\n");
-      sb.Append("  TransactionOrigin: ").Append(TransactionOrigin).Append("\n");
-      sb.Append("  Amount: ").Append(Amount).Append("\n");
-      sb.Append("  SplitShipment: ").Append(SplitShipment).Append("\n");
-      sb.Append("  SoftDescriptor: ").Append(SoftDescriptor).Append("\n");
-      sb.Append("  AdditionalDetails: ").Append(AdditionalDetails).Append("\n");
+      sb.Append("  RequestType: ").Append(RequestType).Append("\n");
+      sb.Append("  StoreId: ").Append(StoreId).Append("\n");
+      sb.Append("  Comments: ").Append(Comments).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

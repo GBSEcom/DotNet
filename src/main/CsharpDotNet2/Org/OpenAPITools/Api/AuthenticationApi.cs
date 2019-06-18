@@ -14,13 +14,13 @@ namespace Org.OpenAPITools.Api
         /// <summary>
         /// Generate an access token for user authentication. This is the access token generation call for authorizing subsequent financial transactions. A valid access token is required for web client requests.
         /// </summary>
-        /// <param name="contentType">content type</param>
+        /// <param name="contentType">Content type.</param>
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param>
-        /// <param name="apiKey"></param>
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param>
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param>
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
         /// <returns>AccessTokenResponse</returns>
-        ApiResponse V1AuthenticationAccessTokensPost (string contentType, string clientRequestId, string apiKey, long? timestamp, string messageSignature);
+        ApiResponse AuthenticationAccessTokensPost (string contentType, string clientRequestId, string apiKey, long? timestamp, string messageSignature);
     }
   
     /// <summary>
@@ -79,29 +79,29 @@ namespace Org.OpenAPITools.Api
         /// <summary>
         /// Generate an access token for user authentication. This is the access token generation call for authorizing subsequent financial transactions. A valid access token is required for web client requests.
         /// </summary>
-        /// <param name="contentType">content type</param> 
+        /// <param name="contentType">Content type.</param> 
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param> 
-        /// <param name="apiKey"></param> 
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param> 
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param> 
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
         /// <returns>AccessTokenResponse</returns>            
-        public ApiResponse V1AuthenticationAccessTokensPost (string contentType, string clientRequestId, string apiKey, long? timestamp, string messageSignature)
+        public ApiResponse AuthenticationAccessTokensPost (string contentType, string clientRequestId, string apiKey, long? timestamp, string messageSignature)
         {
             
             // verify the required parameter 'contentType' is set
-            if (contentType == null) throw new ApiException(400, "Missing required parameter 'contentType' when calling V1AuthenticationAccessTokensPost");
+            if (contentType == null) throw new ApiException(400, "Missing required parameter 'contentType' when calling AuthenticationAccessTokensPost");
             
             // verify the required parameter 'clientRequestId' is set
-            if (clientRequestId == null) throw new ApiException(400, "Missing required parameter 'clientRequestId' when calling V1AuthenticationAccessTokensPost");
+            if (clientRequestId == null) throw new ApiException(400, "Missing required parameter 'clientRequestId' when calling AuthenticationAccessTokensPost");
             
             // verify the required parameter 'apiKey' is set
-            if (apiKey == null) throw new ApiException(400, "Missing required parameter 'apiKey' when calling V1AuthenticationAccessTokensPost");
+            if (apiKey == null) throw new ApiException(400, "Missing required parameter 'apiKey' when calling AuthenticationAccessTokensPost");
             
             // verify the required parameter 'timestamp' is set
-            if (timestamp == null) throw new ApiException(400, "Missing required parameter 'timestamp' when calling V1AuthenticationAccessTokensPost");
+            if (timestamp == null) throw new ApiException(400, "Missing required parameter 'timestamp' when calling AuthenticationAccessTokensPost");
             
     
-            var path = "/v1/authentication/access-tokens";
+            var path = "/authentication/access-tokens";
             path = path.Replace("{format}", "json");
                 
             var queryParams = new Dictionary<String, String>();
@@ -139,7 +139,6 @@ namespace Org.OpenAPITools.Api
             }
             throw new ApiException((int)response.StatusCode, "Error parsing API response status code: " + response.ErrorMessage, response.ErrorMessage);
         }
-
     
     }
 }

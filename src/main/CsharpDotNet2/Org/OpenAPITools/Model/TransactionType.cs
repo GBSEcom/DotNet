@@ -8,17 +8,10 @@ using Newtonsoft.Json.Converters;
 
 namespace Org.OpenAPITools.Model {
 
-    [JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(StringEnumConverter))]
 
     public enum TransactionType
     {
-
-        ///   <summary>
-        /// Enum Default for "Default"
-        /// </summary>
-        [EnumMember(Value = "Default")]
-        Default,
-
         /// <summary>
         /// Enum SALE for "SALE"
         /// </summary>
@@ -67,6 +60,5 @@ namespace Org.OpenAPITools.Model {
         [EnumMember(Value = "PAYER_AUTH")]
         PAYER_AUTH
 
-    }
-
+	}
 }

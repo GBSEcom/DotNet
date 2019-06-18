@@ -13,33 +13,33 @@ namespace Org.OpenAPITools.Model {
   [DataContract]
   public class Sepa {
     /// <summary>
-    /// Bank account in IBAN format
+    /// Bank account in IBAN format.
     /// </summary>
-    /// <value>Bank account in IBAN format</value>
+    /// <value>Bank account in IBAN format.</value>
     [DataMember(Name="iban", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "iban")]
     public string Iban { get; set; }
 
     /// <summary>
-    /// The name of the payer
+    /// The name of the payer.
     /// </summary>
-    /// <value>The name of the payer</value>
+    /// <value>The name of the payer.</value>
     [DataMember(Name="name", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "name")]
     public string Name { get; set; }
 
     /// <summary>
-    /// Country of residence of the payer using the ISO 3166 standard (http://en.wikipedia.org/wiki/ISO_3166)
+    /// Country of residence of the payer using the ISO 3166 standard.
     /// </summary>
-    /// <value>Country of residence of the payer using the ISO 3166 standard (http://en.wikipedia.org/wiki/ISO_3166)</value>
+    /// <value>Country of residence of the payer using the ISO 3166 standard.</value>
     [DataMember(Name="country", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "country")]
     public string Country { get; set; }
 
     /// <summary>
-    /// The email address of the payer
+    /// The email address of the payer.
     /// </summary>
-    /// <value>The email address of the payer</value>
+    /// <value>The email address of the payer.</value>
     [DataMember(Name="email", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "email")]
     public string Email { get; set; }

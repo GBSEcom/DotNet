@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Request to look up card related information such as issuer country, card function and card brand.
+  /// Request to look up card-related information such as issuer country, card function and card brand.
   /// </summary>
   [DataContract]
   public class CardInfoLookupRequest {

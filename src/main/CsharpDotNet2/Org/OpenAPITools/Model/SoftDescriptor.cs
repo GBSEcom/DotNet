@@ -8,22 +8,22 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Identifying information about a merchant which appears on buyer&#39;s credit/debit card statements
+  /// Identifying information about a merchant which appears on buyer&#39;s credit/debit card statements.
   /// </summary>
   [DataContract]
   public class SoftDescriptor {
     /// <summary>
-    /// Store \"doing-business-as\" name
+    /// Store \"doing-business-as\" name.
     /// </summary>
-    /// <value>Store \"doing-business-as\" name</value>
-    [DataMember(Name="dba", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "dba")]
-    public string Dba { get; set; }
+    /// <value>Store \"doing-business-as\" name.</value>
+    [DataMember(Name="dynamicMerchantName", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "dynamicMerchantName")]
+    public string DynamicMerchantName { get; set; }
 
     /// <summary>
-    /// The 4-digit Merchant Category Code. The merchant might be associated with multiple MCCs. In that case the MCC provided here will be the one that better describes the current transaction.
+    /// The 4-digit merchant category code (MCC). The merchant might be associated with multiple MCCs. In that case the MCC provided here will be the one that better describes the current transaction.
     /// </summary>
-    /// <value>The 4-digit Merchant Category Code. The merchant might be associated with multiple MCCs. In that case the MCC provided here will be the one that better describes the current transaction.</value>
+    /// <value>The 4-digit merchant category code (MCC). The merchant might be associated with multiple MCCs. In that case the MCC provided here will be the one that better describes the current transaction.</value>
     [DataMember(Name="mcc", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "mcc")]
     public string Mcc { get; set; }
@@ -36,7 +36,7 @@ namespace Org.OpenAPITools.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class SoftDescriptor {\n");
-      sb.Append("  Dba: ").Append(Dba).Append("\n");
+      sb.Append("  DynamicMerchantName: ").Append(DynamicMerchantName).Append("\n");
       sb.Append("  Mcc: ").Append(Mcc).Append("\n");
       sb.Append("}\n");
       return sb.ToString();

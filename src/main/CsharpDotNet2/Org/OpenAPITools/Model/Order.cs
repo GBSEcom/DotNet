@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Model for Orders
+  /// Use this model to provide order related details.
   /// </summary>
   [DataContract]
   public class Order {
@@ -34,6 +34,41 @@ namespace Org.OpenAPITools.Model {
     [JsonProperty(PropertyName = "shipping")]
     public Shipping Shipping { get; set; }
 
+    /// <summary>
+    /// Gets or Sets IndustrySpecificExtensions
+    /// </summary>
+    [DataMember(Name="industrySpecificExtensions", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "industrySpecificExtensions")]
+    public IndustrySpecificExtensions IndustrySpecificExtensions { get; set; }
+
+    /// <summary>
+    /// Gets or Sets PurchaseCard
+    /// </summary>
+    [DataMember(Name="purchaseCard", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "purchaseCard")]
+    public PurchaseCards PurchaseCard { get; set; }
+
+    /// <summary>
+    /// Gets or Sets InstallmentOptions
+    /// </summary>
+    [DataMember(Name="installmentOptions", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "installmentOptions")]
+    public InstallmentOptions InstallmentOptions { get; set; }
+
+    /// <summary>
+    /// Gets or Sets SoftDescriptor
+    /// </summary>
+    [DataMember(Name="softDescriptor", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "softDescriptor")]
+    public SoftDescriptor SoftDescriptor { get; set; }
+
+    /// <summary>
+    /// Gets or Sets AdditionalDetails
+    /// </summary>
+    [DataMember(Name="additionalDetails", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "additionalDetails")]
+    public AdditionalDetails AdditionalDetails { get; set; }
+
 
     /// <summary>
     /// Get the string presentation of the object
@@ -45,6 +80,11 @@ namespace Org.OpenAPITools.Model {
       sb.Append("  OrderId: ").Append(OrderId).Append("\n");
       sb.Append("  Billing: ").Append(Billing).Append("\n");
       sb.Append("  Shipping: ").Append(Shipping).Append("\n");
+      sb.Append("  IndustrySpecificExtensions: ").Append(IndustrySpecificExtensions).Append("\n");
+      sb.Append("  PurchaseCard: ").Append(PurchaseCard).Append("\n");
+      sb.Append("  InstallmentOptions: ").Append(InstallmentOptions).Append("\n");
+      sb.Append("  SoftDescriptor: ").Append(SoftDescriptor).Append("\n");
+      sb.Append("  AdditionalDetails: ").Append(AdditionalDetails).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

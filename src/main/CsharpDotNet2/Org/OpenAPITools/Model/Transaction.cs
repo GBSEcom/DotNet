@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// This is the common object for transaction
+  /// Common object for transaction.
   /// </summary>
   [DataContract]
   public class Transaction {
@@ -21,9 +21,9 @@ namespace Org.OpenAPITools.Model {
     public string TransactionState { get; set; }
 
     /// <summary>
-    /// The transaction ID
+    /// The transaction ID.
     /// </summary>
-    /// <value>The transaction ID</value>
+    /// <value>The transaction ID.</value>
     [DataMember(Name="ipgTransactionId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "ipgTransactionId")]
     public string IpgTransactionId { get; set; }
@@ -44,18 +44,18 @@ namespace Org.OpenAPITools.Model {
     public TransactionType TransactionType { get; set; }
 
     /// <summary>
-    /// Gets or Sets PaymentMethod
+    /// Gets or Sets PaymentMethodDetails
     /// </summary>
-    [DataMember(Name="paymentMethod", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "paymentMethod")]
-    public PaymentMethod PaymentMethod { get; set; }
+    [DataMember(Name="paymentMethodDetails", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "paymentMethodDetails")]
+    public PaymentMethodDetails PaymentMethodDetails { get; set; }
 
     /// <summary>
-    /// Gets or Sets Amount
+    /// Gets or Sets TransactionAmount
     /// </summary>
-    [DataMember(Name="amount", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "amount")]
-    public Amount Amount { get; set; }
+    [DataMember(Name="transactionAmount", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "transactionAmount")]
+    public Amount TransactionAmount { get; set; }
 
     /// <summary>
     /// The submission component.
@@ -74,9 +74,9 @@ namespace Org.OpenAPITools.Model {
     public string PayerSecurityLevel { get; set; }
 
     /// <summary>
-    /// The transaction time in seconds since Epoch
+    /// The transaction time in seconds since epoch.
     /// </summary>
-    /// <value>The transaction time in seconds since Epoch</value>
+    /// <value>The transaction time in seconds since epoch.</value>
     [DataMember(Name="transactionTime", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "transactionTime")]
     public long? TransactionTime { get; set; }
@@ -116,8 +116,8 @@ namespace Org.OpenAPITools.Model {
       sb.Append("  IpgTransactionId: ").Append(IpgTransactionId).Append("\n");
       sb.Append("  OrderId: ").Append(OrderId).Append("\n");
       sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
-      sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
-      sb.Append("  Amount: ").Append(Amount).Append("\n");
+      sb.Append("  PaymentMethodDetails: ").Append(PaymentMethodDetails).Append("\n");
+      sb.Append("  TransactionAmount: ").Append(TransactionAmount).Append("\n");
       sb.Append("  SubmissionComponent: ").Append(SubmissionComponent).Append("\n");
       sb.Append("  PayerSecurityLevel: ").Append(PayerSecurityLevel).Append("\n");
       sb.Append("  TransactionTime: ").Append(TransactionTime).Append("\n");

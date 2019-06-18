@@ -13,15 +13,17 @@ namespace Org.OpenAPITools.Model {
   [DataContract]
   public class AVSResponse {
     /// <summary>
-    /// Gets or Sets StreetMatch
+    /// Response if street matches that on file.
     /// </summary>
+    /// <value>Response if street matches that on file.</value>
     [DataMember(Name="streetMatch", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "streetMatch")]
     public string StreetMatch { get; set; }
 
     /// <summary>
-    /// Gets or Sets PostalCodeMatch
+    /// Response if postal code matches that on file.
     /// </summary>
+    /// <value>Response if postal code matches that on file.</value>
     [DataMember(Name="postalCodeMatch", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "postalCodeMatch")]
     public string PostalCodeMatch { get; set; }

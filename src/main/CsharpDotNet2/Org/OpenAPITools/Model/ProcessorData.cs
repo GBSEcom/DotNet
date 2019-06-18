@@ -8,41 +8,54 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Model for processor data
+  /// Model for processor data.
   /// </summary>
   [DataContract]
   public class ProcessorData {
     /// <summary>
-    /// Gets or Sets ReferenceNumber
+    /// Reference transaction ID.
     /// </summary>
+    /// <value>Reference transaction ID.</value>
     [DataMember(Name="referenceNumber", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "referenceNumber")]
     public string ReferenceNumber { get; set; }
 
     /// <summary>
-    /// Gets or Sets AuthorizationCode
+    /// Code returned to confirm transaction.
     /// </summary>
+    /// <value>Code returned to confirm transaction.</value>
     [DataMember(Name="authorizationCode", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "authorizationCode")]
     public string AuthorizationCode { get; set; }
 
     /// <summary>
-    /// Gets or Sets ResponseCode
+    /// Response code from endpoints.
     /// </summary>
+    /// <value>Response code from endpoints.</value>
     [DataMember(Name="responseCode", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "responseCode")]
     public string ResponseCode { get; set; }
 
     /// <summary>
-    /// Gets or Sets AssociationResponseCode
+    /// Network used for transaction.
     /// </summary>
+    /// <value>Network used for transaction.</value>
+    [DataMember(Name="network", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "network")]
+    public string Network { get; set; }
+
+    /// <summary>
+    /// Raw response code from issuer.
+    /// </summary>
+    /// <value>Raw response code from issuer.</value>
     [DataMember(Name="associationResponseCode", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "associationResponseCode")]
     public string AssociationResponseCode { get; set; }
 
     /// <summary>
-    /// Gets or Sets ResponseMessage
+    /// Message returned from endpoints.
     /// </summary>
+    /// <value>Message returned from endpoints.</value>
     [DataMember(Name="responseMessage", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "responseMessage")]
     public string ResponseMessage { get; set; }
@@ -55,11 +68,20 @@ namespace Org.OpenAPITools.Model {
     public AVSResponse AvsResponse { get; set; }
 
     /// <summary>
-    /// Gets or Sets SecurityCodeResponse
+    /// Code returned for CVV.
     /// </summary>
+    /// <value>Code returned for CVV.</value>
     [DataMember(Name="securityCodeResponse", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "securityCodeResponse")]
     public string SecurityCodeResponse { get; set; }
+
+    /// <summary>
+    /// Code to map merchant advice code to ISO specification.
+    /// </summary>
+    /// <value>Code to map merchant advice code to ISO specification.</value>
+    [DataMember(Name="merchantAdviceCodeIndicator", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "merchantAdviceCodeIndicator")]
+    public string MerchantAdviceCodeIndicator { get; set; }
 
 
     /// <summary>
@@ -72,10 +94,12 @@ namespace Org.OpenAPITools.Model {
       sb.Append("  ReferenceNumber: ").Append(ReferenceNumber).Append("\n");
       sb.Append("  AuthorizationCode: ").Append(AuthorizationCode).Append("\n");
       sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
+      sb.Append("  Network: ").Append(Network).Append("\n");
       sb.Append("  AssociationResponseCode: ").Append(AssociationResponseCode).Append("\n");
       sb.Append("  ResponseMessage: ").Append(ResponseMessage).Append("\n");
       sb.Append("  AvsResponse: ").Append(AvsResponse).Append("\n");
       sb.Append("  SecurityCodeResponse: ").Append(SecurityCodeResponse).Append("\n");
+      sb.Append("  MerchantAdviceCodeIndicator: ").Append(MerchantAdviceCodeIndicator).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

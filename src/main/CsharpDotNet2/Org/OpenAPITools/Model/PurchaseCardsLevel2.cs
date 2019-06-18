@@ -8,30 +8,30 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// 
+  /// Level 2 data for monitoring and controlling corporate expenditures.
   /// </summary>
   [DataContract]
   public class PurchaseCardsLevel2 {
     /// <summary>
-    /// Customer Code/Customer Reference ID
+    /// Customer code/customer reference ID.
     /// </summary>
-    /// <value>Customer Code/Customer Reference ID</value>
+    /// <value>Customer code/customer reference ID.</value>
     [DataMember(Name="customerReferenceID", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "customerReferenceID")]
     public string CustomerReferenceID { get; set; }
 
     /// <summary>
-    /// Purchase Identifier/Merchant related data
+    /// Purchase identifier/merchant-related data.
     /// </summary>
-    /// <value>Purchase Identifier/Merchant related data</value>
+    /// <value>Purchase identifier/merchant-related data.</value>
     [DataMember(Name="supplierInvoiceNumber", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "supplierInvoiceNumber")]
     public string SupplierInvoiceNumber { get; set; }
 
     /// <summary>
-    /// Merchant VAT registration/Single Business Reference Number/Merchant Tax ID or Corporation VAT Number
+    /// Merchant VAT registration/single business reference number/merchant tax ID or corporation VAT number.
     /// </summary>
-    /// <value>Merchant VAT registration/Single Business Reference Number/Merchant Tax ID or Corporation VAT Number</value>
+    /// <value>Merchant VAT registration/single business reference number/merchant tax ID or corporation VAT number.</value>
     [DataMember(Name="supplierVATRegistrationNumber", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "supplierVATRegistrationNumber")]
     public string SupplierVATRegistrationNumber { get; set; }

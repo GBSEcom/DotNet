@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Customer object, if a customer is registered at the merchants website.
+  /// Customer model for customers registered at merchant&#39;s website.
   /// </summary>
   [DataContract]
   public class Customer {
@@ -21,41 +21,41 @@ namespace Org.OpenAPITools.Model {
     public string Id { get; set; }
 
     /// <summary>
-    /// The timestamp of the customers registration in the merchants platform. Format is CCYY-MM-DD.
+    /// The timestamp of the customers registration in the merchants platform. Format is YYYY-MM-DD.
     /// </summary>
-    /// <value>The timestamp of the customers registration in the merchants platform. Format is CCYY-MM-DD.</value>
+    /// <value>The timestamp of the customers registration in the merchants platform. Format is YYYY-MM-DD.</value>
     [DataMember(Name="startDate", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "startDate")]
     public string StartDate { get; set; }
 
     /// <summary>
-    /// Customers first name.
+    /// Customer's first name.
     /// </summary>
-    /// <value>Customers first name.</value>
+    /// <value>Customer's first name.</value>
     [DataMember(Name="firstName", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "firstName")]
     public string FirstName { get; set; }
 
     /// <summary>
-    /// Customers last name.
+    /// Customer's last name.
     /// </summary>
-    /// <value>Customers last name.</value>
+    /// <value>Customer's last name.</value>
     [DataMember(Name="lastName", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "lastName")]
     public string LastName { get; set; }
 
     /// <summary>
-    /// Customers middle name.
+    /// Customer's middle name.
     /// </summary>
-    /// <value>Customers middle name.</value>
+    /// <value>Customer's middle name.</value>
     [DataMember(Name="middleName", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "middleName")]
     public string MiddleName { get; set; }
 
     /// <summary>
-    /// Customers email address.
+    /// Customer's email address.
     /// </summary>
-    /// <value>Customers email address.</value>
+    /// <value>Customer's email address.</value>
     [DataMember(Name="email", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "email")]
     public string Email { get; set; }
@@ -85,9 +85,9 @@ namespace Org.OpenAPITools.Model {
     public string Gender { get; set; }
 
     /// <summary>
-    /// The customers year of birth. Format is CCYY.
+    /// The customer's year of birth. Format is YYYY.
     /// </summary>
-    /// <value>The customers year of birth. Format is CCYY.</value>
+    /// <value>The customer's year of birth. Format is YYYY.</value>
     [DataMember(Name="dateOfBirth", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "dateOfBirth")]
     public string DateOfBirth { get; set; }

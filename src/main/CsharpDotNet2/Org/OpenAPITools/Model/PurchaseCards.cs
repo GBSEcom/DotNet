@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// 
+  /// Purchase card details.
   /// </summary>
   [DataContract]
   public class PurchaseCards {

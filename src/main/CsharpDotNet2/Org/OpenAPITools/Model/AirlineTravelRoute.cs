@@ -8,14 +8,14 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Object holding additional information about the route
+  /// Additional information about the route.
   /// </summary>
   [DataContract]
   public class AirlineTravelRoute {
     /// <summary>
-    /// Date of departure
+    /// Date of departure.
     /// </summary>
-    /// <value>Date of departure</value>
+    /// <value>Date of departure.</value>
     [DataMember(Name="departureDate", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "departureDate")]
     public DateTime? DepartureDate { get; set; }
@@ -29,9 +29,9 @@ namespace Org.OpenAPITools.Model {
     public string Origin { get; set; }
 
     /// <summary>
-    /// The IATA code for the destination airport.
+    /// The IATA code for the destination. airport.
     /// </summary>
-    /// <value>The IATA code for the destination airport.</value>
+    /// <value>The IATA code for the destination. airport.</value>
     [DataMember(Name="destination", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "destination")]
     public string Destination { get; set; }
@@ -53,9 +53,9 @@ namespace Org.OpenAPITools.Model {
     public string ServiceClass { get; set; }
 
     /// <summary>
-    /// Indicates whether the route is direct or not.
+    /// Indicates whether the route is direct.
     /// </summary>
-    /// <value>Indicates whether the route is direct or not.</value>
+    /// <value>Indicates whether the route is direct.</value>
     [DataMember(Name="stopoverType", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "stopoverType")]
     public string StopoverType { get; set; }
@@ -69,8 +69,9 @@ namespace Org.OpenAPITools.Model {
     public string FareBasisCode { get; set; }
 
     /// <summary>
-    /// Gets or Sets DepartureTax
+    /// Fee charged by a country when a person leaves the country.
     /// </summary>
+    /// <value>Fee charged by a country when a person leaves the country.</value>
     [DataMember(Name="departureTax", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "departureTax")]
     public decimal? DepartureTax { get; set; }

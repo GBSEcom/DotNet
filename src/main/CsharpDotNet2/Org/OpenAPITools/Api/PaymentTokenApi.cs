@@ -14,27 +14,27 @@ namespace Org.OpenAPITools.Api
         /// <summary>
         /// Create a payment token from a payment card. Use this to create a payment token from a payment card.
         /// </summary>
-        /// <param name="contentType">content type</param>
+        /// <param name="contentType">Content type.</param>
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param>
-        /// <param name="apiKey"></param>
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param>
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param>
-        /// <param name="paymentTokenizationRequest"></param>
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
+        /// <param name="paymentTokenizationRequest">Accepted request types: PaymentCardPaymentTokenizationRequest and ReferencedOrderPaymentTokenizationRequest.</param>
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
         /// <param name="authorization">The access token previously generated with the access-tokens call. Use the format &#39;Bearer {access-token}&#39;.</param>
-        /// <param name="region">The region where client wants to process the transaction</param>
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param>
         /// <returns>PaymentTokenizationResponse</returns>
         ApiResponse CreatePaymentToken (string contentType, string clientRequestId, string apiKey, long? timestamp, PaymentTokenizationRequest paymentTokenizationRequest, string messageSignature, string authorization, string region);
         /// <summary>
         /// Delete a payment token. Use this to delete a payment token.
         /// </summary>
-        /// <param name="contentType">content type</param>
+        /// <param name="contentType">Content type.</param>
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param>
-        /// <param name="apiKey"></param>
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param>
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param>
-        /// <param name="tokenId">Identifies a payment token</param>
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
+        /// <param name="tokenId">Identifies a payment token.</param>
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
         /// <param name="authorization">The access token previously generated with the access-tokens call. Use the format &#39;Bearer {access-token}&#39;.</param>
-        /// <param name="region">The region where client wants to process the transaction</param>
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param>
         /// <param name="storeId"></param>
         /// <returns>PaymentTokenizationResponse</returns>
         ApiResponse DeletePaymentToken (string contentType, string clientRequestId, string apiKey, long? timestamp, string tokenId, string messageSignature, string authorization, string region, string storeId);
@@ -96,14 +96,14 @@ namespace Org.OpenAPITools.Api
         /// <summary>
         /// Create a payment token from a payment card. Use this to create a payment token from a payment card.
         /// </summary>
-        /// <param name="contentType">content type</param> 
+        /// <param name="contentType">Content type.</param> 
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param> 
-        /// <param name="apiKey"></param> 
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param> 
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param> 
-        /// <param name="paymentTokenizationRequest"></param> 
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
+        /// <param name="paymentTokenizationRequest">Accepted request types: PaymentCardPaymentTokenizationRequest and ReferencedOrderPaymentTokenizationRequest.</param> 
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
         /// <param name="authorization">The access token previously generated with the access-tokens call. Use the format &#39;Bearer {access-token}&#39;.</param> 
-        /// <param name="region">The region where client wants to process the transaction</param> 
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param> 
         /// <returns>PaymentTokenizationResponse</returns>            
         public ApiResponse CreatePaymentToken (string contentType, string clientRequestId, string apiKey, long? timestamp, PaymentTokenizationRequest paymentTokenizationRequest, string messageSignature, string authorization, string region)
         {
@@ -124,7 +124,7 @@ namespace Org.OpenAPITools.Api
             if (paymentTokenizationRequest == null) throw new ApiException(400, "Missing required parameter 'paymentTokenizationRequest' when calling CreatePaymentToken");
             
     
-            var path = "/v1/payment-tokens";
+            var path = "/payment-tokens";
             path = path.Replace("{format}", "json");
                 
             var queryParams = new Dictionary<String, String>();
@@ -154,14 +154,14 @@ namespace Org.OpenAPITools.Api
         /// <summary>
         /// Delete a payment token. Use this to delete a payment token.
         /// </summary>
-        /// <param name="contentType">content type</param> 
+        /// <param name="contentType">Content type.</param> 
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param> 
-        /// <param name="apiKey"></param> 
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param> 
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param> 
-        /// <param name="tokenId">Identifies a payment token</param> 
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
+        /// <param name="tokenId">Identifies a payment token.</param> 
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
         /// <param name="authorization">The access token previously generated with the access-tokens call. Use the format &#39;Bearer {access-token}&#39;.</param> 
-        /// <param name="region">The region where client wants to process the transaction</param> 
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param> 
         /// <param name="storeId"></param> 
         /// <returns>PaymentTokenizationResponse</returns>            
         public ApiResponse DeletePaymentToken (string contentType, string clientRequestId, string apiKey, long? timestamp, string tokenId, string messageSignature, string authorization, string region, string storeId)
@@ -183,7 +183,7 @@ namespace Org.OpenAPITools.Api
             if (tokenId == null) throw new ApiException(400, "Missing required parameter 'tokenId' when calling DeletePaymentToken");
             
     
-            var path = "/v1/payment-tokens/{token-id}";
+            var path = "/payment-tokens/{token-id}";
             path = path.Replace("{format}", "json");
             path = path.Replace("{" + "token-id" + "}", ApiClient.ParameterToString(tokenId));
     
@@ -225,7 +225,6 @@ namespace Org.OpenAPITools.Api
             }
             throw new ApiException((int)response.StatusCode, "Error parsing API response status code: " + response.ErrorMessage, response.ErrorMessage);
         }
-
     
     }
 }

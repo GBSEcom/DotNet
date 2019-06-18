@@ -8,13 +8,14 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Model for shipping information.
+  /// Shipping information.
   /// </summary>
   [DataContract]
   public class Shipping {
     /// <summary>
-    /// Gets or Sets Name
+    /// Name of customer for shipping.
     /// </summary>
+    /// <value>Name of customer for shipping.</value>
     [DataMember(Name="name", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "name")]
     public string Name { get; set; }

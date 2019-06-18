@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Model for Industry Specific information
+  /// Industry-specific information.
   /// </summary>
   [DataContract]
   public class IndustrySpecificExtensions {

@@ -8,65 +8,57 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Model for transaction amounts with multiple components.
+  /// Transaction amounts with multiple components.
   /// </summary>
   [DataContract]
   public class AmountComponents {
     /// <summary>
-    /// Subtotal amount
+    /// Subtotal amount.
     /// </summary>
-    /// <value>Subtotal amount</value>
+    /// <value>Subtotal amount.</value>
     [DataMember(Name="subtotal", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "subtotal")]
     public decimal? Subtotal { get; set; }
 
     /// <summary>
-    /// Value-added tax amount
+    /// Value-added tax amount.
     /// </summary>
-    /// <value>Value-added tax amount</value>
+    /// <value>Value-added tax amount.</value>
     [DataMember(Name="vatAmount", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "vatAmount")]
     public decimal? VatAmount { get; set; }
 
     /// <summary>
-    /// Local tax amount
+    /// Local tax amount.
     /// </summary>
-    /// <value>Local tax amount</value>
+    /// <value>Local tax amount.</value>
     [DataMember(Name="localTax", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "localTax")]
     public decimal? LocalTax { get; set; }
 
     /// <summary>
-    /// Shipping amount
+    /// Shipping amount.
     /// </summary>
-    /// <value>Shipping amount</value>
+    /// <value>Shipping amount.</value>
     [DataMember(Name="shipping", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "shipping")]
     public decimal? Shipping { get; set; }
 
     /// <summary>
-    /// Cashback amount
+    /// Cashback amount.
     /// </summary>
-    /// <value>Cashback amount</value>
+    /// <value>Cashback amount.</value>
     [DataMember(Name="cashback", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "cashback")]
     public decimal? Cashback { get; set; }
 
     /// <summary>
-    /// Tip amount
+    /// Tip amount.
     /// </summary>
-    /// <value>Tip amount</value>
+    /// <value>Tip amount.</value>
     [DataMember(Name="tip", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "tip")]
     public decimal? Tip { get; set; }
-
-    /// <summary>
-    /// Amount added for proccessing or handling fees, field must not be present in requests.
-    /// </summary>
-    /// <value>Amount added for proccessing or handling fees, field must not be present in requests.</value>
-    [DataMember(Name="convenienceFee", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "convenienceFee")]
-    public decimal? ConvenienceFee { get; set; }
 
 
     /// <summary>
@@ -82,7 +74,6 @@ namespace Org.OpenAPITools.Model {
       sb.Append("  Shipping: ").Append(Shipping).Append("\n");
       sb.Append("  Cashback: ").Append(Cashback).Append("\n");
       sb.Append("  Tip: ").Append(Tip).Append("\n");
-      sb.Append("  ConvenienceFee: ").Append(ConvenienceFee).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

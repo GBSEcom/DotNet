@@ -8,14 +8,14 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Phone Number.
+  /// Phone number.
   /// </summary>
   [DataContract]
   public class CustomerAddressPhone {
     /// <summary>
-    /// Type of phone
+    /// Type of phone.
     /// </summary>
-    /// <value>Type of phone</value>
+    /// <value>Type of phone.</value>
     [DataMember(Name="type", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "type")]
     public string Type { get; set; }

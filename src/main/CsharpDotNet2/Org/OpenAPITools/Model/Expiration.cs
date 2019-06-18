@@ -8,22 +8,22 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Required for normal transactions except for payment with &#39;RECURRING&#39; flags
+  /// Required for normal transactions except for payment with &#39;RECURRING&#39; flags.
   /// </summary>
   [DataContract]
   public class Expiration {
     /// <summary>
-    /// Month of the card expiration date
+    /// Month of the card expiration date.
     /// </summary>
-    /// <value>Month of the card expiration date</value>
+    /// <value>Month of the card expiration date.</value>
     [DataMember(Name="month", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "month")]
     public string Month { get; set; }
 
     /// <summary>
-    /// Year of the card expiration date
+    /// Year of the card expiration date.
     /// </summary>
-    /// <value>Year of the card expiration date</value>
+    /// <value>Year of the card expiration date.</value>
     [DataMember(Name="year", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "year")]
     public string Year { get; set; }

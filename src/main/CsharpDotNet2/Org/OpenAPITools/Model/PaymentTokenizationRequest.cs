@@ -8,31 +8,25 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// this object is used to generate payment tokens.
+  /// Used to generate payment tokens. Abstract class, do not use this class directly, use one of its children.
   /// </summary>
   [DataContract]
   public class PaymentTokenizationRequest {
     /// <summary>
-    /// Use this to indicate the type of tokenization source
+    /// Object name of tokenization request.
     /// </summary>
-    /// <value>Use this to indicate the type of tokenization source</value>
-    [DataMember(Name="type", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "type")]
-    public string Type { get; set; }
+    /// <value>Object name of tokenization request.</value>
+    [DataMember(Name="requestType", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "requestType")]
+    public string RequestType { get; set; }
 
     /// <summary>
-    /// Gets or Sets PaymentCard
+    /// An optional outlet ID for clients that support multiple stores in the same app.
     /// </summary>
-    [DataMember(Name="paymentCard", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "paymentCard")]
-    public PaymentCard PaymentCard { get; set; }
-
-    /// <summary>
-    /// Gets or Sets ReferencedOrder
-    /// </summary>
-    [DataMember(Name="referencedOrder", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "referencedOrder")]
-    public ReferencedOrder ReferencedOrder { get; set; }
+    /// <value>An optional outlet ID for clients that support multiple stores in the same app.</value>
+    [DataMember(Name="storeId", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "storeId")]
+    public string StoreId { get; set; }
 
     /// <summary>
     /// Gets or Sets BillingAddress
@@ -40,6 +34,21 @@ namespace Org.OpenAPITools.Model {
     [DataMember(Name="billingAddress", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "billingAddress")]
     public Address BillingAddress { get; set; }
+
+    /// <summary>
+    /// Gets or Sets CreateToken
+    /// </summary>
+    [DataMember(Name="createToken", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "createToken")]
+    public CreatePaymentToken CreateToken { get; set; }
+
+    /// <summary>
+    /// If the account should be verified prior to token creation.
+    /// </summary>
+    /// <value>If the account should be verified prior to token creation.</value>
+    [DataMember(Name="accountVerification", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "accountVerification")]
+    public bool? AccountVerification { get; set; }
 
 
     /// <summary>
@@ -49,10 +58,11 @@ namespace Org.OpenAPITools.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class PaymentTokenizationRequest {\n");
-      sb.Append("  Type: ").Append(Type).Append("\n");
-      sb.Append("  PaymentCard: ").Append(PaymentCard).Append("\n");
-      sb.Append("  ReferencedOrder: ").Append(ReferencedOrder).Append("\n");
+      sb.Append("  RequestType: ").Append(RequestType).Append("\n");
+      sb.Append("  StoreId: ").Append(StoreId).Append("\n");
       sb.Append("  BillingAddress: ").Append(BillingAddress).Append("\n");
+      sb.Append("  CreateToken: ").Append(CreateToken).Append("\n");
+      sb.Append("  AccountVerification: ").Append(AccountVerification).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

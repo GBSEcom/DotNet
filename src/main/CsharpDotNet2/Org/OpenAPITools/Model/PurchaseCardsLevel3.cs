@@ -8,14 +8,14 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// 
+  /// Level 3 data for monitoring and controlling corporate expenditures.
   /// </summary>
   [DataContract]
   public class PurchaseCardsLevel3 {
     /// <summary>
-    /// line items
+    /// Line items.
     /// </summary>
-    /// <value>line items</value>
+    /// <value>Line items.</value>
     [DataMember(Name="lineItems", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "lineItems")]
     public List<PurchaseCardsLevel3LineItems> LineItems { get; set; }

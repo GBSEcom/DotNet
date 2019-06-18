@@ -8,30 +8,22 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// This is the common object for primary and secondary payment request responses.
+  /// Common object for primary and secondary payment request responses.
   /// </summary>
   [DataContract]
   public class OrderResponse : BasicResponse {
     /// <summary>
-    /// The response transaction ID
+    /// Client order ID if supplied by client, otherwise the order ID.
     /// </summary>
-    /// <value>The response transaction ID</value>
-    [DataMember(Name="ipgTransactionId", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "ipgTransactionId")]
-    public string IpgTransactionId { get; set; }
-
-    /// <summary>
-    /// Client order ID if supplied by client, otherwise the order ID
-    /// </summary>
-    /// <value>Client order ID if supplied by client, otherwise the order ID</value>
+    /// <value>Client order ID if supplied by client, otherwise the order ID.</value>
     [DataMember(Name="orderId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "orderId")]
     public string OrderId { get; set; }
 
     /// <summary>
-    /// The transaction time in seconds since Epoch
+    /// The transaction time in seconds since epoch.
     /// </summary>
-    /// <value>The transaction time in seconds since Epoch</value>
+    /// <value>The transaction time in seconds since epoch.</value>
     [DataMember(Name="transactionTime", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "transactionTime")]
     public long? TransactionTime { get; set; }
@@ -58,9 +50,9 @@ namespace Org.OpenAPITools.Model {
     public SepaMandate Mandate { get; set; }
 
     /// <summary>
-    /// Required for some payment methods (for example, Klarna)
+    /// Required for some payment methods (for example, Klarna).
     /// </summary>
-    /// <value>Required for some payment methods (for example, Klarna)</value>
+    /// <value>Required for some payment methods (for example, Klarna).</value>
     [DataMember(Name="transactions", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "transactions")]
     public List<Transaction> Transactions { get; set; }
@@ -80,7 +72,6 @@ namespace Org.OpenAPITools.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class OrderResponse {\n");
-      sb.Append("  IpgTransactionId: ").Append(IpgTransactionId).Append("\n");
       sb.Append("  OrderId: ").Append(OrderId).Append("\n");
       sb.Append("  TransactionTime: ").Append(TransactionTime).Append("\n");
       sb.Append("  Billing: ").Append(Billing).Append("\n");

@@ -61,18 +61,18 @@ namespace Org.OpenAPITools.Model {
     public string NextAttemptDate { get; set; }
 
     /// <summary>
-    /// Gets or Sets Amount
+    /// Gets or Sets TransactionAmount
     /// </summary>
-    [DataMember(Name="amount", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "amount")]
-    public Amount Amount { get; set; }
+    [DataMember(Name="transactionAmount", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "transactionAmount")]
+    public Amount TransactionAmount { get; set; }
 
     /// <summary>
-    /// Gets or Sets PaymentMethod
+    /// Gets or Sets PaymentMethodDetails
     /// </summary>
-    [DataMember(Name="paymentMethod", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "paymentMethod")]
-    public PaymentMethod PaymentMethod { get; set; }
+    [DataMember(Name="paymentMethodDetails", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "paymentMethodDetails")]
+    public PaymentMethodDetails PaymentMethodDetails { get; set; }
 
     /// <summary>
     /// Gets or Sets Frequency
@@ -127,8 +127,8 @@ namespace Org.OpenAPITools.Model {
       sb.Append("  CreationDate: ").Append(CreationDate).Append("\n");
       sb.Append("  StartDate: ").Append(StartDate).Append("\n");
       sb.Append("  NextAttemptDate: ").Append(NextAttemptDate).Append("\n");
-      sb.Append("  Amount: ").Append(Amount).Append("\n");
-      sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
+      sb.Append("  TransactionAmount: ").Append(TransactionAmount).Append("\n");
+      sb.Append("  PaymentMethodDetails: ").Append(PaymentMethodDetails).Append("\n");
       sb.Append("  Frequency: ").Append(Frequency).Append("\n");
       sb.Append("  NumberOfPayments: ").Append(NumberOfPayments).Append("\n");
       sb.Append("  RunCount: ").Append(RunCount).Append("\n");

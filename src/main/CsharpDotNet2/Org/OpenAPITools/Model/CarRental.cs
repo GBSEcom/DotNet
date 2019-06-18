@@ -8,54 +8,54 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Additional data specific to the car rental industry
+  /// Additional data specific to the car rental industry.
   /// </summary>
   [DataContract]
   public class CarRental {
     /// <summary>
-    /// The car rental agreement number
+    /// The car rental agreement number.
     /// </summary>
-    /// <value>The car rental agreement number</value>
+    /// <value>The car rental agreement number.</value>
     [DataMember(Name="agreementNumber", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "agreementNumber")]
     public string AgreementNumber { get; set; }
 
     /// <summary>
-    /// The name of the person renting the car
+    /// The name of the person renting the car.
     /// </summary>
-    /// <value>The name of the person renting the car</value>
+    /// <value>The name of the person renting the car.</value>
     [DataMember(Name="renterName", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "renterName")]
     public string RenterName { get; set; }
 
     /// <summary>
-    /// The name of the city where the rental ends and the car is returned
+    /// The city where the rental ends and the car is returned.
     /// </summary>
-    /// <value>The name of the city where the rental ends and the car is returned</value>
+    /// <value>The city where the rental ends and the car is returned.</value>
     [DataMember(Name="returnCity", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "returnCity")]
     public string ReturnCity { get; set; }
 
     /// <summary>
-    /// The date the car rental ends and the car is returned
+    /// The date the car rental ends and the car is returned.
     /// </summary>
-    /// <value>The date the car rental ends and the car is returned</value>
+    /// <value>The date the car rental ends and the car is returned.</value>
     [DataMember(Name="returnDate", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "returnDate")]
     public DateTime? ReturnDate { get; set; }
 
     /// <summary>
-    /// The date the car rental begins
+    /// The date the car rental begins.
     /// </summary>
-    /// <value>The date the car rental begins</value>
+    /// <value>The date the car rental begins.</value>
     [DataMember(Name="pickupDate", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "pickupDate")]
     public DateTime? PickupDate { get; set; }
 
     /// <summary>
-    /// The classification of the rental car
+    /// The classification of the rental car.
     /// </summary>
-    /// <value>The classification of the rental car</value>
+    /// <value>The classification of the rental car.</value>
     [DataMember(Name="rentalClassId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "rentalClassId")]
     public string RentalClassId { get; set; }

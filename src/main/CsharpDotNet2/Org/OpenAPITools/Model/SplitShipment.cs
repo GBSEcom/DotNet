@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Split-shipment related information, in order to reuse the same authorization
+  /// Split-shipment related information, in order to reuse the same authorization.
   /// </summary>
   [DataContract]
   public class SplitShipment {
@@ -21,9 +21,9 @@ namespace Org.OpenAPITools.Model {
     public int? TotalCount { get; set; }
 
     /// <summary>
-    /// Indicates whether the transaction is the final shipment
+    /// Indicates whether the transaction is the final shipment.
     /// </summary>
-    /// <value>Indicates whether the transaction is the final shipment</value>
+    /// <value>Indicates whether the transaction is the final shipment.</value>
     [DataMember(Name="finalShipment", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "finalShipment")]
     public bool? FinalShipment { get; set; }

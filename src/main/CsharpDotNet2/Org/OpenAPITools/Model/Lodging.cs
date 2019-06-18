@@ -8,46 +8,46 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Additional data specific to the lodging/hotel industry
+  /// Additional data specific to the lodging/hotel industry.
   /// </summary>
   [DataContract]
   public class Lodging {
     /// <summary>
-    /// Date of arrival
+    /// Date of arrival.
     /// </summary>
-    /// <value>Date of arrival</value>
+    /// <value>Date of arrival.</value>
     [DataMember(Name="arrivalDate", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "arrivalDate")]
     public DateTime? ArrivalDate { get; set; }
 
     /// <summary>
-    /// Date of departure
+    /// Date of departure.
     /// </summary>
-    /// <value>Date of departure</value>
+    /// <value>Date of departure.</value>
     [DataMember(Name="departureDate", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "departureDate")]
     public DateTime? DepartureDate { get; set; }
 
     /// <summary>
-    /// Portfolio number
+    /// Portfolio number.
     /// </summary>
-    /// <value>Portfolio number</value>
+    /// <value>Portfolio number.</value>
     [DataMember(Name="folioNumber", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "folioNumber")]
     public string FolioNumber { get; set; }
 
     /// <summary>
-    /// Information about charges other than base lodging
+    /// Information about charges other than base lodging.
     /// </summary>
-    /// <value>Information about charges other than base lodging</value>
+    /// <value>Information about charges other than base lodging.</value>
     [DataMember(Name="extraCharges", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "extraCharges")]
     public List<LodgingExtraCharges> ExtraCharges { get; set; }
 
     /// <summary>
-    /// Indicates if the transaction is associated with a delayed or no-show penalty
+    /// Indicates if the transaction is associated with a delayed or no-show penalty.
     /// </summary>
-    /// <value>Indicates if the transaction is associated with a delayed or no-show penalty</value>
+    /// <value>Indicates if the transaction is associated with a delayed or no-show penalty.</value>
     [DataMember(Name="noShowIndicator", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "noShowIndicator")]
     public bool? NoShowIndicator { get; set; }

@@ -13,59 +13,59 @@ namespace Org.OpenAPITools.Model {
   [DataContract]
   public class PurchaseCardsLevel3LineItems {
     /// <summary>
-    /// The commodity code used to classify the item purchased, positive numeric
+    /// The commodity code used to classify the item purchased.
     /// </summary>
-    /// <value>The commodity code used to classify the item purchased, positive numeric</value>
+    /// <value>The commodity code used to classify the item purchased.</value>
     [DataMember(Name="commodityCode", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "commodityCode")]
     public string CommodityCode { get; set; }
 
     /// <summary>
-    /// Merchant product identifier/The Universal Product Code (UPC) of the item purchased
+    /// Merchant product identifier/the Universal Product Code (UPC) of the item purchased.
     /// </summary>
-    /// <value>Merchant product identifier/The Universal Product Code (UPC) of the item purchased</value>
+    /// <value>Merchant product identifier/the Universal Product Code (UPC) of the item purchased.</value>
     [DataMember(Name="productCode", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "productCode")]
     public string ProductCode { get; set; }
 
     /// <summary>
-    /// The description
+    /// The description.
     /// </summary>
-    /// <value>The description</value>
+    /// <value>The description.</value>
     [DataMember(Name="description", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "description")]
     public string Description { get; set; }
 
     /// <summary>
-    /// The quantity
+    /// The quantity.
     /// </summary>
-    /// <value>The quantity</value>
+    /// <value>The quantity.</value>
     [DataMember(Name="quantity", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "quantity")]
     public int? Quantity { get; set; }
 
     /// <summary>
-    /// The unit of measure
+    /// The unit of measure.
     /// </summary>
-    /// <value>The unit of measure</value>
+    /// <value>The unit of measure.</value>
     [DataMember(Name="unitMeasure", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "unitMeasure")]
     public string UnitMeasure { get; set; }
 
     /// <summary>
-    /// Rate amount in 3 decimal 12 bytes total digit
+    /// Rate amount in 3 decimal 12 bytes total digit.
     /// </summary>
-    /// <value>Rate amount in 3 decimal 12 bytes total digit</value>
+    /// <value>Rate amount in 3 decimal 12 bytes total digit.</value>
     [DataMember(Name="unitPrice", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "unitPrice")]
     public decimal? UnitPrice { get; set; }
 
     /// <summary>
-    /// Gets or Sets VatAmontAndRate
+    /// Gets or Sets VatAmountAndRate
     /// </summary>
-    [DataMember(Name="vatAmontAndRate", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "vatAmontAndRate")]
-    public AdditionalAmountRate VatAmontAndRate { get; set; }
+    [DataMember(Name="vatAmountAndRate", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "vatAmountAndRate")]
+    public AdditionalAmountRate VatAmountAndRate { get; set; }
 
     /// <summary>
     /// Gets or Sets DiscountAmountAndRate
@@ -75,9 +75,9 @@ namespace Org.OpenAPITools.Model {
     public AdditionalAmountRate DiscountAmountAndRate { get; set; }
 
     /// <summary>
-    /// Rate amount in 3 decimal 12 bytes total digit
+    /// Rate amount in 3 decimal 12 bytes total digit.
     /// </summary>
-    /// <value>Rate amount in 3 decimal 12 bytes total digit</value>
+    /// <value>Rate amount in 3 decimal 12 bytes total digit.</value>
     [DataMember(Name="lineItemTotal", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "lineItemTotal")]
     public decimal? LineItemTotal { get; set; }
@@ -96,7 +96,7 @@ namespace Org.OpenAPITools.Model {
       sb.Append("  Quantity: ").Append(Quantity).Append("\n");
       sb.Append("  UnitMeasure: ").Append(UnitMeasure).Append("\n");
       sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
-      sb.Append("  VatAmontAndRate: ").Append(VatAmontAndRate).Append("\n");
+      sb.Append("  VatAmountAndRate: ").Append(VatAmountAndRate).Append("\n");
       sb.Append("  DiscountAmountAndRate: ").Append(DiscountAmountAndRate).Append("\n");
       sb.Append("  LineItemTotal: ").Append(LineItemTotal).Append("\n");
       sb.Append("}\n");

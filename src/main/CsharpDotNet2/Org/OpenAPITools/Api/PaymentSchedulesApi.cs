@@ -14,53 +14,53 @@ namespace Org.OpenAPITools.Api
         /// <summary>
         /// Cancel a gateway payment schedule. Use this to cancel an existing gateway payment schedule.
         /// </summary>
-        /// <param name="contentType">content type</param>
+        /// <param name="contentType">Content type.</param>
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param>
-        /// <param name="apiKey"></param>
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param>
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param>
-        /// <param name="orderId">Gateway order identifier as returned in the parameter orderId</param>
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
-        /// <param name="region">The region where client wants to process the transaction</param>
-        /// <param name="storeId">An optional outlet ID for clients that support multiple stores in the same developer app</param>
+        /// <param name="orderId">Gateway order identifier as returned in the parameter orderId.</param>
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param>
+        /// <param name="storeId">An optional outlet ID for clients that support multiple stores in the same developer app.</param>
         /// <returns>PaymentSchedulesResponse</returns>
         ApiResponse CancelPaymentSchedule (string contentType, string clientRequestId, string apiKey, long? timestamp, string orderId, string messageSignature, string region, string storeId);
         /// <summary>
-        /// Use this to create a gateway payment schedule. This can be used to create a gateway payment schedule.
+        /// Create gateway payment schedule. Use this to create a gateway payment schedule.
         /// </summary>
-        /// <param name="contentType">content type</param>
+        /// <param name="contentType">Content type.</param>
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param>
-        /// <param name="apiKey"></param>
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param>
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param>
-        /// <param name="paymentSchedulesRequest"></param>
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
-        /// <param name="region">The region where client wants to process the transaction</param>
+        /// <param name="paymentSchedulesRequest">Accepted request types: PaymentMethodPaymentSchedulesRequest and ReferencedOrderPaymentSchedulesRequest.</param>
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param>
         /// <returns>PaymentSchedulesResponse</returns>
         ApiResponse CreatePaymentSchedule (string contentType, string clientRequestId, string apiKey, long? timestamp, PaymentSchedulesRequest paymentSchedulesRequest, string messageSignature, string region);
         /// <summary>
-        /// View a gateway payment schedule. This can be used to view an existing gateway payment schedule.
+        /// View a gateway payment schedule. Use this to view an existing gateway payment schedule.
         /// </summary>
-        /// <param name="contentType">content type</param>
+        /// <param name="contentType">Content type.</param>
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param>
-        /// <param name="apiKey"></param>
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param>
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param>
-        /// <param name="orderId">Gateway order identifier as returned in the parameter orderId</param>
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
-        /// <param name="region">The region where client wants to process the transaction</param>
-        /// <param name="storeId">An optional outlet ID for clients that support multiple stores in the same developer app</param>
+        /// <param name="orderId">Gateway order identifier as returned in the parameter orderId.</param>
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param>
+        /// <param name="storeId">An optional outlet ID for clients that support multiple stores in the same developer app.</param>
         /// <returns>RecurringPaymentDetailsResponse</returns>
         ApiResponse InquiryPaymentSchedule (string contentType, string clientRequestId, string apiKey, long? timestamp, string orderId, string messageSignature, string region, string storeId);
         /// <summary>
-        /// Update a gateway payment schedule. This can be used to update a gateway payment schedule.
+        /// Update a gateway payment schedule. Use this to update a gateway payment schedule.
         /// </summary>
-        /// <param name="contentType">content type</param>
+        /// <param name="contentType">Content type.</param>
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param>
-        /// <param name="apiKey"></param>
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param>
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param>
-        /// <param name="orderId">Gateway order identifier as returned in the parameter orderId</param>
-        /// <param name="paymentSchedulesRequest"></param>
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
-        /// <param name="region">The region where client wants to process the transaction</param>
-        /// <param name="storeId">An optional outlet ID for clients that support multiple stores in the same developer app</param>
+        /// <param name="orderId">Gateway order identifier as returned in the parameter orderId.</param>
+        /// <param name="paymentSchedulesRequest">Accepted request types: PaymentMethodPaymentSchedulesRequest and ReferencedOrderPaymentSchedulesRequest.</param>
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param>
+        /// <param name="storeId">An optional outlet ID for clients that support multiple stores in the same developer app.</param>
         /// <returns>PaymentSchedulesResponse</returns>
         ApiResponse UpdatePaymentSchedule (string contentType, string clientRequestId, string apiKey, long? timestamp, string orderId, PaymentSchedulesRequest paymentSchedulesRequest, string messageSignature, string region, string storeId);
     }
@@ -121,14 +121,14 @@ namespace Org.OpenAPITools.Api
         /// <summary>
         /// Cancel a gateway payment schedule. Use this to cancel an existing gateway payment schedule.
         /// </summary>
-        /// <param name="contentType">content type</param> 
+        /// <param name="contentType">Content type.</param> 
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param> 
-        /// <param name="apiKey"></param> 
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param> 
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param> 
-        /// <param name="orderId">Gateway order identifier as returned in the parameter orderId</param> 
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
-        /// <param name="region">The region where client wants to process the transaction</param> 
-        /// <param name="storeId">An optional outlet ID for clients that support multiple stores in the same developer app</param> 
+        /// <param name="orderId">Gateway order identifier as returned in the parameter orderId.</param> 
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param> 
+        /// <param name="storeId">An optional outlet ID for clients that support multiple stores in the same developer app.</param> 
         /// <returns>PaymentSchedulesResponse</returns>            
         public ApiResponse CancelPaymentSchedule (string contentType, string clientRequestId, string apiKey, long? timestamp, string orderId, string messageSignature, string region, string storeId)
         {
@@ -149,7 +149,7 @@ namespace Org.OpenAPITools.Api
             if (orderId == null) throw new ApiException(400, "Missing required parameter 'orderId' when calling CancelPaymentSchedule");
             
     
-            var path = "/v1/payment-schedules/{order-id}";
+            var path = "/payment-schedules/{order-id}";
             path = path.Replace("{format}", "json");
             path = path.Replace("{" + "order-id" + "}", ApiClient.ParameterToString(orderId));
     
@@ -172,20 +172,31 @@ namespace Org.OpenAPITools.Api
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.DELETE, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
-    
-            return BuildApiResponse(response);
+        
+            if ((int)response.StatusCode < 400)
+            {
+                PaymentSchedulesResponse parsedResponse = (PaymentSchedulesResponse)ApiClient.Deserialize(response.Content, typeof(PaymentSchedulesResponse), response.Headers);
+                return new ApiResponse((int)response.StatusCode, parsedResponse, response.Headers);
+            }
+            if ((int)response.StatusCode >= 400)
+            {
+                ErrorResponse parsedResponse = (ErrorResponse)ApiClient.Deserialize(response.Content, typeof(ErrorResponse), response.Headers);
+                return new ApiResponse((int)response.StatusCode, parsedResponse, response.Headers);
+            }
+            throw new ApiException((int)response.StatusCode, "Error parsing API response status code: " + response.ErrorMessage, response.ErrorMessage);
+
         }
     
         /// <summary>
-        /// Use this to create a gateway payment schedule. This can be used to create a gateway payment schedule.
+        /// Create gateway payment schedule. Use this to create a gateway payment schedule.
         /// </summary>
-        /// <param name="contentType">content type</param> 
+        /// <param name="contentType">Content type.</param> 
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param> 
-        /// <param name="apiKey"></param> 
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param> 
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param> 
-        /// <param name="paymentSchedulesRequest"></param> 
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
-        /// <param name="region">The region where client wants to process the transaction</param> 
+        /// <param name="paymentSchedulesRequest">Accepted request types: PaymentMethodPaymentSchedulesRequest and ReferencedOrderPaymentSchedulesRequest.</param> 
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param> 
         /// <returns>PaymentSchedulesResponse</returns>            
         public ApiResponse CreatePaymentSchedule (string contentType, string clientRequestId, string apiKey, long? timestamp, PaymentSchedulesRequest paymentSchedulesRequest, string messageSignature, string region)
         {
@@ -206,7 +217,7 @@ namespace Org.OpenAPITools.Api
             if (paymentSchedulesRequest == null) throw new ApiException(400, "Missing required parameter 'paymentSchedulesRequest' when calling CreatePaymentSchedule");
             
     
-            var path = "/v1/payment-schedules";
+            var path = "/payment-schedules";
             path = path.Replace("{format}", "json");
                 
             var queryParams = new Dictionary<String, String>();
@@ -229,20 +240,35 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
     
-            return BuildApiResponse(response);
+            if ((int)response.StatusCode < 400)
+            {
+                PaymentSchedulesResponse parsedResponse = (PaymentSchedulesResponse)ApiClient.Deserialize(response.Content, typeof(PaymentSchedulesResponse), response.Headers);
+                return new ApiResponse((int)response.StatusCode, parsedResponse, response.Headers);
+            }
+            if ((int)response.StatusCode == 409 || (int)response.StatusCode == 422)
+            {
+                PaymentSchedulesErrorResponse parsedResponse = (PaymentSchedulesErrorResponse)ApiClient.Deserialize(response.Content, typeof(PaymentSchedulesErrorResponse), response.Headers);
+                return new ApiResponse((int)response.StatusCode, parsedResponse, response.Headers);
+            }
+            if ((int)response.StatusCode >= 400)
+            {
+                ErrorResponse parsedResponse = (ErrorResponse)ApiClient.Deserialize(response.Content, typeof(ErrorResponse), response.Headers);
+                return new ApiResponse((int)response.StatusCode, parsedResponse, response.Headers);
+            }
+            throw new ApiException((int)response.StatusCode, "Error parsing API response status code: " + response.ErrorMessage, response.ErrorMessage);
         }
     
         /// <summary>
-        /// View a gateway payment schedule. This can be used to view an existing gateway payment schedule.
+        /// View a gateway payment schedule. Use this to view an existing gateway payment schedule.
         /// </summary>
-        /// <param name="contentType">content type</param> 
+        /// <param name="contentType">Content type.</param> 
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param> 
-        /// <param name="apiKey"></param> 
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param> 
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param> 
-        /// <param name="orderId">Gateway order identifier as returned in the parameter orderId</param> 
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
-        /// <param name="region">The region where client wants to process the transaction</param> 
-        /// <param name="storeId">An optional outlet ID for clients that support multiple stores in the same developer app</param> 
+        /// <param name="orderId">Gateway order identifier as returned in the parameter orderId.</param> 
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param> 
+        /// <param name="storeId">An optional outlet ID for clients that support multiple stores in the same developer app.</param> 
         /// <returns>RecurringPaymentDetailsResponse</returns>            
         public ApiResponse InquiryPaymentSchedule (string contentType, string clientRequestId, string apiKey, long? timestamp, string orderId, string messageSignature, string region, string storeId)
         {
@@ -263,7 +289,7 @@ namespace Org.OpenAPITools.Api
             if (orderId == null) throw new ApiException(400, "Missing required parameter 'orderId' when calling InquiryPaymentSchedule");
             
     
-            var path = "/v1/payment-schedules/{order-id}";
+            var path = "/payment-schedules/{order-id}";
             path = path.Replace("{format}", "json");
             path = path.Replace("{" + "order-id" + "}", ApiClient.ParameterToString(orderId));
     
@@ -298,21 +324,20 @@ namespace Org.OpenAPITools.Api
                 return new ApiResponse((int)response.StatusCode, parsedResponse, response.Headers);
             }
             throw new ApiException((int)response.StatusCode, "Error parsing API response status code: " + response.ErrorMessage, response.ErrorMessage);
-
         }
     
         /// <summary>
-        /// Update a gateway payment schedule. This can be used to update a gateway payment schedule.
+        /// Update a gateway payment schedule. Use this to update a gateway payment schedule.
         /// </summary>
-        /// <param name="contentType">content type</param> 
+        /// <param name="contentType">Content type.</param> 
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param> 
-        /// <param name="apiKey"></param> 
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param> 
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param> 
-        /// <param name="orderId">Gateway order identifier as returned in the parameter orderId</param> 
-        /// <param name="paymentSchedulesRequest"></param> 
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
-        /// <param name="region">The region where client wants to process the transaction</param> 
-        /// <param name="storeId">An optional outlet ID for clients that support multiple stores in the same developer app</param> 
+        /// <param name="orderId">Gateway order identifier as returned in the parameter orderId.</param> 
+        /// <param name="paymentSchedulesRequest">Accepted request types: PaymentMethodPaymentSchedulesRequest and ReferencedOrderPaymentSchedulesRequest.</param> 
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param> 
+        /// <param name="storeId">An optional outlet ID for clients that support multiple stores in the same developer app.</param> 
         /// <returns>PaymentSchedulesResponse</returns>            
         public ApiResponse UpdatePaymentSchedule (string contentType, string clientRequestId, string apiKey, long? timestamp, string orderId, PaymentSchedulesRequest paymentSchedulesRequest, string messageSignature, string region, string storeId)
         {
@@ -336,7 +361,7 @@ namespace Org.OpenAPITools.Api
             if (paymentSchedulesRequest == null) throw new ApiException(400, "Missing required parameter 'paymentSchedulesRequest' when calling UpdatePaymentSchedule");
             
     
-            var path = "/v1/payment-schedules/{order-id}";
+            var path = "/payment-schedules/{order-id}";
             path = path.Replace("{format}", "json");
             path = path.Replace("{" + "order-id" + "}", ApiClient.ParameterToString(orderId));
     
@@ -371,11 +396,6 @@ namespace Org.OpenAPITools.Api
                 PaymentSchedulesResponse parsedResponse = (PaymentSchedulesResponse)ApiClient.Deserialize(response.Content, typeof(PaymentSchedulesResponse), response.Headers);
                 return new ApiResponse((int)response.StatusCode, parsedResponse, response.Headers);
             }
-            if ((int)response.StatusCode == 409 || (int)response.StatusCode == 422)
-            {
-                PaymentSchedulesErrorResponse parsedResponse = (PaymentSchedulesErrorResponse)ApiClient.Deserialize(response.Content, typeof(PaymentSchedulesErrorResponse), response.Headers);
-                return new ApiResponse((int)response.StatusCode, parsedResponse, response.Headers);
-            }
             if ((int)response.StatusCode >= 400)
             {
                 ErrorResponse parsedResponse = (ErrorResponse)ApiClient.Deserialize(response.Content, typeof(ErrorResponse), response.Headers);
@@ -383,7 +403,6 @@ namespace Org.OpenAPITools.Api
             }
             throw new ApiException((int)response.StatusCode, "Error parsing API response status code: " + response.ErrorMessage, response.ErrorMessage);
         }
-
     
     }
 }

@@ -1,20 +1,18 @@
 # Org.OpenAPITools.Api.PaymentApi
 
-All URIs are relative to *https://cert.api.firstdata.com/gateway*
+All URIs are relative to *https://cert.api.firstdata.com/gateway/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**FinalizeSecureTransaction**](PaymentApi.md#finalizesecuretransaction) | **PATCH** /v1/payments/{transaction-id} | Update a 3DSecure or UnionPay payment and continue processing.
-[**PerformPaymentPostAuthorisation**](PaymentApi.md#performpaymentpostauthorisation) | **POST** /v1/payments/{transaction-id}/postauth | Capture/complete a transaction.
-[**PrimaryPaymentTransaction**](PaymentApi.md#primarypaymenttransaction) | **POST** /v1/payments | Generate a primary transaction.
-[**ReturnTransaction**](PaymentApi.md#returntransaction) | **POST** /v1/payments/{transaction-id}/return | Return/refund a transaction.
-[**TransactionInquiry**](PaymentApi.md#transactioninquiry) | **GET** /v1/payments/{transaction-id} | Retrieve the state of a transaction.
-[**VoidTransaction**](PaymentApi.md#voidtransaction) | **POST** /v1/payments/{transaction-id}/void | Reverse a previous action on an existing transaction.
+[**FinalizeSecureTransaction**](PaymentApi.md#finalizesecuretransaction) | **PATCH** /payments/{transaction-id} | Update a 3DSecure or UnionPay payment and continue processing.
+[**SubmitPrimaryTransaction**](PaymentApi.md#submitprimarytransaction) | **POST** /payments | Generate a primary transaction.
+[**SubmitSecondaryTransaction**](PaymentApi.md#submitsecondarytransaction) | **POST** /payments/{transaction-id} | Perform a secondary transaction.
+[**TransactionInquiry**](PaymentApi.md#transactioninquiry) | **GET** /payments/{transaction-id} | Retrieve the state of a transaction.
 
 
 <a name="finalizesecuretransaction"></a>
 # **FinalizeSecureTransaction**
-> TransactionResponse FinalizeSecureTransaction (string contentType, string clientRequestId, string apiKey, long? timestamp, string transactionId, AuthenticationResponseVerificationRequest authenticationResponseVerificationRequest, string messageSignature, string region)
+> TransactionResponse FinalizeSecureTransaction (string contentType, string clientRequestId, string apiKey, long? timestamp, string transactionId, AuthenticationVerificationRequest authenticationVerificationRequest, string messageSignature, string region)
 
 Update a 3DSecure or UnionPay payment and continue processing.
 
@@ -36,19 +34,19 @@ namespace Example
         {
             
             var apiInstance = new PaymentApi();
-            var contentType = contentType_example;  // string | content type (default to application/json)
+            var contentType = contentType_example;  // string | Content type. (default to application/json)
             var clientRequestId = clientRequestId_example;  // string | A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.
-            var apiKey = apiKey_example;  // string | 
+            var apiKey = apiKey_example;  // string | Key given to merchant after boarding associating their requests with the appropriate app in Apigee.
             var timestamp = 789;  // long? | Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).
-            var transactionId = transactionId_example;  // string | Gateway transaction identifier as returned in the parameter ipgTransactionId
-            var authenticationResponseVerificationRequest = new AuthenticationResponseVerificationRequest(); // AuthenticationResponseVerificationRequest | 
-            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
-            var region = region_example;  // string | The region where client wants to process the transaction (optional) 
+            var transactionId = transactionId_example;  // string | Gateway transaction identifier as returned in the parameter ipgTransactionId.
+            var authenticationVerificationRequest = new AuthenticationVerificationRequest(); // AuthenticationVerificationRequest | Accepted request types: Secure3dAuthenticationVerificationRequest and UnionPayAuthenticationVerificationRequest.
+            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
+            var region = region_example;  // string | Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. (optional) 
 
             try
             {
                 // Update a 3DSecure or UnionPay payment and continue processing.
-                TransactionResponse result = apiInstance.FinalizeSecureTransaction(contentType, clientRequestId, apiKey, timestamp, transactionId, authenticationResponseVerificationRequest, messageSignature, region);
+                TransactionResponse result = apiInstance.FinalizeSecureTransaction(contentType, clientRequestId, apiKey, timestamp, transactionId, authenticationVerificationRequest, messageSignature, region);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -64,14 +62,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string**| content type | [default to application/json]
+ **contentType** | **string**| Content type. | [default to application/json]
  **clientRequestId** | **string**| A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format. | 
- **apiKey** | **string**|  | 
+ **apiKey** | **string**| Key given to merchant after boarding associating their requests with the appropriate app in Apigee. | 
  **timestamp** | **long?**| Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins). | 
- **transactionId** | **string**| Gateway transaction identifier as returned in the parameter ipgTransactionId | 
- **authenticationResponseVerificationRequest** | [**AuthenticationResponseVerificationRequest**](AuthenticationResponseVerificationRequest.md)|  | 
- **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
- **region** | **string**| The region where client wants to process the transaction | [optional] 
+ **transactionId** | **string**| Gateway transaction identifier as returned in the parameter ipgTransactionId. | 
+ **authenticationVerificationRequest** | [**AuthenticationVerificationRequest**](AuthenticationVerificationRequest.md)| Accepted request types: Secure3dAuthenticationVerificationRequest and UnionPayAuthenticationVerificationRequest. | 
+ **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
+ **region** | **string**| Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. | [optional] 
 
 ### Return type
 
@@ -88,91 +86,13 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="performpaymentpostauthorisation"></a>
-# **PerformPaymentPostAuthorisation**
-> TransactionResponse PerformPaymentPostAuthorisation (string contentType, string clientRequestId, string apiKey, long? timestamp, string transactionId, SecondaryTransaction secondaryTransaction, string messageSignature, string region, string storeId)
-
-Capture/complete a transaction.
-
-Used to capture/complete an existing transaction. Partial postauths are allowed.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
-
-namespace Example
-{
-    public class PerformPaymentPostAuthorisationExample
-    {
-        public void main()
-        {
-            
-            var apiInstance = new PaymentApi();
-            var contentType = contentType_example;  // string | content type (default to application/json)
-            var clientRequestId = clientRequestId_example;  // string | A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.
-            var apiKey = apiKey_example;  // string | 
-            var timestamp = 789;  // long? | Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).
-            var transactionId = transactionId_example;  // string | Gateway transaction identifier as returned in the parameter ipgTransactionId
-            var secondaryTransaction = new SecondaryTransaction(); // SecondaryTransaction | 
-            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
-            var region = region_example;  // string | The region where client wants to process the transaction (optional) 
-            var storeId = storeId_example;  // string | An optional outlet ID for clients that support multiple stores in the same developer app (optional) 
-
-            try
-            {
-                // Capture/complete a transaction.
-                TransactionResponse result = apiInstance.PerformPaymentPostAuthorisation(contentType, clientRequestId, apiKey, timestamp, transactionId, secondaryTransaction, messageSignature, region, storeId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling PaymentApi.PerformPaymentPostAuthorisation: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contentType** | **string**| content type | [default to application/json]
- **clientRequestId** | **string**| A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format. | 
- **apiKey** | **string**|  | 
- **timestamp** | **long?**| Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins). | 
- **transactionId** | **string**| Gateway transaction identifier as returned in the parameter ipgTransactionId | 
- **secondaryTransaction** | [**SecondaryTransaction**](SecondaryTransaction.md)|  | 
- **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
- **region** | **string**| The region where client wants to process the transaction | [optional] 
- **storeId** | **string**| An optional outlet ID for clients that support multiple stores in the same developer app | [optional] 
-
-### Return type
-
-[**TransactionResponse**](TransactionResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="primarypaymenttransaction"></a>
-# **PrimaryPaymentTransaction**
-> TransactionResponse PrimaryPaymentTransaction (string contentType, string clientRequestId, string apiKey, long? timestamp, PrimaryTransaction primaryTransaction, string messageSignature, string region)
+<a name="submitprimarytransaction"></a>
+# **SubmitPrimaryTransaction**
+> TransactionResponse SubmitPrimaryTransaction (string contentType, string clientRequestId, string apiKey, long? timestamp, PrimaryTransaction primaryTransaction, string messageSignature, string region)
 
 Generate a primary transaction.
 
-Use this to originate a financial transaction, like a sale, preauthorization, or credit.
+Use this to originate a financial transaction like a sale, preauthorization, or credit.
 
 ### Example
 ```csharp
@@ -184,29 +104,29 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class PrimaryPaymentTransactionExample
+    public class SubmitPrimaryTransactionExample
     {
         public void main()
         {
             
             var apiInstance = new PaymentApi();
-            var contentType = contentType_example;  // string | content type (default to application/json)
+            var contentType = contentType_example;  // string | Content type. (default to application/json)
             var clientRequestId = clientRequestId_example;  // string | A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.
-            var apiKey = apiKey_example;  // string | 
+            var apiKey = apiKey_example;  // string | Key given to merchant after boarding associating their requests with the appropriate app in Apigee.
             var timestamp = 789;  // long? | Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).
-            var primaryTransaction = new PrimaryTransaction(); // PrimaryTransaction | Primary Transaction request
-            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
-            var region = region_example;  // string | The region where client wants to process the transaction (optional) 
+            var primaryTransaction = new PrimaryTransaction(); // PrimaryTransaction | Accepted request types: AliPaySaleTransaction, ChinaPnRSaleTransaction, PaymentCardCreditTransaction, PaymentCardForcedTicketTransaction, PaymentCardSaleTransaction, PaymentCardPreAuthTransaction, PaymentCardPayerAuthTransaction, PaymentTokenCreditTransaction, PaymentTokenPreAuthTransaction, PaymentTokenSaleTransaction, PaypalCreditTransaction, and SepaSaleTransaction.
+            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
+            var region = region_example;  // string | Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. (optional) 
 
             try
             {
                 // Generate a primary transaction.
-                TransactionResponse result = apiInstance.PrimaryPaymentTransaction(contentType, clientRequestId, apiKey, timestamp, primaryTransaction, messageSignature, region);
+                TransactionResponse result = apiInstance.SubmitPrimaryTransaction(contentType, clientRequestId, apiKey, timestamp, primaryTransaction, messageSignature, region);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling PaymentApi.PrimaryPaymentTransaction: " + e.Message );
+                Debug.Print("Exception when calling PaymentApi.SubmitPrimaryTransaction: " + e.Message );
             }
         }
     }
@@ -217,13 +137,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string**| content type | [default to application/json]
+ **contentType** | **string**| Content type. | [default to application/json]
  **clientRequestId** | **string**| A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format. | 
- **apiKey** | **string**|  | 
+ **apiKey** | **string**| Key given to merchant after boarding associating their requests with the appropriate app in Apigee. | 
  **timestamp** | **long?**| Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins). | 
- **primaryTransaction** | [**PrimaryTransaction**](PrimaryTransaction.md)| Primary Transaction request | 
- **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
- **region** | **string**| The region where client wants to process the transaction | [optional] 
+ **primaryTransaction** | [**PrimaryTransaction**](PrimaryTransaction.md)| Accepted request types: AliPaySaleTransaction, ChinaPnRSaleTransaction, PaymentCardCreditTransaction, PaymentCardForcedTicketTransaction, PaymentCardSaleTransaction, PaymentCardPreAuthTransaction, PaymentCardPayerAuthTransaction, PaymentTokenCreditTransaction, PaymentTokenPreAuthTransaction, PaymentTokenSaleTransaction, PaypalCreditTransaction, and SepaSaleTransaction. | 
+ **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
+ **region** | **string**| Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. | [optional] 
 
 ### Return type
 
@@ -240,13 +160,13 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="returntransaction"></a>
-# **ReturnTransaction**
-> TransactionResponse ReturnTransaction (string contentType, string clientRequestId, string apiKey, long? timestamp, string transactionId, SecondaryTransaction secondaryTransaction, string messageSignature, string region, string storeId)
+<a name="submitsecondarytransaction"></a>
+# **SubmitSecondaryTransaction**
+> TransactionResponse SubmitSecondaryTransaction (string contentType, string clientRequestId, string apiKey, long? timestamp, string transactionId, SecondaryTransaction secondaryTransaction, string messageSignature, string region, string storeId)
 
-Return/refund a transaction.
+Perform a secondary transaction.
 
-Use this to return/refund an existing transaction.  Partial returns are allowed.
+Use this to perform a void, postAuth or return secondary transaction. Partial postAuths and returns are allowed.
 
 ### Example
 ```csharp
@@ -258,31 +178,31 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class ReturnTransactionExample
+    public class SubmitSecondaryTransactionExample
     {
         public void main()
         {
             
             var apiInstance = new PaymentApi();
-            var contentType = contentType_example;  // string | content type (default to application/json)
+            var contentType = contentType_example;  // string | Content type. (default to application/json)
             var clientRequestId = clientRequestId_example;  // string | A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.
-            var apiKey = apiKey_example;  // string | 
+            var apiKey = apiKey_example;  // string | Key given to merchant after boarding associating their requests with the appropriate app in Apigee.
             var timestamp = 789;  // long? | Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).
-            var transactionId = transactionId_example;  // string | Gateway transaction identifier as returned in the parameter ipgTransactionId
-            var secondaryTransaction = new SecondaryTransaction(); // SecondaryTransaction | 
-            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
-            var region = region_example;  // string | The region where client wants to process the transaction (optional) 
-            var storeId = storeId_example;  // string | An optional outlet ID for clients that support multiple stores in the same developer app (optional) 
+            var transactionId = transactionId_example;  // string | Gateway transaction identifier as returned in the parameter ipgTransactionId.
+            var secondaryTransaction = new SecondaryTransaction(); // SecondaryTransaction | Accepted request types: PostAuthTransaction, VoidTransaction, and ReturnTransaction.
+            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
+            var region = region_example;  // string | Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. (optional) 
+            var storeId = storeId_example;  // string | An optional outlet ID for clients that support multiple stores in the same developer app. (optional) 
 
             try
             {
-                // Return/refund a transaction.
-                TransactionResponse result = apiInstance.ReturnTransaction(contentType, clientRequestId, apiKey, timestamp, transactionId, secondaryTransaction, messageSignature, region, storeId);
+                // Perform a secondary transaction.
+                TransactionResponse result = apiInstance.SubmitSecondaryTransaction(contentType, clientRequestId, apiKey, timestamp, transactionId, secondaryTransaction, messageSignature, region, storeId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling PaymentApi.ReturnTransaction: " + e.Message );
+                Debug.Print("Exception when calling PaymentApi.SubmitSecondaryTransaction: " + e.Message );
             }
         }
     }
@@ -293,15 +213,15 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string**| content type | [default to application/json]
+ **contentType** | **string**| Content type. | [default to application/json]
  **clientRequestId** | **string**| A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format. | 
- **apiKey** | **string**|  | 
+ **apiKey** | **string**| Key given to merchant after boarding associating their requests with the appropriate app in Apigee. | 
  **timestamp** | **long?**| Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins). | 
- **transactionId** | **string**| Gateway transaction identifier as returned in the parameter ipgTransactionId | 
- **secondaryTransaction** | [**SecondaryTransaction**](SecondaryTransaction.md)|  | 
- **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
- **region** | **string**| The region where client wants to process the transaction | [optional] 
- **storeId** | **string**| An optional outlet ID for clients that support multiple stores in the same developer app | [optional] 
+ **transactionId** | **string**| Gateway transaction identifier as returned in the parameter ipgTransactionId. | 
+ **secondaryTransaction** | [**SecondaryTransaction**](SecondaryTransaction.md)| Accepted request types: PostAuthTransaction, VoidTransaction, and ReturnTransaction. | 
+ **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
+ **region** | **string**| Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. | [optional] 
+ **storeId** | **string**| An optional outlet ID for clients that support multiple stores in the same developer app. | [optional] 
 
 ### Return type
 
@@ -342,14 +262,14 @@ namespace Example
         {
             
             var apiInstance = new PaymentApi();
-            var contentType = contentType_example;  // string | content type (default to application/json)
+            var contentType = contentType_example;  // string | Content type. (default to application/json)
             var clientRequestId = clientRequestId_example;  // string | A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.
-            var apiKey = apiKey_example;  // string | 
+            var apiKey = apiKey_example;  // string | Key given to merchant after boarding associating their requests with the appropriate app in Apigee.
             var timestamp = 789;  // long? | Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).
-            var transactionId = transactionId_example;  // string | Gateway transaction identifier as returned in the parameter ipgTransactionId
-            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
-            var region = region_example;  // string | The region where client wants to process the transaction (optional) 
-            var storeId = storeId_example;  // string | An optional outlet ID for clients that support multiple stores in the same developer app (optional) 
+            var transactionId = transactionId_example;  // string | Gateway transaction identifier as returned in the parameter ipgTransactionId.
+            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
+            var region = region_example;  // string | Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. (optional) 
+            var storeId = storeId_example;  // string | An optional outlet ID for clients that support multiple stores in the same developer app. (optional) 
 
             try
             {
@@ -370,90 +290,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string**| content type | [default to application/json]
+ **contentType** | **string**| Content type. | [default to application/json]
  **clientRequestId** | **string**| A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format. | 
- **apiKey** | **string**|  | 
+ **apiKey** | **string**| Key given to merchant after boarding associating their requests with the appropriate app in Apigee. | 
  **timestamp** | **long?**| Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins). | 
- **transactionId** | **string**| Gateway transaction identifier as returned in the parameter ipgTransactionId | 
- **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
- **region** | **string**| The region where client wants to process the transaction | [optional] 
- **storeId** | **string**| An optional outlet ID for clients that support multiple stores in the same developer app | [optional] 
-
-### Return type
-
-[**TransactionResponse**](TransactionResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="voidtransaction"></a>
-# **VoidTransaction**
-> TransactionResponse VoidTransaction (string contentType, string clientRequestId, string apiKey, long? timestamp, string transactionId, string messageSignature, string region, string storeId)
-
-Reverse a previous action on an existing transaction.
-
-Use this to reverse a postauth/completion, credit, preauth, or sale.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
-
-namespace Example
-{
-    public class VoidTransactionExample
-    {
-        public void main()
-        {
-            
-            var apiInstance = new PaymentApi();
-            var contentType = contentType_example;  // string | content type (default to application/json)
-            var clientRequestId = clientRequestId_example;  // string | A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.
-            var apiKey = apiKey_example;  // string | 
-            var timestamp = 789;  // long? | Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).
-            var transactionId = transactionId_example;  // string | Gateway transaction identifier as returned in the parameter ipgTransactionId
-            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
-            var region = region_example;  // string | The region where client wants to process the transaction (optional) 
-            var storeId = storeId_example;  // string | An optional outlet ID for clients that support multiple stores in the same developer app (optional) 
-
-            try
-            {
-                // Reverse a previous action on an existing transaction.
-                TransactionResponse result = apiInstance.VoidTransaction(contentType, clientRequestId, apiKey, timestamp, transactionId, messageSignature, region, storeId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling PaymentApi.VoidTransaction: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contentType** | **string**| content type | [default to application/json]
- **clientRequestId** | **string**| A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format. | 
- **apiKey** | **string**|  | 
- **timestamp** | **long?**| Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins). | 
- **transactionId** | **string**| Gateway transaction identifier as returned in the parameter ipgTransactionId | 
- **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
- **region** | **string**| The region where client wants to process the transaction | [optional] 
- **storeId** | **string**| An optional outlet ID for clients that support multiple stores in the same developer app | [optional] 
+ **transactionId** | **string**| Gateway transaction identifier as returned in the parameter ipgTransactionId. | 
+ **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
+ **region** | **string**| Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. | [optional] 
+ **storeId** | **string**| An optional outlet ID for clients that support multiple stores in the same developer app. | [optional] 
 
 ### Return type
 

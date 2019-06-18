@@ -8,30 +8,30 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Customer Address Fields.
+  /// Customer address fields.
   /// </summary>
   [DataContract]
   public class CustomerAddress {
     /// <summary>
-    /// Street Address Line 1. This field is required if the parent object is present.
+    /// First line of street address.
     /// </summary>
-    /// <value>Street Address Line 1. This field is required if the parent object is present.</value>
+    /// <value>First line of street address.</value>
     [DataMember(Name="street", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "street")]
     public string Street { get; set; }
 
     /// <summary>
-    /// Street Address Line 2.
+    /// Second line of street address.
     /// </summary>
-    /// <value>Street Address Line 2.</value>
+    /// <value>Second line of street address.</value>
     [DataMember(Name="street2", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "street2")]
     public string Street2 { get; set; }
 
     /// <summary>
-    /// State or Province.
+    /// State or province.
     /// </summary>
-    /// <value>State or Province.</value>
+    /// <value>State or province.</value>
     [DataMember(Name="stateProvince", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "stateProvince")]
     public string StateProvince { get; set; }

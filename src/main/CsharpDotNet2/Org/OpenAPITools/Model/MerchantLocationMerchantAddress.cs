@@ -8,54 +8,54 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Info for the Merchant Address.
+  /// Info for the merchant address.
   /// </summary>
   [DataContract]
   public class MerchantLocationMerchantAddress {
     /// <summary>
-    /// Merchant Street Address 1. This field is required if the parent object is present.
+    /// First line of street address.
     /// </summary>
-    /// <value>Merchant Street Address 1. This field is required if the parent object is present.</value>
+    /// <value>First line of street address.</value>
     [DataMember(Name="street", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "street")]
     public string Street { get; set; }
 
     /// <summary>
-    /// Merchant Street Address 2
+    /// Second line of street address.
     /// </summary>
-    /// <value>Merchant Street Address 2</value>
+    /// <value>Second line of street address.</value>
     [DataMember(Name="street2", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "street2")]
     public string Street2 { get; set; }
 
     /// <summary>
-    /// Merchant State
+    /// Merchant state or provinceu.
     /// </summary>
-    /// <value>Merchant State</value>
+    /// <value>Merchant state or provinceu.</value>
     [DataMember(Name="stateProvince", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "stateProvince")]
     public string StateProvince { get; set; }
 
     /// <summary>
-    /// Merchant City
+    /// Merchant city.
     /// </summary>
-    /// <value>Merchant City</value>
+    /// <value>Merchant city.</value>
     [DataMember(Name="city", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "city")]
     public string City { get; set; }
 
     /// <summary>
-    /// Merchant Country.
+    /// Merchant country.
     /// </summary>
-    /// <value>Merchant Country.</value>
+    /// <value>Merchant country.</value>
     [DataMember(Name="country", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "country")]
     public string Country { get; set; }
 
     /// <summary>
-    /// Merchant Zip Code.
+    /// Merchant ZIP code.
     /// </summary>
-    /// <value>Merchant Zip Code.</value>
+    /// <value>Merchant ZIP code.</value>
     [DataMember(Name="zipPostalCode", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "zipPostalCode")]
     public string ZipPostalCode { get; set; }

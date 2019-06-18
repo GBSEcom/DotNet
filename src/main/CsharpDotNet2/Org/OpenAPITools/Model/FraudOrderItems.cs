@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// 
+  /// Product details.
   /// </summary>
   [DataContract]
   public class FraudOrderItems {
@@ -69,8 +69,9 @@ namespace Org.OpenAPITools.Model {
     public string DetailsUrl { get; set; }
 
     /// <summary>
-    /// Gets or Sets UserDefined
+    /// A JSON object that can carry any additional information about the order that might be helpful for fraud detection.
     /// </summary>
+    /// <value>A JSON object that can carry any additional information about the order that might be helpful for fraud detection.</value>
     [DataMember(Name="userDefined", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "userDefined")]
     public Object UserDefined { get; set; }

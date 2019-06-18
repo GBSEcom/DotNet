@@ -8,14 +8,14 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// 
+  /// Contains 3DSecure response code.
   /// </summary>
   [DataContract]
   public class Secure3dResponse {
     /// <summary>
-    /// Code received after successful payer-auth verification
+    /// Code received after successful payer-auth verification.
     /// </summary>
-    /// <value>Code received after successful payer-auth verification</value>
+    /// <value>Code received after successful payer-auth verification.</value>
     [DataMember(Name="responseCode3dSecure", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "responseCode3dSecure")]
     public string ResponseCode3dSecure { get; set; }

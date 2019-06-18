@@ -13,28 +13,44 @@ namespace Org.OpenAPITools.Model {
   [DataContract]
   public class InstallmentOptions {
     /// <summary>
-    /// Number of installments for a Sale transaction if the customer pays the total amount in multiple transactions
+    /// Number of installments for a sale transaction if the customer pays the total amount in multiple transactions.
     /// </summary>
-    /// <value>Number of installments for a Sale transaction if the customer pays the total amount in multiple transactions</value>
+    /// <value>Number of installments for a sale transaction if the customer pays the total amount in multiple transactions.</value>
     [DataMember(Name="numberOfInstallments", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "numberOfInstallments")]
     public int? NumberOfInstallments { get; set; }
 
     /// <summary>
-    /// Indicates whether the installment interest amount has been applied. Possible values are \"yes\" or \"no\".
+    /// Indicates whether the installment interest amount has been applied.
     /// </summary>
-    /// <value>Indicates whether the installment interest amount has been applied. Possible values are \"yes\" or \"no\".</value>
+    /// <value>Indicates whether the installment interest amount has been applied.</value>
     [DataMember(Name="installmentsInterest", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "installmentsInterest")]
     public bool? InstallmentsInterest { get; set; }
 
     /// <summary>
-    /// The number of months the first installment payment will be delayed
+    /// The number of months the first installment payment will be delayed.
     /// </summary>
-    /// <value>The number of months the first installment payment will be delayed</value>
+    /// <value>The number of months the first installment payment will be delayed.</value>
     [DataMember(Name="installmentDelayMonths", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "installmentDelayMonths")]
     public int? InstallmentDelayMonths { get; set; }
+
+    /// <summary>
+    /// The type of recurring payment.
+    /// </summary>
+    /// <value>The type of recurring payment.</value>
+    [DataMember(Name="recurringType", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "recurringType")]
+    public string RecurringType { get; set; }
+
+    /// <summary>
+    /// Indicates if the merchant supports merchant advice code (MAC) in order to receive table 55 code for a declined recurring transaction.
+    /// </summary>
+    /// <value>Indicates if the merchant supports merchant advice code (MAC) in order to receive table 55 code for a declined recurring transaction.</value>
+    [DataMember(Name="merchantAdviceCodeSupported", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "merchantAdviceCodeSupported")]
+    public bool? MerchantAdviceCodeSupported { get; set; }
 
 
     /// <summary>
@@ -47,6 +63,8 @@ namespace Org.OpenAPITools.Model {
       sb.Append("  NumberOfInstallments: ").Append(NumberOfInstallments).Append("\n");
       sb.Append("  InstallmentsInterest: ").Append(InstallmentsInterest).Append("\n");
       sb.Append("  InstallmentDelayMonths: ").Append(InstallmentDelayMonths).Append("\n");
+      sb.Append("  RecurringType: ").Append(RecurringType).Append("\n");
+      sb.Append("  MerchantAdviceCodeSupported: ").Append(MerchantAdviceCodeSupported).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

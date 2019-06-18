@@ -8,38 +8,38 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Payment Facilitator details provided by the Merchant.
+  /// Payment facilitator details provided by the merchant.
   /// </summary>
   [DataContract]
   public class PaymentFacilitator {
     /// <summary>
-    /// External Merchant ID of the payment facilitator
+    /// External merchant ID of the payment facilitator.
     /// </summary>
-    /// <value>External Merchant ID of the payment facilitator</value>
+    /// <value>External merchant ID of the payment facilitator.</value>
     [DataMember(Name="externalMerchantId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "externalMerchantId")]
     public string ExternalMerchantId { get; set; }
 
     /// <summary>
-    /// Payment Facilitator ID supplied during boarding
+    /// Payment facilitator ID supplied during boarding.
     /// </summary>
-    /// <value>Payment Facilitator ID supplied during boarding</value>
+    /// <value>Payment facilitator ID supplied during boarding.</value>
     [DataMember(Name="paymentFacilitatorId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "paymentFacilitatorId")]
     public string PaymentFacilitatorId { get; set; }
 
     /// <summary>
-    /// Independent Sales Organization (ISO) ID provided by Mastercard
+    /// Independent sales organization (ISO) ID provided by Mastercard.
     /// </summary>
-    /// <value>Independent Sales Organization (ISO) ID provided by Mastercard</value>
+    /// <value>Independent sales organization (ISO) ID provided by Mastercard.</value>
     [DataMember(Name="saleOrganizationId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "saleOrganizationId")]
     public string SaleOrganizationId { get; set; }
 
     /// <summary>
-    /// Payment facilitator Name
+    /// Payment facilitator name.
     /// </summary>
-    /// <value>Payment facilitator Name</value>
+    /// <value>Payment facilitator name.</value>
     [DataMember(Name="name", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "name")]
     public string Name { get; set; }

@@ -3,18 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**RequestType** | **string** | Object name of the payment schedules request. | 
 **StoreId** | **string** | Store ID number. | [optional] 
-**ReferencedOrderId** | **string** | Order ID used to create recurring payment from existing transaction. | [optional] 
-**StartDate** | **DateTime?** | Date of mandate signature. | [optional] 
-**NumberOfPayments** | **int?** | Number of times the recurring pament will process. | [optional] 
+**StartDate** | **DateTime?** | Date of mandate signature. | 
+**NumberOfPayments** | **int?** | Number of times the recurring payment will process. | [optional] 
 **MaximumFailures** | **int?** | Number of failures that can be encountered before re-tries cease. | [optional] 
 **InvoiceNumber** | **string** | Invoice number. | [optional] 
 **PurchaseOrderNumber** | **string** | Purchase order number. | [optional] 
-**TransactionOrigin** | **TransactionOrigin** |  | [optional] 
+**TransactionOrigin** | [**TransactionOrigin**](TransactionOrigin.md) |  | [optional] 
 **DynamicMerchantName** | **string** | Dynamic merchant name for the cardholder&#39;s statement. | [optional] 
-**Frequency** | [**Frequency**](Frequency.md) |  | [optional] 
-**PaymentMethod** | [**PaymentMethod**](PaymentMethod.md) |  | [optional] 
-**Amount** | [**Amount**](Amount.md) |  | [optional] 
+**Frequency** | [**Frequency**](Frequency.md) |  | 
+**TransactionAmount** | [**Amount**](Amount.md) |  | 
 **ClientLocale** | [**ClientLocale**](ClientLocale.md) |  | [optional] 
 **OrderId** | **string** | Client order ID if supplied by client. | [optional] 
 **Billing** | [**Billing**](Billing.md) |  | [optional] 

@@ -21,49 +21,49 @@ namespace Org.OpenAPITools.Model {
     public string Phone { get; set; }
 
     /// <summary>
-    /// Street Address 1. This field is required if the parent object is present.
+    /// First line of street address.
     /// </summary>
-    /// <value>Street Address 1. This field is required if the parent object is present.</value>
+    /// <value>First line of street address.</value>
     [DataMember(Name="address1", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "address1")]
     public string Address1 { get; set; }
 
     /// <summary>
-    /// Street Address 2.
+    /// Second line of street address.
     /// </summary>
-    /// <value>Street Address 2.</value>
+    /// <value>Second line of street address.</value>
     [DataMember(Name="address2", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "address2")]
     public string Address2 { get; set; }
 
     /// <summary>
-    /// City
+    /// City.
     /// </summary>
-    /// <value>City</value>
+    /// <value>City.</value>
     [DataMember(Name="city", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "city")]
     public string City { get; set; }
 
     /// <summary>
-    /// State or Province
+    /// State or province.
     /// </summary>
-    /// <value>State or Province</value>
+    /// <value>State or province.</value>
     [DataMember(Name="state", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "state")]
     public string State { get; set; }
 
     /// <summary>
-    /// Postal Code, free form. This field is required if the parent object is present.
+    /// Postal Code, free form.
     /// </summary>
-    /// <value>Postal Code, free form. This field is required if the parent object is present.</value>
+    /// <value>Postal Code, free form.</value>
     [DataMember(Name="zip", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "zip")]
     public string Zip { get; set; }
 
     /// <summary>
-    /// Country. This field is required if the parent object is present.
+    /// Country.
     /// </summary>
-    /// <value>Country. This field is required if the parent object is present.</value>
+    /// <value>Country.</value>
     [DataMember(Name="country", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "country")]
     public string Country { get; set; }

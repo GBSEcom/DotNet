@@ -13,22 +13,25 @@ namespace Org.OpenAPITools.Model {
   [DataContract]
   public class ScoreOnlyResponseFraudScoreExplanations {
     /// <summary>
-    /// Gets or Sets Description
+    /// Description of the fraud score explanation.
     /// </summary>
+    /// <value>Description of the fraud score explanation.</value>
     [DataMember(Name="description", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "description")]
     public string Description { get; set; }
 
     /// <summary>
-    /// Gets or Sets Rule
+    /// ID of the rule being triggered.
     /// </summary>
+    /// <value>ID of the rule being triggered.</value>
     [DataMember(Name="rule", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "rule")]
     public string Rule { get; set; }
 
     /// <summary>
-    /// Gets or Sets Type
+    /// Type of the explanation (model or rule).
     /// </summary>
+    /// <value>Type of the explanation (model or rule).</value>
     [DataMember(Name="type", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "type")]
     public string Type { get; set; }

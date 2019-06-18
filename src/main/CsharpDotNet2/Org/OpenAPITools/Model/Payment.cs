@@ -21,9 +21,9 @@ namespace Org.OpenAPITools.Model {
     public string PaymentType { get; set; }
 
     /// <summary>
-    /// Gets or Sets Method
+    /// Gets or Sets PayMethod
     /// </summary>
-    [DataMember(Name = "payMethod", EmitDefaultValue = false)]
+    [DataMember(Name="payMethod", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "method")]
     public PaymentPayMethod PayMethod { get; set; }
 

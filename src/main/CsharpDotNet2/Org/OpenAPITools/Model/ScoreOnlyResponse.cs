@@ -8,14 +8,14 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Fraud Detect response
+  /// Fraud detect response.
   /// </summary>
   [DataContract]
   public class ScoreOnlyResponse {
     /// <summary>
-    /// Unique trace ID for issue triage
+    /// Unique trace ID for issue triage.
     /// </summary>
-    /// <value>Unique trace ID for issue triage</value>
+    /// <value>Unique trace ID for issue triage.</value>
     [DataMember(Name="apiTraceId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "apiTraceId")]
     public string ApiTraceId { get; set; }
@@ -29,9 +29,9 @@ namespace Org.OpenAPITools.Model {
     public string TransactionStatus { get; set; }
 
     /// <summary>
-    /// If status returned is \"failure\", input validation errors occurred. Please refer to the \"Errors Section\" for more info.
+    /// If status returned is \"failure\", input validation errors occurred. Please refer to the \"Errors Section\" for more info. Valid values are 'success' and 'failure'.
     /// </summary>
-    /// <value>If status returned is \"failure\", input validation errors occurred. Please refer to the \"Errors Section\" for more info.</value>
+    /// <value>If status returned is \"failure\", input validation errors occurred. Please refer to the \"Errors Section\" for more info. Valid values are 'success' and 'failure'.</value>
     [DataMember(Name="validationStatus", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "validationStatus")]
     public string ValidationStatus { get; set; }
@@ -52,8 +52,9 @@ namespace Org.OpenAPITools.Model {
     public ScoreOnlyResponseFraudScore FraudScore { get; set; }
 
     /// <summary>
-    /// Gets or Sets RecommendedDecision
+    /// The action that should be taken for the request that was sent.
     /// </summary>
+    /// <value>The action that should be taken for the request that was sent.</value>
     [DataMember(Name="recommendedDecision", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "recommendedDecision")]
     public string RecommendedDecision { get; set; }

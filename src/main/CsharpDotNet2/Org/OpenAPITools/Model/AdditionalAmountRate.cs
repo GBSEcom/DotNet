@@ -8,22 +8,22 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// 
+  /// Rate and corresponding amount being applied to purchase cards, for instance in the form of taxes or discounts.
   /// </summary>
   [DataContract]
   public class AdditionalAmountRate {
     /// <summary>
-    /// Rate amount in 3 decimal 12 bytes total digit
+    /// Amount in 3 decimal 12 bytes total digit.
     /// </summary>
-    /// <value>Rate amount in 3 decimal 12 bytes total digit</value>
+    /// <value>Amount in 3 decimal 12 bytes total digit.</value>
     [DataMember(Name="amount", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "amount")]
     public decimal? Amount { get; set; }
 
     /// <summary>
-    /// Rate amount in 3 decimal 12 bytes total digit
+    /// Rate in 3 decimal 12 bytes total digit.
     /// </summary>
-    /// <value>Rate amount in 3 decimal 12 bytes total digit</value>
+    /// <value>Rate in 3 decimal 12 bytes total digit.</value>
     [DataMember(Name="rate", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "rate")]
     public decimal? Rate { get; set; }

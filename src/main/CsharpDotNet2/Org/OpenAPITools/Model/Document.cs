@@ -13,17 +13,17 @@ namespace Org.OpenAPITools.Model {
   [DataContract]
   public class Document {
     /// <summary>
-    /// Document type
+    /// Document type.
     /// </summary>
-    /// <value>Document type</value>
+    /// <value>Document type.</value>
     [DataMember(Name="type", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "type")]
     public string Type { get; set; }
 
     /// <summary>
-    /// Document number
+    /// Document number.
     /// </summary>
-    /// <value>Document number</value>
+    /// <value>Document number.</value>
     [DataMember(Name="number", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "number")]
     public string Number { get; set; }

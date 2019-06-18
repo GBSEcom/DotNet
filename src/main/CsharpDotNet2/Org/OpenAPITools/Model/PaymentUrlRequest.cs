@@ -28,23 +28,23 @@ namespace Org.OpenAPITools.Model {
     public ClientLocale ClientLocale { get; set; }
 
     /// <summary>
-    /// Gets or Sets Amount
+    /// Gets or Sets TransactionAmount
     /// </summary>
-    [DataMember(Name="amount", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "amount")]
-    public Amount Amount { get; set; }
+    [DataMember(Name="transactionAmount", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "transactionAmount")]
+    public Amount TransactionAmount { get; set; }
 
     /// <summary>
     /// Gets or Sets TransactionType
     /// </summary>
-    [DataMember(Name="transactionType", EmitDefaultValue = false)]
+    [DataMember(Name="transactionType", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "transactionType")]
     public TransactionType TransactionType { get; set; }
 
     /// <summary>
-    /// Client Order ID if supplied by client, otherwise the Order ID.
+    /// Client order ID if supplied by client, otherwise the order ID.
     /// </summary>
-    /// <value>Client Order ID if supplied by client, otherwise the Order ID.</value>
+    /// <value>Client order ID if supplied by client, otherwise the order ID.</value>
     [DataMember(Name="orderId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "orderId")]
     public string OrderId { get; set; }
@@ -64,9 +64,9 @@ namespace Org.OpenAPITools.Model {
     public Shipping Shipping { get; set; }
 
     /// <summary>
-    /// URL for notifying merchant with payment result.
+    /// URL for notifying merchant of payment result.
     /// </summary>
-    /// <value>URL for notifying merchant with payment result.</value>
+    /// <value>URL for notifying merchant of payment result.</value>
     [DataMember(Name="transactionNotificationURL", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "transactionNotificationURL")]
     public string TransactionNotificationURL { get; set; }
@@ -129,7 +129,7 @@ namespace Org.OpenAPITools.Model {
       sb.Append("class PaymentUrlRequest {\n");
       sb.Append("  StoreId: ").Append(StoreId).Append("\n");
       sb.Append("  ClientLocale: ").Append(ClientLocale).Append("\n");
-      sb.Append("  Amount: ").Append(Amount).Append("\n");
+      sb.Append("  TransactionAmount: ").Append(TransactionAmount).Append("\n");
       sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
       sb.Append("  OrderId: ").Append(OrderId).Append("\n");
       sb.Append("  Billing: ").Append(Billing).Append("\n");

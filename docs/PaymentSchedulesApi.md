@@ -1,13 +1,13 @@
 # Org.OpenAPITools.Api.PaymentSchedulesApi
 
-All URIs are relative to *https://cert.api.firstdata.com/gateway*
+All URIs are relative to *https://cert.api.firstdata.com/gateway/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CancelPaymentSchedule**](PaymentSchedulesApi.md#cancelpaymentschedule) | **DELETE** /v1/payment-schedules/{order-id} | Cancel a gateway payment schedule.
-[**CreatePaymentSchedule**](PaymentSchedulesApi.md#createpaymentschedule) | **POST** /v1/payment-schedules | Use this to create a gateway payment schedule.
-[**InquiryPaymentSchedule**](PaymentSchedulesApi.md#inquirypaymentschedule) | **GET** /v1/payment-schedules/{order-id} | View a gateway payment schedule.
-[**UpdatePaymentSchedule**](PaymentSchedulesApi.md#updatepaymentschedule) | **PATCH** /v1/payment-schedules/{order-id} | Update a gateway payment schedule.
+[**CancelPaymentSchedule**](PaymentSchedulesApi.md#cancelpaymentschedule) | **DELETE** /payment-schedules/{order-id} | Cancel a gateway payment schedule.
+[**CreatePaymentSchedule**](PaymentSchedulesApi.md#createpaymentschedule) | **POST** /payment-schedules | Create gateway payment schedule.
+[**InquiryPaymentSchedule**](PaymentSchedulesApi.md#inquirypaymentschedule) | **GET** /payment-schedules/{order-id} | View a gateway payment schedule.
+[**UpdatePaymentSchedule**](PaymentSchedulesApi.md#updatepaymentschedule) | **PATCH** /payment-schedules/{order-id} | Update a gateway payment schedule.
 
 
 <a name="cancelpaymentschedule"></a>
@@ -34,14 +34,14 @@ namespace Example
         {
             
             var apiInstance = new PaymentSchedulesApi();
-            var contentType = contentType_example;  // string | content type (default to application/json)
+            var contentType = contentType_example;  // string | Content type. (default to application/json)
             var clientRequestId = clientRequestId_example;  // string | A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.
-            var apiKey = apiKey_example;  // string | 
+            var apiKey = apiKey_example;  // string | Key given to merchant after boarding associating their requests with the appropriate app in Apigee.
             var timestamp = 789;  // long? | Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).
-            var orderId = orderId_example;  // string | Gateway order identifier as returned in the parameter orderId
-            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
-            var region = region_example;  // string | The region where client wants to process the transaction (optional) 
-            var storeId = storeId_example;  // string | An optional outlet ID for clients that support multiple stores in the same developer app (optional) 
+            var orderId = orderId_example;  // string | Gateway order identifier as returned in the parameter orderId.
+            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
+            var region = region_example;  // string | Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. (optional) 
+            var storeId = storeId_example;  // string | An optional outlet ID for clients that support multiple stores in the same developer app. (optional) 
 
             try
             {
@@ -62,14 +62,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string**| content type | [default to application/json]
+ **contentType** | **string**| Content type. | [default to application/json]
  **clientRequestId** | **string**| A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format. | 
- **apiKey** | **string**|  | 
+ **apiKey** | **string**| Key given to merchant after boarding associating their requests with the appropriate app in Apigee. | 
  **timestamp** | **long?**| Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins). | 
- **orderId** | **string**| Gateway order identifier as returned in the parameter orderId | 
- **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
- **region** | **string**| The region where client wants to process the transaction | [optional] 
- **storeId** | **string**| An optional outlet ID for clients that support multiple stores in the same developer app | [optional] 
+ **orderId** | **string**| Gateway order identifier as returned in the parameter orderId. | 
+ **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
+ **region** | **string**| Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. | [optional] 
+ **storeId** | **string**| An optional outlet ID for clients that support multiple stores in the same developer app. | [optional] 
 
 ### Return type
 
@@ -90,9 +90,9 @@ No authorization required
 # **CreatePaymentSchedule**
 > PaymentSchedulesResponse CreatePaymentSchedule (string contentType, string clientRequestId, string apiKey, long? timestamp, PaymentSchedulesRequest paymentSchedulesRequest, string messageSignature, string region)
 
-Use this to create a gateway payment schedule.
+Create gateway payment schedule.
 
-This can be used to create a gateway payment schedule.
+Use this to create a gateway payment schedule.
 
 ### Example
 ```csharp
@@ -110,17 +110,17 @@ namespace Example
         {
             
             var apiInstance = new PaymentSchedulesApi();
-            var contentType = contentType_example;  // string | content type (default to application/json)
+            var contentType = contentType_example;  // string | Content type. (default to application/json)
             var clientRequestId = clientRequestId_example;  // string | A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.
-            var apiKey = apiKey_example;  // string | 
+            var apiKey = apiKey_example;  // string | Key given to merchant after boarding associating their requests with the appropriate app in Apigee.
             var timestamp = 789;  // long? | Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).
-            var paymentSchedulesRequest = new PaymentSchedulesRequest(); // PaymentSchedulesRequest | 
-            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
-            var region = region_example;  // string | The region where client wants to process the transaction (optional) 
+            var paymentSchedulesRequest = new PaymentSchedulesRequest(); // PaymentSchedulesRequest | Accepted request types: PaymentMethodPaymentSchedulesRequest and ReferencedOrderPaymentSchedulesRequest.
+            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
+            var region = region_example;  // string | Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. (optional) 
 
             try
             {
-                // Use this to create a gateway payment schedule.
+                // Create gateway payment schedule.
                 PaymentSchedulesResponse result = apiInstance.CreatePaymentSchedule(contentType, clientRequestId, apiKey, timestamp, paymentSchedulesRequest, messageSignature, region);
                 Debug.WriteLine(result);
             }
@@ -137,13 +137,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string**| content type | [default to application/json]
+ **contentType** | **string**| Content type. | [default to application/json]
  **clientRequestId** | **string**| A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format. | 
- **apiKey** | **string**|  | 
+ **apiKey** | **string**| Key given to merchant after boarding associating their requests with the appropriate app in Apigee. | 
  **timestamp** | **long?**| Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins). | 
- **paymentSchedulesRequest** | [**PaymentSchedulesRequest**](PaymentSchedulesRequest.md)|  | 
- **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
- **region** | **string**| The region where client wants to process the transaction | [optional] 
+ **paymentSchedulesRequest** | [**PaymentSchedulesRequest**](PaymentSchedulesRequest.md)| Accepted request types: PaymentMethodPaymentSchedulesRequest and ReferencedOrderPaymentSchedulesRequest. | 
+ **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
+ **region** | **string**| Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. | [optional] 
 
 ### Return type
 
@@ -166,7 +166,7 @@ No authorization required
 
 View a gateway payment schedule.
 
-This can be used to view an existing gateway payment schedule.
+Use this to view an existing gateway payment schedule.
 
 ### Example
 ```csharp
@@ -184,14 +184,14 @@ namespace Example
         {
             
             var apiInstance = new PaymentSchedulesApi();
-            var contentType = contentType_example;  // string | content type (default to application/json)
+            var contentType = contentType_example;  // string | Content type. (default to application/json)
             var clientRequestId = clientRequestId_example;  // string | A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.
-            var apiKey = apiKey_example;  // string | 
+            var apiKey = apiKey_example;  // string | Key given to merchant after boarding associating their requests with the appropriate app in Apigee.
             var timestamp = 789;  // long? | Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).
-            var orderId = orderId_example;  // string | Gateway order identifier as returned in the parameter orderId
-            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
-            var region = region_example;  // string | The region where client wants to process the transaction (optional) 
-            var storeId = storeId_example;  // string | An optional outlet ID for clients that support multiple stores in the same developer app (optional) 
+            var orderId = orderId_example;  // string | Gateway order identifier as returned in the parameter orderId.
+            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
+            var region = region_example;  // string | Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. (optional) 
+            var storeId = storeId_example;  // string | An optional outlet ID for clients that support multiple stores in the same developer app. (optional) 
 
             try
             {
@@ -212,14 +212,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string**| content type | [default to application/json]
+ **contentType** | **string**| Content type. | [default to application/json]
  **clientRequestId** | **string**| A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format. | 
- **apiKey** | **string**|  | 
+ **apiKey** | **string**| Key given to merchant after boarding associating their requests with the appropriate app in Apigee. | 
  **timestamp** | **long?**| Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins). | 
- **orderId** | **string**| Gateway order identifier as returned in the parameter orderId | 
- **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
- **region** | **string**| The region where client wants to process the transaction | [optional] 
- **storeId** | **string**| An optional outlet ID for clients that support multiple stores in the same developer app | [optional] 
+ **orderId** | **string**| Gateway order identifier as returned in the parameter orderId. | 
+ **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
+ **region** | **string**| Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. | [optional] 
+ **storeId** | **string**| An optional outlet ID for clients that support multiple stores in the same developer app. | [optional] 
 
 ### Return type
 
@@ -242,7 +242,7 @@ No authorization required
 
 Update a gateway payment schedule.
 
-This can be used to update a gateway payment schedule.
+Use this to update a gateway payment schedule.
 
 ### Example
 ```csharp
@@ -260,15 +260,15 @@ namespace Example
         {
             
             var apiInstance = new PaymentSchedulesApi();
-            var contentType = contentType_example;  // string | content type (default to application/json)
+            var contentType = contentType_example;  // string | Content type. (default to application/json)
             var clientRequestId = clientRequestId_example;  // string | A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.
-            var apiKey = apiKey_example;  // string | 
+            var apiKey = apiKey_example;  // string | Key given to merchant after boarding associating their requests with the appropriate app in Apigee.
             var timestamp = 789;  // long? | Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).
-            var orderId = orderId_example;  // string | Gateway order identifier as returned in the parameter orderId
-            var paymentSchedulesRequest = new PaymentSchedulesRequest(); // PaymentSchedulesRequest | 
-            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
-            var region = region_example;  // string | The region where client wants to process the transaction (optional) 
-            var storeId = storeId_example;  // string | An optional outlet ID for clients that support multiple stores in the same developer app (optional) 
+            var orderId = orderId_example;  // string | Gateway order identifier as returned in the parameter orderId.
+            var paymentSchedulesRequest = new PaymentSchedulesRequest(); // PaymentSchedulesRequest | Accepted request types: PaymentMethodPaymentSchedulesRequest and ReferencedOrderPaymentSchedulesRequest.
+            var messageSignature = messageSignature_example;  // string | Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. (optional) 
+            var region = region_example;  // string | Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. (optional) 
+            var storeId = storeId_example;  // string | An optional outlet ID for clients that support multiple stores in the same developer app. (optional) 
 
             try
             {
@@ -289,15 +289,15 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string**| content type | [default to application/json]
+ **contentType** | **string**| Content type. | [default to application/json]
  **clientRequestId** | **string**| A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format. | 
- **apiKey** | **string**|  | 
+ **apiKey** | **string**| Key given to merchant after boarding associating their requests with the appropriate app in Apigee. | 
  **timestamp** | **long?**| Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins). | 
- **orderId** | **string**| Gateway order identifier as returned in the parameter orderId | 
- **paymentSchedulesRequest** | [**PaymentSchedulesRequest**](PaymentSchedulesRequest.md)|  | 
- **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
- **region** | **string**| The region where client wants to process the transaction | [optional] 
- **storeId** | **string**| An optional outlet ID for clients that support multiple stores in the same developer app | [optional] 
+ **orderId** | **string**| Gateway order identifier as returned in the parameter orderId. | 
+ **paymentSchedulesRequest** | [**PaymentSchedulesRequest**](PaymentSchedulesRequest.md)| Accepted request types: PaymentMethodPaymentSchedulesRequest and ReferencedOrderPaymentSchedulesRequest. | 
+ **messageSignature** | **string**| Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal. | [optional] 
+ **region** | **string**| Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing. | [optional] 
+ **storeId** | **string**| An optional outlet ID for clients that support multiple stores in the same developer app. | [optional] 
 
 ### Return type
 

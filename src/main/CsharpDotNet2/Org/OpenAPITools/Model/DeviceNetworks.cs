@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// 
+  /// Network information.
   /// </summary>
   [DataContract]
   public class DeviceNetworks {
@@ -69,9 +69,9 @@ namespace Org.OpenAPITools.Model {
     public string SubscriptionIdentificationNumber { get; set; }
 
     /// <summary>
-    /// The Location Area Code (LAC) is a16-bit identifier for a region that is covered by a set of network antennas.
+    /// The Location Area Code (LAC) is a 16-bit identifier for a region that is covered by a set of network antennas.
     /// </summary>
-    /// <value>The Location Area Code (LAC) is a16-bit identifier for a region that is covered by a set of network antennas.</value>
+    /// <value>The Location Area Code (LAC) is a 16-bit identifier for a region that is covered by a set of network antennas.</value>
     [DataMember(Name="locationAreaCode", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "locationAreaCode")]
     public string LocationAreaCode { get; set; }

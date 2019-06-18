@@ -8,22 +8,22 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// This is the common object for primary and secondary payment request responses.
+  /// Common object for primary and secondary payment request responses.
   /// </summary>
   [DataContract]
   public class TransactionResponse : BasicResponse {
     /// <summary>
-    /// The Response Transaction ID
+    /// The response transaction ID.
     /// </summary>
-    /// <value>The Response Transaction ID</value>
+    /// <value>The response transaction ID.</value>
     [DataMember(Name="ipgTransactionId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "ipgTransactionId")]
     public string IpgTransactionId { get; set; }
 
     /// <summary>
-    /// Client Order ID if supplied by client, otherwise the Order ID
+    /// Client order ID if supplied by client, otherwise the order ID.
     /// </summary>
-    /// <value>Client Order ID if supplied by client, otherwise the Order ID</value>
+    /// <value>Client order ID if supplied by client, otherwise the order ID.</value>
     [DataMember(Name="orderId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "orderId")]
     public string OrderId { get; set; }
@@ -40,7 +40,7 @@ namespace Org.OpenAPITools.Model {
     /// </summary>
     [DataMember(Name="paymentToken", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "paymentToken")]
-    public PaymentTokenization PaymentToken { get; set; }
+    public PaymentTokenDetails PaymentToken { get; set; }
 
     /// <summary>
     /// Gets or Sets TransactionOrigin
@@ -50,40 +50,40 @@ namespace Org.OpenAPITools.Model {
     public TransactionOrigin TransactionOrigin { get; set; }
 
     /// <summary>
-    /// Gets or Sets PaymentMethod
+    /// Gets or Sets PaymentMethodDetails
     /// </summary>
-    [DataMember(Name="paymentMethod", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "paymentMethod")]
-    public PaymentMethod PaymentMethod { get; set; }
+    [DataMember(Name="paymentMethodDetails", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "paymentMethodDetails")]
+    public PaymentMethodDetails PaymentMethodDetails { get; set; }
 
     /// <summary>
-    /// Country of the card issuer
+    /// Country of the card issuer.
     /// </summary>
-    /// <value>Country of the card issuer</value>
+    /// <value>Country of the card issuer.</value>
     [DataMember(Name="country", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "country")]
     public string Country { get; set; }
 
     /// <summary>
-    /// The terminal that is processing the transaction
+    /// The terminal that is processing the transaction.
     /// </summary>
-    /// <value>The terminal that is processing the transaction</value>
+    /// <value>The terminal that is processing the transaction.</value>
     [DataMember(Name="terminalId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "terminalId")]
     public string TerminalId { get; set; }
 
     /// <summary>
-    /// The unique merchant Transaction ID from the Request header, if supplied
+    /// The unique merchant transaction ID from the request header, if supplied.
     /// </summary>
-    /// <value>The unique merchant Transaction ID from the Request header, if supplied</value>
+    /// <value>The unique merchant transaction ID from the request header, if supplied.</value>
     [DataMember(Name="merchantTransactionId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "merchantTransactionId")]
     public string MerchantTransactionId { get; set; }
 
     /// <summary>
-    /// The transaction time in seconds since Epoch
+    /// The transaction time in seconds since epoch.
     /// </summary>
-    /// <value>The transaction time in seconds since Epoch</value>
+    /// <value>The transaction time in seconds since epoch.</value>
     [DataMember(Name="transactionTime", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "transactionTime")]
     public long? TransactionTime { get; set; }
@@ -131,7 +131,7 @@ namespace Org.OpenAPITools.Model {
     /// </summary>
     [DataMember(Name="authenticationRedirect", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "authenticationRedirect")]
-    public Object AuthenticationRedirect { get; set; }
+    public AuthenticationRedirect AuthenticationRedirect { get; set; }
 
     /// <summary>
     /// The transaction ID received from schemes for the initial transaction of card on file flows.
@@ -155,6 +155,13 @@ namespace Org.OpenAPITools.Model {
     [JsonProperty(PropertyName = "additionalDetails")]
     public AdditionalTransactionDetails AdditionalDetails { get; set; }
 
+    /// <summary>
+    /// Gets or Sets AccountUpdaterResponse
+    /// </summary>
+    [DataMember(Name="accountUpdaterResponse", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "accountUpdaterResponse")]
+    public AccountUpdaterResponse AccountUpdaterResponse { get; set; }
+
 
     /// <summary>
     /// Get the string presentation of the object
@@ -168,7 +175,7 @@ namespace Org.OpenAPITools.Model {
       sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
       sb.Append("  PaymentToken: ").Append(PaymentToken).Append("\n");
       sb.Append("  TransactionOrigin: ").Append(TransactionOrigin).Append("\n");
-      sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
+      sb.Append("  PaymentMethodDetails: ").Append(PaymentMethodDetails).Append("\n");
       sb.Append("  Country: ").Append(Country).Append("\n");
       sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
       sb.Append("  MerchantTransactionId: ").Append(MerchantTransactionId).Append("\n");
@@ -182,6 +189,7 @@ namespace Org.OpenAPITools.Model {
       sb.Append("  SchemeTransactionId: ").Append(SchemeTransactionId).Append("\n");
       sb.Append("  Processor: ").Append(Processor).Append("\n");
       sb.Append("  AdditionalDetails: ").Append(AdditionalDetails).Append("\n");
+      sb.Append("  AccountUpdaterResponse: ").Append(AccountUpdaterResponse).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

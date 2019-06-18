@@ -8,22 +8,22 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Model for the SEPA Mandate information
+  /// Model for the SEPA Mandate information.
   /// </summary>
   [DataContract]
   public class SepaMandate {
     /// <summary>
-    /// Existing mandate reference, managed by merchant. Must match [A-Za-z0-9:?/+(),. -]{1,35} and not start with two slashes (\"//\"). Also known as the Mandate ID
+    /// Existing mandate reference, managed by merchant. Must match [A-Za-z0-9:?/+(),. -]{1,35} and not start with two slashes (\"//\"). Also known as the mandate ID.
     /// </summary>
-    /// <value>Existing mandate reference, managed by merchant. Must match [A-Za-z0-9:?/+(),. -]{1,35} and not start with two slashes (\"//\"). Also known as the Mandate ID</value>
+    /// <value>Existing mandate reference, managed by merchant. Must match [A-Za-z0-9:?/+(),. -]{1,35} and not start with two slashes (\"//\"). Also known as the mandate ID.</value>
     [DataMember(Name="reference", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "reference")]
     public string Reference { get; set; }
 
     /// <summary>
-    /// Valid URL pointing to the SEPA mandate (PDF / HTML format recommended)
+    /// Valid URL pointing to the SEPA mandate (PDF / HTML format recommended).
     /// </summary>
-    /// <value>Valid URL pointing to the SEPA mandate (PDF / HTML format recommended)</value>
+    /// <value>Valid URL pointing to the SEPA mandate (PDF / HTML format recommended).</value>
     [DataMember(Name="url", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "url")]
     public string Url { get; set; }

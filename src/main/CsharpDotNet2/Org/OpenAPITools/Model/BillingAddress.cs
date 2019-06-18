@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Customer Address Fields associated with billing.
+  /// Customer address fields associated with billing.
   /// </summary>
   [DataContract]
   public class BillingAddress {
@@ -37,25 +37,25 @@ namespace Org.OpenAPITools.Model {
     public string MiddleName { get; set; }
 
     /// <summary>
-    /// Street Address 1. This field is required if the parent object is present.
+    /// First line of street address.
     /// </summary>
-    /// <value>Street Address 1. This field is required if the parent object is present.</value>
+    /// <value>First line of street address.</value>
     [DataMember(Name="street", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "street")]
     public string Street { get; set; }
 
     /// <summary>
-    /// Street Address 2.
+    /// Second line of street address.
     /// </summary>
-    /// <value>Street Address 2.</value>
+    /// <value>Second line of street address.</value>
     [DataMember(Name="street2", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "street2")]
     public string Street2 { get; set; }
 
     /// <summary>
-    /// State or Province.
+    /// State or province.
     /// </summary>
-    /// <value>State or Province.</value>
+    /// <value>State or province.</value>
     [DataMember(Name="stateProvince", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "stateProvince")]
     public string StateProvince { get; set; }
@@ -84,9 +84,9 @@ namespace Org.OpenAPITools.Model {
     public BillingAddressPhone Phone { get; set; }
 
     /// <summary>
-    /// Postal code
+    /// Postal code.
     /// </summary>
-    /// <value>Postal code</value>
+    /// <value>Postal code.</value>
     [DataMember(Name="zipPostalCode", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "zipPostalCode")]
     public string ZipPostalCode { get; set; }

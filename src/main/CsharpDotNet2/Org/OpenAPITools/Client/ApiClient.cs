@@ -24,7 +24,7 @@ namespace Org.OpenAPITools.Client
         /// Initializes a new instance of the <see cref="ApiClient" /> class.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath="https://cert.api.firstdata.com/gateway")
+        public ApiClient(String basePath="https://cert.api.firstdata.com/gateway/v2")
         {
             BasePath = basePath;
             RestClient = new RestClient(BasePath);

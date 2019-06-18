@@ -13,57 +13,57 @@ namespace Org.OpenAPITools.Model {
   [DataContract]
   public class Address {
     /// <summary>
-    /// Company name associated with the address
+    /// Company name associated with the address.
     /// </summary>
-    /// <value>Company name associated with the address</value>
+    /// <value>Company name associated with the address.</value>
     [DataMember(Name="company", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "company")]
     public string Company { get; set; }
 
     /// <summary>
-    /// First line of the street address
+    /// First line of the street address.
     /// </summary>
-    /// <value>First line of the street address</value>
+    /// <value>First line of the street address.</value>
     [DataMember(Name="address1", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "address1")]
     public string Address1 { get; set; }
 
     /// <summary>
-    /// Second line of the street address
+    /// Second line of the street address.
     /// </summary>
-    /// <value>Second line of the street address</value>
+    /// <value>Second line of the street address.</value>
     [DataMember(Name="address2", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "address2")]
     public string Address2 { get; set; }
 
     /// <summary>
-    /// City or Locality
+    /// City or locality.
     /// </summary>
-    /// <value>City or Locality</value>
+    /// <value>City or locality.</value>
     [DataMember(Name="city", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "city")]
     public string City { get; set; }
 
     /// <summary>
-    /// State or Province
+    /// State or province.
     /// </summary>
-    /// <value>State or Province</value>
+    /// <value>State or province.</value>
     [DataMember(Name="region", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "region")]
     public string Region { get; set; }
 
     /// <summary>
-    /// ZIP code or postal code
+    /// ZIP code or postal code.
     /// </summary>
-    /// <value>ZIP code or postal code</value>
+    /// <value>ZIP code or postal code.</value>
     [DataMember(Name="postalCode", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "postalCode")]
     public string PostalCode { get; set; }
 
     /// <summary>
-    /// ISO-3166-1  ALPHA-2, ALPHA-3 or numeric
+    /// ISO-3166-1  ALPHA-2, ALPHA-3, numeric or full country name. In the case of PaySecure endpoints, pass the country code in an ISO format.
     /// </summary>
-    /// <value>ISO-3166-1  ALPHA-2, ALPHA-3 or numeric</value>
+    /// <value>ISO-3166-1  ALPHA-2, ALPHA-3, numeric or full country name. In the case of PaySecure endpoints, pass the country code in an ISO format.</value>
     [DataMember(Name="country", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "country")]
     public string Country { get; set; }

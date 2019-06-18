@@ -12,13 +12,6 @@ namespace Org.OpenAPITools.Model {
 
     public enum TransactionOrigin
     {
-
-        ///   <summary>
-        /// Enum Default for "Default"
-        /// </summary>
-        [EnumMember(Value = "Default")]
-        Default,
-
         /// <summary>
         /// Enum ECOM for "ECOM"
         /// </summary>
@@ -44,5 +37,4 @@ namespace Org.OpenAPITools.Model {
         RETAIL
 
     }
-
 }

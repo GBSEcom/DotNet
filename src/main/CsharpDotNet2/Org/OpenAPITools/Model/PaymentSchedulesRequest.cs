@@ -8,10 +8,18 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// Request to create a gateway schedule.
+  /// Request to create a gateway schedule. Abstract class, do not use this class directly, use one of its children.
   /// </summary>
   [DataContract]
   public class PaymentSchedulesRequest {
+    /// <summary>
+    /// Object name of the payment schedules request.
+    /// </summary>
+    /// <value>Object name of the payment schedules request.</value>
+    [DataMember(Name="requestType", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "requestType")]
+    public string RequestType { get; set; }
+
     /// <summary>
     /// Store ID number.
     /// </summary>
@@ -19,14 +27,6 @@ namespace Org.OpenAPITools.Model {
     [DataMember(Name="storeId", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "storeId")]
     public string StoreId { get; set; }
-
-    /// <summary>
-    /// Order ID used to create recurring payment from existing transaction.
-    /// </summary>
-    /// <value>Order ID used to create recurring payment from existing transaction.</value>
-    [DataMember(Name="referencedOrderId", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "referencedOrderId")]
-    public string ReferencedOrderId { get; set; }
 
     /// <summary>
     /// Date of mandate signature.
@@ -37,9 +37,9 @@ namespace Org.OpenAPITools.Model {
     public DateTime? StartDate { get; set; }
 
     /// <summary>
-    /// Number of times the recurring pament will process.
+    /// Number of times the recurring payment will process.
     /// </summary>
-    /// <value>Number of times the recurring pament will process.</value>
+    /// <value>Number of times the recurring payment will process.</value>
     [DataMember(Name="numberOfPayments", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "numberOfPayments")]
     public int? NumberOfPayments { get; set; }
@@ -91,18 +91,11 @@ namespace Org.OpenAPITools.Model {
     public Frequency Frequency { get; set; }
 
     /// <summary>
-    /// Gets or Sets PaymentMethod
+    /// Gets or Sets TransactionAmount
     /// </summary>
-    [DataMember(Name="paymentMethod", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "paymentMethod")]
-    public PaymentMethod PaymentMethod { get; set; }
-
-    /// <summary>
-    /// Gets or Sets Amount
-    /// </summary>
-    [DataMember(Name="amount", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "amount")]
-    public Amount Amount { get; set; }
+    [DataMember(Name="transactionAmount", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "transactionAmount")]
+    public Amount TransactionAmount { get; set; }
 
     /// <summary>
     /// Gets or Sets ClientLocale
@@ -149,8 +142,8 @@ namespace Org.OpenAPITools.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class PaymentSchedulesRequest {\n");
+      sb.Append("  RequestType: ").Append(RequestType).Append("\n");
       sb.Append("  StoreId: ").Append(StoreId).Append("\n");
-      sb.Append("  ReferencedOrderId: ").Append(ReferencedOrderId).Append("\n");
       sb.Append("  StartDate: ").Append(StartDate).Append("\n");
       sb.Append("  NumberOfPayments: ").Append(NumberOfPayments).Append("\n");
       sb.Append("  MaximumFailures: ").Append(MaximumFailures).Append("\n");
@@ -159,8 +152,7 @@ namespace Org.OpenAPITools.Model {
       sb.Append("  TransactionOrigin: ").Append(TransactionOrigin).Append("\n");
       sb.Append("  DynamicMerchantName: ").Append(DynamicMerchantName).Append("\n");
       sb.Append("  Frequency: ").Append(Frequency).Append("\n");
-      sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
-      sb.Append("  Amount: ").Append(Amount).Append("\n");
+      sb.Append("  TransactionAmount: ").Append(TransactionAmount).Append("\n");
       sb.Append("  ClientLocale: ").Append(ClientLocale).Append("\n");
       sb.Append("  OrderId: ").Append(OrderId).Append("\n");
       sb.Append("  Billing: ").Append(Billing).Append("\n");

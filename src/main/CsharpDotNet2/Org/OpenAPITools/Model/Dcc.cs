@@ -8,18 +8,10 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// DCC rate related information.
+  /// Request to perform a dynamic pricing exchange rate inquiry.
   /// </summary>
   [DataContract]
-  public class Dcc {
-    /// <summary>
-    /// Inquiry rate id.
-    /// </summary>
-    /// <value>Inquiry rate id.</value>
-    [DataMember(Name="inquiryRateId", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "inquiryRateId")]
-    public string InquiryRateId { get; set; }
-
+  public class Dcc : CurrencyConversion {
     /// <summary>
     /// Indicates whether customer agrees with rate to be used.
     /// </summary>
@@ -36,7 +28,6 @@ namespace Org.OpenAPITools.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class Dcc {\n");
-      sb.Append("  InquiryRateId: ").Append(InquiryRateId).Append("\n");
       sb.Append("  DccApplied: ").Append(DccApplied).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
@@ -46,7 +37,7 @@ namespace Org.OpenAPITools.Model {
     /// Get the JSON string presentation of the object
     /// </summary>
     /// <returns>JSON string presentation of the object</returns>
-    public string ToJson() {
+    public  new string ToJson() {
       return JsonConvert.SerializeObject(this, Formatting.Indented);
     }
 

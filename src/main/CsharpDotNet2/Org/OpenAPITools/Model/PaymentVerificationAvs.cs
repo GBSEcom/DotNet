@@ -13,25 +13,25 @@ namespace Org.OpenAPITools.Model {
   [DataContract]
   public class PaymentVerificationAvs {
     /// <summary>
-    /// AVS Response Code. This field is required if the parent object is present.
+    /// AVS response code.
     /// </summary>
-    /// <value>AVS Response Code. This field is required if the parent object is present.</value>
+    /// <value>AVS response code.</value>
     [DataMember(Name="code", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "code")]
     public string Code { get; set; }
 
     /// <summary>
-    /// Interpretation of the Response Code.
+    /// Interpretation of the response code.
     /// </summary>
-    /// <value>Interpretation of the Response Code.</value>
+    /// <value>Interpretation of the response code.</value>
     [DataMember(Name="status", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "status")]
     public string Status { get; set; }
 
     /// <summary>
-    /// Identifier of the Scheme. This field is required if the parent object is present.
+    /// Identifier of the scheme.
     /// </summary>
-    /// <value>Identifier of the Scheme. This field is required if the parent object is present.</value>
+    /// <value>Identifier of the scheme.</value>
     [DataMember(Name="scheme", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "scheme")]
     public string Scheme { get; set; }

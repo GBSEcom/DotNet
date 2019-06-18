@@ -29,17 +29,16 @@ namespace Org.OpenAPITools.Model {
     public string BrandProductId { get; set; }
 
     /// <summary>
-    /// The functions of the card. Possible values are credit, debit, prepaid, voucher and undefined.
+    /// Gets or Sets CardFunction
     /// </summary>
-    /// <value>The functions of the card. Possible values are credit, debit, prepaid, voucher and undefined.</value>
     [DataMember(Name="cardFunction", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "cardFunction")]
-    public string CardFunction { get; set; }
+    public CardFunction CardFunction { get; set; }
 
     /// <summary>
-    /// Indicates whether it is a corporate or non corporate card
+    /// Indicates whether it is a corporate or non-corporate card.
     /// </summary>
-    /// <value>Indicates whether it is a corporate or non corporate card</value>
+    /// <value>Indicates whether it is a corporate or non-corporate card.</value>
     [DataMember(Name="commercialCard", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "commercialCard")]
     public string CommercialCard { get; set; }

@@ -14,13 +14,13 @@ namespace Org.OpenAPITools.Api
         /// <summary>
         /// Score a transaction for fraud. Use this to obtain a fraud score for a transaction.
         /// </summary>
-        /// <param name="contentType">content type</param>
+        /// <param name="contentType">Content type.</param>
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param>
-        /// <param name="apiKey"></param>
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param>
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param>
-        /// <param name="scoreOnlyRequest"></param>
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
-        /// <param name="region">The region where client wants to process the transaction</param>
+        /// <param name="scoreOnlyRequest">Accepted request type: ScoreOnlyRequest.</param>
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param>
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param>
         /// <returns>ScoreOnlyResponse</returns>
         ApiResponse ScoreOnly (string contentType, string clientRequestId, string apiKey, long? timestamp, ScoreOnlyRequest scoreOnlyRequest, string messageSignature, string region);
     }
@@ -81,13 +81,13 @@ namespace Org.OpenAPITools.Api
         /// <summary>
         /// Score a transaction for fraud. Use this to obtain a fraud score for a transaction.
         /// </summary>
-        /// <param name="contentType">content type</param> 
+        /// <param name="contentType">Content type.</param> 
         /// <param name="clientRequestId">A client-generated ID for request tracking and signature creation, unique per request.  This is also used for idempotency control. We recommend 128-bit UUID format.</param> 
-        /// <param name="apiKey"></param> 
+        /// <param name="apiKey">Key given to merchant after boarding associating their requests with the appropriate app in Apigee.</param> 
         /// <param name="timestamp">Epoch timestamp in milliseconds in the request from a client system. Used for Message Signature generation and time limit (5 mins).</param> 
-        /// <param name="scoreOnlyRequest"></param> 
-        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256  algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
-        /// <param name="region">The region where client wants to process the transaction</param> 
+        /// <param name="scoreOnlyRequest">Accepted request type: ScoreOnlyRequest.</param> 
+        /// <param name="messageSignature">Used to ensure the request has not been tampered with during transmission. The Message-Signature is the Base64 encoded HMAC hash (SHA256 algorithm with the API Secret as the key.) For more information, refer to the supporting documentation on the Developer Portal.</param> 
+        /// <param name="region">Indicates the region where the client wants the transaction to be processed. This will override the default processing region identified for the client. Available options are argentina, brazil, germany, india and northamerica. Region specific store setup and APIGEE boarding is required in order to use an alternate region for processing.</param> 
         /// <returns>ScoreOnlyResponse</returns>            
         public ApiResponse ScoreOnly (string contentType, string clientRequestId, string apiKey, long? timestamp, ScoreOnlyRequest scoreOnlyRequest, string messageSignature, string region)
         {
@@ -108,7 +108,7 @@ namespace Org.OpenAPITools.Api
             if (scoreOnlyRequest == null) throw new ApiException(400, "Missing required parameter 'scoreOnlyRequest' when calling ScoreOnly");
             
     
-            var path = "/v1/fraud/score-only";
+            var path = "/fraud/score-only";
             path = path.Replace("{format}", "json");
                 
             var queryParams = new Dictionary<String, String>();

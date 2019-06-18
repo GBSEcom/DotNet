@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace Org.OpenAPITools.Model {
 
   /// <summary>
-  /// 
+  /// Fraud likelihood assessment consisting of a score, associated warning(s), and explanation(s) of score received.
   /// </summary>
   [DataContract]
   public class ScoreOnlyResponseFraudScore {
@@ -29,9 +29,9 @@ namespace Org.OpenAPITools.Model {
     public List<string> Warnings { get; set; }
 
     /// <summary>
-    /// Type of the explanation to the warning raised
+    /// Explanation of the fraud score applied consisting of a description, type of the explanation, and rule (if applicable).
     /// </summary>
-    /// <value>Type of the explanation to the warning raised</value>
+    /// <value>Explanation of the fraud score applied consisting of a description, type of the explanation, and rule (if applicable).</value>
     [DataMember(Name="explanations", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "explanations")]
     public List<ScoreOnlyResponseFraudScoreExplanations> Explanations { get; set; }
