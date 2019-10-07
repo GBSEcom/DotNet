@@ -6,33 +6,33 @@ using Newtonsoft.Json;
 
 namespace Org.Simple
 {
-	public class Gateway
-	{
-		const String CONTENT_TYPE = "application/json";
+    public class Gateway
+    {
+        const String CONTENT_TYPE = "application/json";
 
-		private ClientContext context;
-		public ClientContext Context 
-		{
-			get {return context;}
-		}
-		
-		private AuthenticationApi authApi;
-		public AuthenticationApi AuthApi 
-		{
-			get {return authApi;}
-		}
+        private ClientContext context;
+        public ClientContext Context
+        {
+            get { return context; }
+        }
 
-		private OrderApi orderApi;
-		public OrderApi OrderApi
-		{
-			get {return orderApi;}
-		}
+        private AuthenticationApi authApi;
+        public AuthenticationApi AuthApi
+        {
+            get { return authApi; }
+        }
 
-		private PaymentApi payApi;
-		public PaymentApi PayApi
-		{
-			get {return payApi;}
-		}
+        private OrderApi orderApi;
+        public OrderApi OrderApi
+        {
+            get { return orderApi; }
+        }
+
+        private PaymentApi payApi;
+        public PaymentApi PayApi
+        {
+            get { return payApi; }
+        }
 
         private CardVerificationApi cardApi;
         public CardVerificationApi CardApi
@@ -77,16 +77,16 @@ namespace Org.Simple
         }
 
         public static Gateway Create(MerchantCredentials _credentials)
-		{
-			return new Gateway(new ClientContext(_credentials));
-		}
+        {
+            return new Gateway(new ClientContext(_credentials));
+        }
 
-		public Gateway(ClientContext _context)
-		{
-			context = _context;
+        public Gateway(ClientContext _context)
+        {
+            context = _context;
             authApi = new AuthenticationApi(context.Config);
-			orderApi = new OrderApi(context.Config);
-			payApi = new PaymentApi(context.Config);
+            orderApi = new OrderApi(context.Config);
+            payApi = new PaymentApi(context.Config);
             cardApi = new CardVerificationApi(context.Config);
             currencyApi = new CurrencyConversionApi(context.Config);
             fraudApi = new FraudDetectApi(context.Config);
@@ -97,67 +97,67 @@ namespace Org.Simple
         }
 
         public ApiResponse RequestAccessToken()
-		{
-			Signature signatureService = GetSignatureService();
-			string messageSignature = signatureService.Sign();
-			return authApi.AuthenticationAccessTokensPost(
-				CONTENT_TYPE,
-				signatureService.ClientRequestId,
-				GetApiKey(),
-				signatureService.TimeStamp,
-				messageSignature
-			);
-		}
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign();
+            return authApi.AuthenticationAccessTokensPost(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                messageSignature
+            );
+        }
 
-        public ApiResponse SubmitPrimaryTransaction(PrimaryTransaction payload, string region=null)
-		{
-			Signature signatureService = GetSignatureService();
+        public ApiResponse SubmitPrimaryTransaction(PrimaryTransaction payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
             return payApi.SubmitPrimaryTransaction(
-				CONTENT_TYPE,
-				signatureService.ClientRequestId,
-				GetApiKey(),
-				signatureService.TimeStamp,
-				payload,
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
                 messageSignature,
                 region
-			);
-		}
+            );
+        }
 
-        public ApiResponse SubmitSecondaryTransaction(string transactionId, SecondaryTransaction payload, string storeId=null, string region=null)
-		{
-			Signature signatureService = GetSignatureService();
-			string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+        public ApiResponse SubmitSecondaryTransaction(string transactionId, SecondaryTransaction payload, string storeId = null, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
             return payApi.SubmitSecondaryTransaction(
-				CONTENT_TYPE,
-				signatureService.ClientRequestId,
-				GetApiKey(),
-				signatureService.TimeStamp,
-				transactionId,
-				payload,
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                transactionId,
+                payload,
                 messageSignature,
                 region,
                 storeId
-			);
-		}
+            );
+        }
 
-		public ApiResponse TransactionInquiry (string transactionId, string storeId=null, string region=null)
-		{
-			Signature signatureService = GetSignatureService();
-			string messageSignature = signatureService.Sign();
+        public ApiResponse TransactionInquiry(string transactionId, string storeId = null, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign();
             return payApi.TransactionInquiry(
-				CONTENT_TYPE,
-				signatureService.ClientRequestId,
-				GetApiKey(),
-				signatureService.TimeStamp,
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
                 transactionId,
                 messageSignature,
                 region,
                 storeId
-			);
-		}
+            );
+        }
 
-        public ApiResponse FinalizeSecureTransaction (string transactionId, AuthenticationVerificationRequest payload, string region=null)
+        public ApiResponse FinalizeSecureTransaction(string transactionId, AuthenticationVerificationRequest payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
@@ -189,7 +189,7 @@ namespace Org.Simple
             );
         }
 
-        public ApiResponse OrderInquiry (string orderId, string storeId=null, string region=null)
+        public ApiResponse OrderInquiry(string orderId, string storeId = null, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign();
@@ -205,7 +205,7 @@ namespace Org.Simple
             );
         }
 
-        public ApiResponse VerifyCard(CardVerificationRequest payload, string region=null)
+        public ApiResponse VerifyCard(CardVerificationRequest payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
@@ -217,10 +217,10 @@ namespace Org.Simple
                 payload,
                 messageSignature,
                 region
-            );  
+            );
         }
 
-        public ApiResponse GetExchangeRate(ExchangeRateRequest payload, string region=null)
+        public ApiResponse GetExchangeRate(ExchangeRateRequest payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
@@ -235,7 +235,7 @@ namespace Org.Simple
             );
         }
 
-        public ApiResponse GetFraudScore(ScoreOnlyRequest payload, string region=null)
+        public ApiResponse GetFraudScore(ScoreOnlyRequest payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
@@ -250,7 +250,37 @@ namespace Org.Simple
             );
         }
 
-        public ApiResponse CreatePaymentSchedule(PaymentSchedulesRequest payload, string region=null)
+        public ApiResponse FraudClientRegistrationPost(ClientRegistration payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return fraudApi.FraudClientRegistrationPost(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
+        public ApiResponse FraudPaymentRegistrationPost(PaymentRegistration payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return fraudApi.FraudPaymentRegistrationPost(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
+        public ApiResponse CreatePaymentSchedule(PaymentSchedulesRequest payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
@@ -265,7 +295,7 @@ namespace Org.Simple
             );
         }
 
-        public ApiResponse CancelPaymentSchedule(string orderId, string storeId=null, string region=null)
+        public ApiResponse CancelPaymentSchedule(string orderId, string storeId = null, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign();
@@ -281,7 +311,7 @@ namespace Org.Simple
             );
         }
 
-        public ApiResponse UpdatePaymentSchedule(PaymentSchedulesRequest payload, string orderId, string region=null)
+        public ApiResponse UpdatePaymentSchedule(PaymentSchedulesRequest payload, string orderId, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
@@ -297,7 +327,7 @@ namespace Org.Simple
             );
         }
 
-        public ApiResponse PaymentScheduleInquiry(string orderId, string storeId=null, string region=null)
+        public ApiResponse PaymentScheduleInquiry(string orderId, string storeId = null, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign();
@@ -313,7 +343,7 @@ namespace Org.Simple
             );
         }
 
-        public ApiResponse CreatePaymentToken(PaymentTokenizationRequest payload, string authorization=null, string region=null)
+        public ApiResponse CreatePaymentToken(PaymentTokenizationRequest payload, string authorization = null, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
@@ -329,7 +359,7 @@ namespace Org.Simple
             );
         }
 
-        public ApiResponse DeletePaymentToken(string tokenId, string authorization = null, string storeId=null, string region=null)
+        public ApiResponse DeletePaymentToken(string tokenId, string authorization = null, string storeId = null, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign();
@@ -345,7 +375,7 @@ namespace Org.Simple
                 storeId
             );
         }
-        public ApiResponse CreatePaymentUrl(PaymentUrlRequest payload, string region=null)
+        public ApiResponse CreatePaymentUrl(PaymentUrlRequest payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
@@ -360,7 +390,46 @@ namespace Org.Simple
             );
         }
 
-        public ApiResponse CardInfoLookup(CardInfoLookupRequest payload, string region=null)
+        public ApiResponse DeletePaymentUrl(string region = null, string storeId = null, string transactionId = null, string orderId = null, string paymentUrlId = null, string transactionTime = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign();
+            return payUrlApi.DeletePaymentUrl(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                messageSignature,
+                region,
+                storeId,
+                transactionId,
+                orderId,
+                paymentUrlId,
+                transactionTime
+            );
+        }
+
+        public ApiResponse DetailPaymentUrl(string fromDate, string toDate, string region = null, string storeId = null, string transactionId = null, string orderId = null, string status = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign();
+            return payUrlApi.PaymentUrlDetail(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                fromDate,
+                toDate,
+                messageSignature,
+                region,
+                storeId,
+                orderId,
+                transactionId,
+                status
+            );
+        }
+
+        public ApiResponse CardInfoLookup(CardInfoLookupRequest payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
@@ -375,20 +444,20 @@ namespace Org.Simple
             );
         }
 
-		private Signature GetSignatureService()
-		{
-			return new Signature(GetApiKey(), GetApiSecret());
-		}
+        private Signature GetSignatureService()
+        {
+            return new Signature(GetApiKey(), GetApiSecret());
+        }
 
-		private String GetApiKey()
-		{
-			return context.Credentials.ApiKey;
-		}
+        private String GetApiKey()
+        {
+            return context.Credentials.ApiKey;
+        }
 
-		private String GetApiSecret()
-		{
-			return context.Credentials.ApiSecret;
-		} 
+        private String GetApiSecret()
+        {
+            return context.Credentials.ApiSecret;
+        }
 
-	}
+    }
 }

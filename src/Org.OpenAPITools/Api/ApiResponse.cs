@@ -75,7 +75,14 @@ namespace Org.OpenAPITools.Api
         {
             SetData(_statusCode, _data, _headers);
         }
-
+        public ApiResponse(int _statusCode, FraudRegistrationResponse _data, IList<Parameter> _headers = null)
+        {
+            SetData(_statusCode, _data, _headers);
+        }
+        public ApiResponse(int _statusCode, PaymentUrlDetailResponse _data, IList<Parameter> _headers = null)
+        {
+            SetData(_statusCode, _data, _headers);
+        }
         private void SetData(int _statusCode, object _data, IList<Parameter> _headers = null)
         {
             StatusCode = _statusCode;
@@ -148,6 +155,16 @@ namespace Org.OpenAPITools.Api
             if (Data.GetType() == typeof(CardInfoLookupResponse))
             {
                 CardInfoLookupResponse response = (CardInfoLookupResponse)Data;
+                return response.ToJson();
+            }
+            if (Data.GetType() == typeof(FraudRegistrationResponse))
+            {
+                FraudRegistrationResponse response = (FraudRegistrationResponse)Data;
+                return response.ToJson();
+            }
+            if (Data.GetType() == typeof(PaymentUrlDetailResponse))
+            {
+                PaymentUrlDetailResponse response = (PaymentUrlDetailResponse)Data;
                 return response.ToJson();
             }
             else

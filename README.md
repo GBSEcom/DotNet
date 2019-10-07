@@ -7,10 +7,10 @@
 <a name="dependencies"></a>
 ## Dependencies
 - Mono compiler
-- JsonSubTypes.1.5.2
+- JsonSubTypes.1.6.0
 - Microsoft.CSharp.4.5.0
 - Newtonsoft.Json.12.0.2
-- RestSharp.106.6.9
+- RestSharp.106.6.10
 - System.ComponentModel.Annotations.4.5.0
 - xunit.2.4.1
 

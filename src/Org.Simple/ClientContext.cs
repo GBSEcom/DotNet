@@ -31,7 +31,7 @@ namespace Org.Simple
 		public ClientContext(MerchantCredentials _credentials)
 		{
 			config = new Configuration();
-            client = new ApiClient(config.BasePath);
+			client = new ApiClient();
 			credentials = _credentials;
 		}
 	}
