@@ -66,7 +66,13 @@ namespace Org.OpenAPITools.Model
             /// Enum NOTCERTIFIED for value: NOT_CERTIFIED
             /// </summary>
             [EnumMember(Value = "NOT_CERTIFIED")]
-            NOTCERTIFIED = 5
+            NOTCERTIFIED = 5,
+
+            /// <summary>
+            /// Enum NOTCHECKED for value: NOT_CHECKED
+            /// </summary>
+            [EnumMember(Value = "NOT_CHECKED")]
+            NOTCHECKED = 6
 
         }
 
