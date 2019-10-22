@@ -81,6 +81,16 @@ namespace Org.Simple
             return new Gateway(new ClientContext(_credentials));
         }
 
+        public static Gateway Create(MerchantCredentials _credentials, bool _production)
+        {
+            return new Gateway(new ClientContext(_credentials, _production));
+        }
+
+        public static Gateway Create(MerchantCredentials _credentials, string _basePath)
+        {
+            return new Gateway(new ClientContext(_credentials, _basePath));
+        }
+
         public Gateway(ClientContext _context)
         {
             context = _context;

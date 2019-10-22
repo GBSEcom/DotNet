@@ -109,6 +109,22 @@ namespace Org.OpenAPITools.Client
         /// Initializes a new instance of the <see cref="Configuration" /> class
         /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
+        public Configuration(string basePath)
+        {
+            UserAgent = "OpenAPI-Generator/1.0.0/csharp";
+            BasePath = basePath;
+            DefaultHeaders = new ConcurrentDictionary<string, string>();
+            ApiKey = new ConcurrentDictionary<string, string>();
+            ApiKeyPrefix = new ConcurrentDictionary<string, string>();
+
+            // Setting Timeout has side effects (forces ApiClient creation).
+            Timeout = 100000;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Configuration" /> class
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         public Configuration(
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
