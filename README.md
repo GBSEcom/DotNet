@@ -56,6 +56,12 @@ namespace Example
             MerchantCredentials credentials = new MerchantCredentials(apiKey, apiSecret);
             Gateway gateway = Gateway.create(credentials);
 
+            // For use in production, supply true as the optional production argument:
+            // Gateway gateway = Gateway.create(credentials, true);
+            // Or supply the production URL directly:
+            // string productionURL = "https://prod.api.firstdata.com/gateway/v2";
+            // Gateway gateway = Gateway.create(credentials, productionURL);
+
             string json_payload = @"{
                 ""transactionAmount"": {
                     ""total"": ""10.24"",
