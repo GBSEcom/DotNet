@@ -1,4 +1,4 @@
-# FirstApiClient C# library
+# FirstApiClient 6.9a C# library
 
 <a name="frameworks-supported"></a>
 ## Frameworks supported
