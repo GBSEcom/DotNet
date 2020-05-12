@@ -106,15 +106,16 @@ namespace Org.Simple
             cardInfoApi = new CardInfoLookupApi(context.Config);
         }
 
-        public ApiResponse RequestAccessToken()
+        public ApiResponse RequestAccessToken(AccessTokenRequest payload)
         {
             Signature signatureService = GetSignatureService();
-            string messageSignature = signatureService.Sign();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
             return authApi.AuthenticationAccessTokensPost(
                 CONTENT_TYPE,
                 signatureService.ClientRequestId,
                 GetApiKey(),
                 signatureService.TimeStamp,
+                payload,
                 messageSignature
             );
         }
@@ -167,7 +168,7 @@ namespace Org.Simple
             );
         }
 
-        public ApiResponse FinalizeSecureTransaction(string transactionId, AuthenticationVerificationRequest payload, string region = null)
+        public ApiResponse FinalizeSecureTransaction(string transactionId, AuthenticationUpdateRequest payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
@@ -369,6 +370,23 @@ namespace Org.Simple
             );
         }
 
+        public ApiResponse PaymentTokenInquiry(string tokenId, string authorization = null, string storeId = null, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign();
+            return payTokenApi.GetPaymentTokenDetails(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                tokenId,
+                messageSignature,
+                authorization,
+                region,
+                storeId
+            );
+        }
+
         public ApiResponse DeletePaymentToken(string tokenId, string authorization = null, string storeId = null, string region = null)
         {
             Signature signatureService = GetSignatureService();
@@ -385,6 +403,7 @@ namespace Org.Simple
                 storeId
             );
         }
+
         public ApiResponse CreatePaymentUrl(PaymentUrlRequest payload, string region = null)
         {
             Signature signatureService = GetSignatureService();

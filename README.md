@@ -1,4 +1,6 @@
-# FirstApiClient 6.9a C# library
+# FirstApiClient C# library
+## IPG API Version
+- 6.10
 
 <a name="frameworks-supported"></a>
 ## Frameworks supported
