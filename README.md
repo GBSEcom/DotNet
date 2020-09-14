@@ -1,6 +1,6 @@
 # FirstApiClient C# library
 ## IPG API Version
-- 6.12
+- 6.13
 
 <a name="frameworks-supported"></a>
 ## Frameworks supported
@@ -56,7 +56,7 @@ namespace Example
             string apiSecret = "Your API Secret Here";
 
             MerchantCredentials credentials = new MerchantCredentials(apiKey, apiSecret);
-            Gateway gateway = Gateway.create(credentials);
+            Gateway gateway = Gateway.Create(credentials);
 
             // For use in production, supply true as the optional production argument:
             // Gateway gateway = Gateway.create(credentials, true);
@@ -79,7 +79,7 @@ namespace Example
                         }
                     }
                 }
-            }"
+            }";
 
             PaymentCardSaleTransaction payload = JsonConvert.DeserializeObject<PaymentCardSaleTransaction>(json_payload);
 
