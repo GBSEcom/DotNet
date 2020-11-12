@@ -38,6 +38,7 @@ namespace Org.Simple
             // Convert to Base64
             byte[] hexBytes = encoder.GetBytes(hexHmac);
             String signature = Convert.ToBase64String(hexBytes);
+
             return signature;
         }
 

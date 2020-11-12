@@ -3,33 +3,33 @@ using Org.OpenAPITools.Client;
 
 namespace Org.Simple
 {
-	public class ClientContext
-	{
+    public class ClientContext
+    {
         private const string PRODUCTION_URL = "https://prod.api.firstdata.com/gateway/v2";
         private const string SANDBOX_URL = "https://cert.api.firstdata.com/gateway/v2";
 
         private Configuration config;
-		public Configuration Config 
-		{
-			get {return config;}
-		}
-		
-		private ApiClient client;
-		public ApiClient Client 
-		{
-			get {return client;}
-		}
+        public Configuration Config
+        {
+            get { return config; }
+        }
 
-		private MerchantCredentials credentials;
-		public MerchantCredentials Credentials
-		{
-			get {return credentials;}
-		}
+        private ApiClient client;
+        public ApiClient Client
+        {
+            get { return client; }
+        }
 
-		public static ClientContext Create(MerchantCredentials _credentials)
-		{
-			return new ClientContext(_credentials);
-		}
+        private MerchantCredentials credentials;
+        public MerchantCredentials Credentials
+        {
+            get { return credentials; }
+        }
+
+        public static ClientContext Create(MerchantCredentials _credentials)
+        {
+            return new ClientContext(_credentials);
+        }
 
         public ClientContext(MerchantCredentials _credentials)
         {
