@@ -1,6 +1,6 @@
 # FirstApiClient C# library
 ## IPG API Version
-- 6.14
+- 21.1
 
 <a name="frameworks-supported"></a>
 ## Frameworks supported
@@ -9,10 +9,10 @@
 <a name="dependencies"></a>
 ## Dependencies
 - Mono compiler
-- JsonSubTypes.1.6.0
-- Microsoft.CSharp.4.5.0
-- Newtonsoft.Json.12.0.2
-- RestSharp.106.6.10
+- JsonSubTypes.1.8.0
+- Microsoft.CSharp.4.7.0
+- Newtonsoft.Json.12.0.3
+- RestSharp.106.11.7
 - System.ComponentModel.Annotations.4.5.0
 - xunit.2.4.1
 

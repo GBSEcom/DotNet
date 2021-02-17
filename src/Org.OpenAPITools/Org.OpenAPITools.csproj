@@ -4,7 +4,7 @@ Payment Gateway API Specification.
 
 The documentation here is designed to provide all of the technical guidance required to consume and integrate with our APIs for payment processing. To learn more about our APIs please visit https://docs.firstdata.com/org/gateway.
 
-The version of the OpenAPI document: 6.14.0.20201015.001
+The version of the OpenAPI document: 21.1.0.20210122.001
 
 -->
 <Project Sdk="Microsoft.NET.Sdk">
@@ -13,7 +13,7 @@ The version of the OpenAPI document: 6.14.0.20201015.001
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EC22610A-9261-4358-849E-A1E034280464}</ProjectGuid>
+    <ProjectGuid>{7723B517-75F6-443A-B3CC-81F4DE8545BD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Org.OpenAPITools</RootNamespace>
