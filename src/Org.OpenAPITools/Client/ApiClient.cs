@@ -10,22 +10,16 @@
 
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters;
-using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using RestSharp;
 using RestSharp.Deserializers;
-using ErrorEventArgs = Newtonsoft.Json.Serialization.ErrorEventArgs;
 using RestSharpMethod = RestSharp.Method;
 
 namespace Org.OpenAPITools.Client
@@ -389,25 +383,25 @@ namespace Org.OpenAPITools.Client
             var existingDeserializer = req.JsonSerializer as IDeserializer;
             if (existingDeserializer != null)
             {
-                client.AddHandler("application/json", () => existingDeserializer);
-                client.AddHandler("text/json", () => existingDeserializer);
-                client.AddHandler("text/x-json", () => existingDeserializer);
-                client.AddHandler("text/javascript", () => existingDeserializer);
-                client.AddHandler("*+json", () => existingDeserializer);
+                client.AddHandler("application/json", existingDeserializer);
+                client.AddHandler("text/json", existingDeserializer);
+                client.AddHandler("text/x-json", existingDeserializer);
+                client.AddHandler("text/javascript", existingDeserializer);
+                client.AddHandler("*+json", existingDeserializer);
             }
             else
             {
-                client.AddHandler("application/json", () => new CustomJsonCodec(configuration));
-                client.AddHandler("text/json", () => new CustomJsonCodec(configuration));
-                client.AddHandler("text/x-json", () => new CustomJsonCodec(configuration));
-                client.AddHandler("text/javascript", () => new CustomJsonCodec(configuration));
-                client.AddHandler("*+json", () => new CustomJsonCodec(configuration));
+                client.AddHandler("application/json", new CustomJsonCodec(configuration));
+                client.AddHandler("text/json", new CustomJsonCodec(configuration));
+                client.AddHandler("text/x-json", new CustomJsonCodec(configuration));
+                client.AddHandler("text/javascript", new CustomJsonCodec(configuration));
+                client.AddHandler("*+json", new CustomJsonCodec(configuration));
             }
 
-            client.AddHandler("application/xml", () => new XmlDeserializer());
-            client.AddHandler("text/xml", () => new XmlDeserializer());
-            client.AddHandler("*+xml", () => new XmlDeserializer());
-            client.AddHandler("*", () => new XmlDeserializer());
+            client.AddHandler("application/xml", new XmlDeserializer());
+            client.AddHandler("text/xml", new XmlDeserializer());
+            client.AddHandler("*+xml", new XmlDeserializer());
+            client.AddHandler("*", new XmlDeserializer());
 
             client.Timeout = configuration.Timeout;
 
@@ -566,7 +560,7 @@ namespace Org.OpenAPITools.Client
         /// <returns>A Task containing ApiResponse</returns>
         public ApiResponse<T> Get<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
         {
-            return GetAsync<T>(path, options, configuration).Result;
+            return AsyncHelper.RunSync(() => GetAsync<T>(path, options, configuration));
         }
 
         /// <summary>
@@ -579,7 +573,7 @@ namespace Org.OpenAPITools.Client
         /// <returns>A Task containing ApiResponse</returns>
         public ApiResponse<T> Post<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
         {
-            return PostAsync<T>(path, options, configuration).Result;
+            return AsyncHelper.RunSync(() => PostAsync<T>(path, options, configuration));
         }
 
         /// <summary>
@@ -592,7 +586,7 @@ namespace Org.OpenAPITools.Client
         /// <returns>A Task containing ApiResponse</returns>
         public ApiResponse<T> Put<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
         {
-            return PutAsync<T>(path, options, configuration).Result;
+            return AsyncHelper.RunSync(() => PutAsync<T>(path, options, configuration));
         }
 
         /// <summary>
@@ -605,7 +599,7 @@ namespace Org.OpenAPITools.Client
         /// <returns>A Task containing ApiResponse</returns>
         public ApiResponse<T> Delete<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
         {
-            return DeleteAsync<T>(path, options, configuration).Result;
+            return AsyncHelper.RunSync(() => DeleteAsync<T>(path, options, configuration));
         }
 
         /// <summary>
@@ -618,7 +612,7 @@ namespace Org.OpenAPITools.Client
         /// <returns>A Task containing ApiResponse</returns>
         public ApiResponse<T> Head<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
         {
-            return HeadAsync<T>(path, options, configuration).Result;
+            return AsyncHelper.RunSync(() => HeadAsync<T>(path, options, configuration));
         }
 
         /// <summary>
@@ -631,7 +625,7 @@ namespace Org.OpenAPITools.Client
         /// <returns>A Task containing ApiResponse</returns>
         public ApiResponse<T> Options<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
         {
-            return OptionsAsync<T>(path, options, configuration).Result;
+            return AsyncHelper.RunSync(() => OptionsAsync<T>(path, options, configuration));
         }
 
         /// <summary>
@@ -644,7 +638,7 @@ namespace Org.OpenAPITools.Client
         /// <returns>A Task containing ApiResponse</returns>
         public ApiResponse<T> Patch<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
         {
-            return PatchAsync<T>(path, options, configuration).Result;
+            return AsyncHelper.RunSync(() => PatchAsync<T>(path, options, configuration));
         }
         #endregion ISynchronousClient
     }

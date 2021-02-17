@@ -10,7 +10,6 @@
 
 
 using System;
-using System.IO;
 
 namespace Org.OpenAPITools.Client
 {
