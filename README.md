@@ -4,7 +4,7 @@
 
 <a name="frameworks-supported"></a>
 ## Frameworks supported
-- .NET Core 2.0
+- .NET Standard 2.1
 
 <a name="dependencies"></a>
 ## Dependencies
@@ -39,10 +39,7 @@ using Org.Simple;
 
 ```csharp
 using System;
-using System.Diagnostics;
 using Newtonsoft.Json;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
 using Org.Simple;
 
@@ -65,17 +62,18 @@ namespace Example
             // Gateway gateway = Gateway.create(credentials, productionURL);
 
             string json_payload = @"{
+                ""requestType"": ""PaymentCardSaleTransaction"",
                 ""transactionAmount"": {
-                    ""total"": ""10.24"",
+                    ""total"": 12.04,
                     ""currency"": ""USD""
                 },
                 ""paymentMethod"": {
                     ""paymentCard"": {
-                        ""number"": ""4012000033330026"",
-                        ""securityCode"": ""977"",
-                        ""expiryDate"": {
-                            ""month"": ""12"",
-                            ""year"": ""24""
+                    ""number"": ""5424180279791732"",
+                    ""securityCode"": 977,
+                    ""expiryDate"": {
+                        ""month"": 12,
+                        ""year"": 24
                         }
                     }
                 }
@@ -83,11 +81,19 @@ namespace Example
 
             PaymentCardSaleTransaction payload = JsonConvert.DeserializeObject<PaymentCardSaleTransaction>(json_payload);
 
-            ApiResponse response = gateway.SubmitPrimaryTransaction(
-                payload
-            );
+            try
+            {
+                TransactionResponse response = gateway.SubmitPrimaryTransaction(
+                    payload
+                );
+                Console.WriteLine(response.ToJson());
 
-            Console.WriteLine(response.JsonData);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
         }
     }
 }
