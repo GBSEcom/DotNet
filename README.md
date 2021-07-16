@@ -1,6 +1,6 @@
 # FirstApiClient C# library
 ## IPG API Version
-- 21.2
+- 21.3
 
 <a name="frameworks-supported"></a>
 ## Frameworks supported
@@ -12,7 +12,7 @@
 - JsonSubTypes.1.8.0
 - Microsoft.CSharp.4.7.0
 - Newtonsoft.Json.12.0.3
-- RestSharp.106.11.7
+- RestSharp.106.11.8-alpha.0.13
 - System.ComponentModel.Annotations.4.5.0
 - xunit.2.4.1
 
