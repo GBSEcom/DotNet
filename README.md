@@ -1,10 +1,10 @@
 # FirstApiClient C# library
 ## IPG API Version
-- 21.3
+- 21.4.0
 
 <a name="frameworks-supported"></a>
 ## Frameworks supported
-- .NET Standard 2.1
+- .NET Standard 2.0
 
 <a name="dependencies"></a>
 ## Dependencies

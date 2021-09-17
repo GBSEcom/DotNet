@@ -4,6 +4,7 @@ using Org.OpenAPITools.Api;
 using Org.OpenAPITools.Model;
 using Org.OpenAPITools.Client;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace Org.Simple
 {
@@ -121,6 +122,20 @@ namespace Org.Simple
             );
         }
 
+        public async Task<AccessTokenResponse> RequestAccessTokenAsync(AccessTokenRequest payload)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await authApi.AuthenticationAccessTokensPostAsync(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature
+            );
+        }
+
         public TransactionResponse SubmitPrimaryTransaction(PrimaryTransaction payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
@@ -136,11 +151,43 @@ namespace Org.Simple
             );
         }
 
+        public async Task<TransactionResponse> SubmitPrimaryTransactionAsync(PrimaryTransaction payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await payApi.SubmitPrimaryTransactionAsync(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
         public TransactionResponse SubmitSecondaryTransaction(string transactionId, SecondaryTransaction payload, string storeId = null, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
             return payApi.SubmitSecondaryTransaction(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                transactionId,
+                payload,
+                messageSignature,
+                region,
+                storeId
+            );
+        }
+
+        public async Task<TransactionResponse> SubmitSecondaryTransactionAsync(string transactionId, SecondaryTransaction payload, string storeId = null, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await payApi.SubmitSecondaryTransactionAsync(
                 CONTENT_TYPE,
                 signatureService.ClientRequestId,
                 GetApiKey(),
@@ -169,11 +216,43 @@ namespace Org.Simple
             );
         }
 
+        public async Task<TransactionResponse> TransactionInquiryAsync(string transactionId, string storeId = null, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign();
+            return await payApi.TransactionInquiryAsync(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                transactionId,
+                messageSignature,
+                region,
+                storeId
+            );
+        }
+
         public TransactionResponse FinalizeSecureTransaction(string transactionId, AuthenticationUpdateRequest payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
             return payApi.FinalizeSecureTransaction(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                transactionId,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
+        public async Task<TransactionResponse> FinalizeSecureTransactionAsync(string transactionId, AuthenticationUpdateRequest payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await payApi.FinalizeSecureTransactionAsync(
                 CONTENT_TYPE,
                 signatureService.ClientRequestId,
                 GetApiKey(),
@@ -201,11 +280,43 @@ namespace Org.Simple
             );
         }
 
+        public async Task<TransactionResponse> SubmitSecondaryTransactionFromOrderAsync(string orderId, SecondaryTransaction payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await orderApi.SubmitSecondaryTransactionFromOrderAsync(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                orderId,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
         public OrderResponse OrderInquiry(string orderId, string storeId = null, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign();
             return orderApi.OrderInquiry(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                orderId,
+                messageSignature,
+                region,
+                storeId
+            );
+        }
+
+        public async Task<OrderResponse> OrderInquiryAsync(string orderId, string storeId = null, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign();
+            return await orderApi.OrderInquiryAsync(
                 CONTENT_TYPE,
                 signatureService.ClientRequestId,
                 GetApiKey(),
@@ -232,11 +343,41 @@ namespace Org.Simple
             );
         }
 
+        public async Task<TransactionResponse> VerifyCardAsync(CardVerificationRequest payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await verifyApi.VerifyCardAsync(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
         public TransactionResponse VerifyAccount(AccountVerificationRequest payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
             return verifyApi.VerifyAccount(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
+        public async Task<TransactionResponse> VerifyAccountAsync(AccountVerificationRequest payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await verifyApi.VerifyAccountAsync(
                 CONTENT_TYPE,
                 signatureService.ClientRequestId,
                 GetApiKey(),
@@ -262,11 +403,41 @@ namespace Org.Simple
             );
         }
 
+        public async Task<ExchangeRateResponse> GetExchangeRateAsync(ExchangeRateRequest payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await currencyApi.GetExchangeRateAsync(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
         public ScoreOnlyResponse GetFraudScore(ScoreOnlyRequest payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
             return fraudApi.ScoreOnly(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
+        public async Task<ScoreOnlyResponse> GetFraudScoreAsync(ScoreOnlyRequest payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await fraudApi.ScoreOnlyAsync(
                 CONTENT_TYPE,
                 signatureService.ClientRequestId,
                 GetApiKey(),
@@ -292,11 +463,41 @@ namespace Org.Simple
             );
         }
 
+        public async Task<FraudRegistrationResponse> FraudClientRegistrationPostAsync(ClientRegistration payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await fraudApi.FraudClientRegistrationPostAsync(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
         public FraudRegistrationResponse FraudPaymentRegistrationPost(PaymentRegistration payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
             return fraudApi.FraudPaymentRegistrationPost(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
+        public async Task<FraudRegistrationResponse> FraudPaymentRegistrationPostAsync(PaymentRegistration payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await fraudApi.FraudPaymentRegistrationPostAsync(
                 CONTENT_TYPE,
                 signatureService.ClientRequestId,
                 GetApiKey(),
@@ -322,11 +523,42 @@ namespace Org.Simple
             );
         }
 
+        public async Task<PaymentSchedulesResponse> CreatePaymentScheduleAsync(PaymentSchedulesRequest payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await paySchedulesApi.CreatePaymentScheduleAsync(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
         public PaymentSchedulesResponse CancelPaymentSchedule(string orderId, string storeId = null, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign();
             return paySchedulesApi.CancelPaymentSchedule(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                orderId,
+                messageSignature,
+                region,
+                storeId
+            );
+        }
+
+        public async Task<PaymentSchedulesResponse> CancelPaymentScheduleAsync(string orderId, string storeId = null, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign();
+            return await paySchedulesApi.CancelPaymentScheduleAsync(
                 CONTENT_TYPE,
                 signatureService.ClientRequestId,
                 GetApiKey(),
@@ -354,11 +586,43 @@ namespace Org.Simple
             );
         }
 
+        public async Task<PaymentSchedulesResponse> UpdatePaymentScheduleAsync(PaymentSchedulesRequest payload, string orderId, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await paySchedulesApi.UpdatePaymentScheduleAsync(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                orderId,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
         public RecurringPaymentDetailsResponse PaymentScheduleInquiry(string orderId, string storeId = null, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign();
             return paySchedulesApi.InquiryPaymentSchedule(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                orderId,
+                messageSignature,
+                region,
+                storeId
+            );
+        }
+
+        public async Task<RecurringPaymentDetailsResponse> PaymentScheduleInquiryAsync(string orderId, string storeId = null, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign();
+            return await paySchedulesApi.InquiryPaymentScheduleAsync(
                 CONTENT_TYPE,
                 signatureService.ClientRequestId,
                 GetApiKey(),
@@ -386,6 +650,22 @@ namespace Org.Simple
             );
         }
 
+        public async Task<PaymentTokenizationResponse> CreatePaymentTokenAsync(PaymentTokenizationRequest payload, string authorization = null, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await payTokenApi.CreatePaymentTokenAsync(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature,
+                authorization,
+                region
+            );
+        }
+
         public PaymentTokenUpdateResponse UpdatePaymentToken(PaymentCardPaymentTokenUpdateRequest payload, string authorization = null, string region = null)
         {
             Signature signatureService = GetSignatureService();
@@ -402,11 +682,44 @@ namespace Org.Simple
             );
         }
 
+        public async Task<PaymentTokenUpdateResponse> UpdatePaymentTokenAsync(PaymentCardPaymentTokenUpdateRequest payload, string authorization = null, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await payTokenApi.UpdatePaymentTokenAsync(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature,
+                authorization,
+                region
+            );
+        }
+
         public PaymentTokenizationResponse PaymentTokenInquiry(string tokenId, string authorization = null, string storeId = null, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign();
             return payTokenApi.GetPaymentTokenDetails(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                tokenId,
+                messageSignature,
+                authorization,
+                region,
+                storeId
+            );
+        }
+
+        public async Task<PaymentTokenizationResponse> PaymentTokenInquiryAsync(string tokenId, string authorization = null, string storeId = null, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign();
+            return await payTokenApi.GetPaymentTokenDetailsAsync(
                 CONTENT_TYPE,
                 signatureService.ClientRequestId,
                 GetApiKey(),
@@ -436,6 +749,23 @@ namespace Org.Simple
             );
         }
 
+        public async Task<PaymentTokenizationResponse> DeletePaymentTokenAsync(string tokenId, string authorization = null, string storeId = null, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign();
+            return await payTokenApi.DeletePaymentTokenAsync(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                tokenId,
+                messageSignature,
+                authorization,
+                region,
+                storeId
+            );
+        }
+
         public PaymentUrlResponse CreatePaymentUrl(PaymentUrlRequest payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
@@ -451,11 +781,45 @@ namespace Org.Simple
             );
         }
 
+        public async Task<PaymentUrlResponse> CreatePaymentUrlAsync(PaymentUrlRequest payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await payUrlApi.CreatePaymentUrlAsync(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
         public PaymentUrlResponse DeletePaymentUrl(string region = null, string storeId = null, string transactionId = null, string orderId = null, string paymentUrlId = null, string transactionTime = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign();
             return payUrlApi.DeletePaymentUrl(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                messageSignature,
+                region,
+                storeId,
+                transactionId,
+                orderId,
+                paymentUrlId,
+                transactionTime
+            );
+        }
+
+        public async Task<PaymentUrlResponse> DeletePaymentUrlAsync(string region = null, string storeId = null, string transactionId = null, string orderId = null, string paymentUrlId = null, string transactionTime = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign();
+            return await payUrlApi.DeletePaymentUrlAsync(
                 CONTENT_TYPE,
                 signatureService.ClientRequestId,
                 GetApiKey(),
@@ -490,6 +854,26 @@ namespace Org.Simple
             );
         }
 
+        public async Task<PaymentUrlDetailResponse> DetailPaymentUrlAsync(string fromDate, string toDate, string region = null, string storeId = null, string transactionId = null, string orderId = null, string status = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign();
+            return await payUrlApi.PaymentUrlDetailAsync(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                fromDate,
+                toDate,
+                messageSignature,
+                region,
+                storeId,
+                orderId,
+                transactionId,
+                status
+            );
+        }
+
         public CardInfoLookupResponse CardInfoLookup(CardInfoLookupRequest payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
@@ -505,11 +889,41 @@ namespace Org.Simple
             );
         }
 
+        public async Task<CardInfoLookupResponse> CardInfoLookupAsync(CardInfoLookupRequest payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await infoApi.CardInfoLookupAsync(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
         public CardInfoLookupResponse AccountInfoLookup(AccountInfoLookupRequest payload, string region = null)
         {
             Signature signatureService = GetSignatureService();
             string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
             return infoApi.LookupAccount(
+                CONTENT_TYPE,
+                signatureService.ClientRequestId,
+                GetApiKey(),
+                signatureService.TimeStamp,
+                payload,
+                messageSignature,
+                region
+            );
+        }
+
+        public async Task<CardInfoLookupResponse> AccountInfoLookupAsync(AccountInfoLookupRequest payload, string region = null)
+        {
+            Signature signatureService = GetSignatureService();
+            string messageSignature = signatureService.Sign(JsonConvert.SerializeObject(payload));
+            return await infoApi.LookupAccountAsync(
                 CONTENT_TYPE,
                 signatureService.ClientRequestId,
                 GetApiKey(),
